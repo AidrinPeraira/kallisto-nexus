@@ -27,6 +27,7 @@ It follows an **event-driven architecture**, where independent modules communica
 ## Reference Docs
 
 - Architecture: [Architecture.md](./docs/Architecture.md)
+- Features List: [Features.md](./docs/Features.md)
 - Developer Notes: [Notes.md](./docs/Notes.md)
 
 ---
