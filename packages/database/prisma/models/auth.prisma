@@ -1,0 +1,86 @@
+//DB schema for better auth. auto generated.
+
+model User {
+    id            String    @id
+    name          String
+    email         String
+    emailVerified Boolean   @default(false)
+    image         String?
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime  @updatedAt
+    sessions      Session[]
+    accounts      Account[]
+
+    @@unique([email])
+    @@map("user")
+}
+
+model Session {
+    id        String   @id
+    expiresAt DateTime
+    token     String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    ipAddress String?
+    userAgent String?
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([token])
+    @@index([userId])
+    @@map("session")
+}
+
+model Account {
+    id                    String    @id
+    accountId             String
+    providerId            String
+    userId                String
+    user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    accessToken           String?
+    refreshToken          String?
+    idToken               String?
+    accessTokenExpiresAt  DateTime?
+    refreshTokenExpiresAt DateTime?
+    scope                 String?
+    password              String?
+    createdAt             DateTime  @default(now())
+    updatedAt             DateTime  @updatedAt
+
+    @@index([userId])
+    @@map("account")
+}
+
+model Verification {
+    id         String   @id
+    identifier String
+    value      String
+    expiresAt  DateTime
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    @@index([identifier])
+    @@map("verification")
+}
+
+
+// App-specific user model, separate from the Better Auth User model.
+// AppUser stores application-layer user data; AuthUser (User in auth.prisma) stores auth credentials.
+// UserRole and UserStatus enums are defined in prisma/schema/shared.prisma.
+
+model AppUser {
+    id          String     @id @default(uuid())
+    authId      String     @unique // References Auth User (Better Auth `User.id`)
+    userCode    String     @unique @default(dbgenerated("concat('USR-', nextval('app_user_code_seq'))"))
+    email       String     @unique
+    fullName    String
+    phoneNumber String?
+    role        UserRole
+    profilePic  String?
+    status      UserStatus @default(active)
+    createdAt   DateTime   @default(now())
+    updatedAt   DateTime   @updatedAt
+
+
+    @@map("app_user")
+}

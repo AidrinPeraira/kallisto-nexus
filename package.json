@@ -3,11 +3,37 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "infra:up": "docker-compose -f docker-compose.infra.yml up -d",
+    "infra:down": "docker-compose -f docker-compose.infra.yml down",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:create-only": "prisma migrate dev --create-only",
+    "db:deploy": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:reset": "prisma migrate reset"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.22.0",
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@types/pg": "^8.20.0",
+    "prisma": "^7.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "dotenv": "^17.4.0",
+    "install": "^0.13.0",
+    "pg": "^8.20.0",
+    "pnpm": "^10.33.0"
+  }
 }

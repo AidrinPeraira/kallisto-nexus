@@ -1,0 +1,13 @@
+// Main schema file — contains the generator and datasource blocks.
+// All other .prisma files in this directory (models/, schema/) are
+// automatically picked up due to multi-file schema support.
+// NOTE: In Prisma v7, the `url` is configured via prisma.config.ts, not here.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

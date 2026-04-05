@@ -1,0 +1,15 @@
+enum UserRole {
+    owner
+    sp_organization
+    sp_professional
+    contractor
+    labourer
+    admin
+}
+
+enum UserStatus {
+    active
+    suspended
+    deleted
+}
+
