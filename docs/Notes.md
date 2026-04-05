@@ -28,4 +28,7 @@
 
 ## Notes / Observations
 
+- Auth Module: Aidrin | 06/04/2024
+  - Move resend notification service to packages (it is a common service right? or should it be seperate?)
+
 ---

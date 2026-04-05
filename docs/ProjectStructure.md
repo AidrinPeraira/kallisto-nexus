@@ -33,8 +33,8 @@ kallisto-nexus/
         │   ├── application/    # Use Cases (Business Logic / MVP logic)
         │   ├── infrastructure/ # External Adapters (Prisma Repos, Controllers)
         │   │   ├── persistence/# Prisma implementations
-        │   │   ├── http/       # Controllers & Express Routes
-        │   │   └── subscribers/# Event Listeners for Redundancy
+        │   │   └── messaging/  # Event Listeners for Redundancy
+        │   ├── presentation/ # DTOs, Mappers, Controller Interfaces, Controllers & Express Routes
         │   ├── [name].module.ts# COMPOSITION ROOT (Manual DI)
         │   └── index.ts        # Public API / Exports
 ```

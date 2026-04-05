@@ -1,10 +1,11 @@
 enum UserRole {
-    owner
+    project_owner
     sp_organization
     sp_professional
-    contractor
-    labourer
-    admin
+    sp_contractor
+    sa_contractor
+    sa_worker
+    system_admin
 }
 
 enum UserStatus {
