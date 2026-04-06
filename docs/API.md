@@ -4,7 +4,10 @@ This is a summary of available endpoints. For full request/response payloads, en
 
 ### 🔐 Authentication
 
-| Method | Endpoint                | Description                  | Auth Required |
-| :----- | :---------------------- | :--------------------------- | :------------ |
-| `POST` | `/api/v1/auth/login`    | Exchange credentials for JWT | No            |
-| `POST` | `/api/v1/auth/register` | Create a new account         | No            |
+| Method | Endpoint                                | Description                  | Auth Required |
+| :----- | :-------------------------------------- | :--------------------------- | :------------ |
+| `POST` | `/api/auth/v1/register`                 | Create a new account         | No            |
+| `POST` | `/api/auth/v1/resend-verification-mail` | Resend verification mail     | No            |
+| `POST` | `/api/auth/v1/verify-email`             | Verify email address         | No            |
+| `POST` | `/api/auth/v1/login`                    | Exchange credentials for JWT | No            |
+| `POST` | `/api/auth/v1/refresh`                  | Refresh the access token     | No            |

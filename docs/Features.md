@@ -21,16 +21,16 @@
 
 ### User
 
-- [ ] Better Auth Setup
-- [ ] Email and password signup
-- [ ] Email Verification
-- [ ] Email and password login
-- [ ] Session Management
-- [ ] Token Management & Refresh (for other modules to get validated user)
+- [x] Better Auth Setup
+- [x] Email and password signup
+- [x] Email Verification
+- [x] Email and password login
+- [x] Session Management
+- [x] Token Management & Refresh (for other modules to get validated user)
 - [ ] Logout
 - [ ] Me (get current user)
 - [ ] Forgot password
-- [ ] Resend email verification
+- [x] Resend email verification
 - [ ] Reset password
 - [ ] Change password
 - [ ] Update profile
