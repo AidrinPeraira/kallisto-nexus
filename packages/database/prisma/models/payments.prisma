@@ -1,0 +1,29 @@
+model Payment_BankAccount {
+    id     String @id @default(uuid())
+    userId String // references AppUser
+
+    // account details
+    accountHolderName String
+    bankName          String
+    bankBranch        String
+    accountNumber     String // store encrypted
+    IFSCCode          String
+    UPIId             String?
+
+    // gst
+    GSTNumber   String?
+    isGSTLinked Boolean @default(false)
+
+    // how to add bank detalis verification? AGGREGATOR?  
+    // documents
+    cancelledChequeUrl String?
+
+    // flags
+    isPrimary Boolean @default(false)
+    isActive  Boolean @default(true)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("payment_bank_account")
+}
