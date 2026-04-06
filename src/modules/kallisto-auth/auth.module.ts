@@ -1,5 +1,5 @@
 //this is where everything is wired up
-
+//all instances are created and injected in this file
 import { WinstonLogger } from "@packages/logger";
 import { LoginUserUseCase } from "@src/modules/kallisto-auth/application/usecases/LoginUserUseCase";
 import { RefreshTokenUseCase } from "@src/modules/kallisto-auth/application/usecases/RefreshTokenUseCase";
@@ -42,7 +42,7 @@ export function createAuthModule() {
     tokenService,
   );
 
-  //constroller
+  //controller
   const authController = new AuthController(
     logger,
     registerUserUseCase,

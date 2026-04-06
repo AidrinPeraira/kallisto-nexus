@@ -1,5 +1,5 @@
-import { errorResponse } from "@/shared/responses";
-import { HttpStatus } from "@/shared/enums";
+import { errorResponse } from "@packages/common/responses";
+import { HttpStatus } from "@packages/common/enums";
 import { Request, Response, NextFunction } from "express";
 
 /**
@@ -12,6 +12,7 @@ export const notFoundHandler = (
 ) => {
   res
     .status(HttpStatus.NOT_FOUND)
-    .json(errorResponse(`Route ${req.originalUrl} not found`, "ROUTE_NOT_FOUND"));
+    .json(
+      errorResponse(`Route ${req.originalUrl} not found`, "ROUTE_NOT_FOUND"),
+    );
 };
-

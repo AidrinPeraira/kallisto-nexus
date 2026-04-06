@@ -1,7 +1,7 @@
-import { env } from "@/config/env";
-import { HttpStatus } from "@/shared/enums";
-import { AppError, ErrorCode } from "@/shared/errors";
-import { AuthMessages } from "@/shared/messages";
+import { env } from "@packages/config/env";
+import { HttpStatus } from "@packages/common/enums";
+import { AppError, ErrorCode } from "@packages/common/errors";
+import { AuthMessages } from "@packages/common/messages";
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 

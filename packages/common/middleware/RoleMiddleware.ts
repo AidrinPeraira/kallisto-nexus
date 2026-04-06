@@ -1,7 +1,7 @@
-import { HttpStatus, UserRole } from "@/shared/enums";
-import { AppError, ErrorCode } from "@/shared/errors";
-import { AuthMessages } from "@/shared/messages";
-import { TokenPayload } from "@/shared/types";
+import { HttpStatus, UserRole } from "@packages/common/enums";
+import { AppError, ErrorCode } from "@packages/common/errors";
+import { AuthMessages } from "@packages/common/messages";
+import { TokenPayload } from "@packages/common/types";
 import { Request, Response, NextFunction } from "express";
 
 /**

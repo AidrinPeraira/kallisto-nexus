@@ -27,9 +27,12 @@
     "isolatedModules": true,
 
     /* Output Control */
-    "noEmit": true,
+    "noEmit": false,
+    "ignoreDeprecations": "6.0",
+    "outDir": "dist",
+    "rootDir": ".",
     "allowJs": true
   },
-  "include": ["src/**/*", "packages/**/*"],
+  "include": ["src/**/*", "packages/**/*", "apps/**/*"],
   "exclude": ["node_modules"]
 }

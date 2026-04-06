@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch apps/api/src/server.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/apps/api/src/server.js",
     "infra:up": "docker-compose -f docker-compose.infra.yml up -d",
     "infra:down": "docker-compose -f docker-compose.infra.yml down",
     "db:migrate": "prisma migrate dev",
@@ -43,6 +43,7 @@
     "pg": "^8.20.0",
     "pnpm": "^10.33.0",
     "resend": "^6.10.0",
+    "winston": "^3.19.0",
     "zod": "^4.3.6"
   }
 }

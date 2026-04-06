@@ -1,5 +1,5 @@
-import { HttpStatus } from "@/shared/enums";
-import { ErrorCode } from "@/shared/errors";
+import { HttpStatus } from "@packages/common/enums";
+import { ErrorCode } from "@packages/common/errors";
 
 export class AppError extends Error {
   public readonly code: ErrorCode;
