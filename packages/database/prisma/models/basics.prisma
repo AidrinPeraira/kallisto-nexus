@@ -1,0 +1,108 @@
+model Basics_ServiceAssociate {
+    id     String @id @default(uuid())
+    userId String @unique
+    saCode String @unique @default(dbgenerated("concat('SA-', nextval('app_sa_code_seq'))"))
+
+    saType BasicsAssociateType // organisation | individual
+
+    // identity
+    displayName     String
+    profilePicture  String?
+    isIdentityAdded Boolean @default(false)
+
+    // address
+    officeAddress  String?
+    email          String?
+    phone          String?
+    isAddressAdded Boolean @default(false)
+
+    // services
+    primaryServices     ServiceTypes[]
+    subServices         ServiceTypes[]
+    typicalProjectValue Int?
+    isServicesAdded     Boolean        @default(false)
+
+    // credentials
+    PAN                       String?
+    GSTIN                     String?
+    governmentIdType          GovernmentIdType?
+    governmentIdNumber        String?
+    professionalLicenseType   String?
+    professionalLicenseNumber String?
+    isCredentialsAdded        Boolean           @default(false)
+
+    // bank details
+    financeAccountId    String?
+    maskedAccountNumber String?
+    bankName            String?
+    isBankDetailsAdded  Boolean @default(false)
+
+    // portfolio
+    portfolioId      String?
+    isPortfolioAdded Boolean @default(false)
+
+    // consent
+    isPlatformConsentAdded Boolean @default(false)
+
+    isRepresentativeAdded Boolean @default(false)
+
+    status    ServiceAssociateStatus @default(onboarding)
+    createdAt DateTime               @default(now())
+    updatedAt DateTime               @updatedAt
+
+    serviceAreas        Basics_ServiceArea[]
+    organisationProfile Basics_OrganisationProfile?
+    individualProfile   Basics_IndividualProfile?
+
+    @@map("basics_service_associate")
+}
+
+model Basics_OrganisationProfile {
+    id                 String                  @id @default(uuid())
+    serviceAssociateId String                  @unique
+    serviceAssociate   Basics_ServiceAssociate @relation(fields: [serviceAssociateId], references: [id])
+
+    brandName           String?
+    brandLogo           String?
+    organisationType    OrganisationType?
+    yearOfEstablishment Int?
+
+    businessProofType  BusinessProofType?
+    businessProofImage String?
+    tradeLicense       String?
+    insurance          String?
+
+    representativeName         String?
+    representativeDesignation  String?
+    representativeMobile       String?
+    representativeGovtIDType   GovernmentIdType?
+    representativeGovtIDNumber String?
+    representativeGovtIDProof  String?
+
+    @@map("basics_organisation_profile")
+}
+
+model Basics_IndividualProfile {
+    id                 String                  @id @default(uuid())
+    serviceAssociateId String                  @unique
+    serviceAssociate   Basics_ServiceAssociate @relation(fields: [serviceAssociateId], references: [id])
+
+    workingSince Int?
+
+    @@map("basics_individual_profile")
+}
+
+model Basics_ServiceArea {
+    id                String                  @id @default(uuid())
+    serviceProviderId String
+    serviceProvider   Basics_ServiceAssociate @relation(fields: [serviceProviderId], references: [id])
+
+    city        String
+    isPrimary   Boolean                               @default(false)
+    centerPoint Unsupported("geography(Point, 4326)")
+    radiusKm    Float
+    createdAt   DateTime                              @default(now())
+    updatedAt   DateTime                              @updatedAt
+
+    @@map("basics_service_area")
+}

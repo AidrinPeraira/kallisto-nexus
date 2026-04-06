@@ -1,0 +1,89 @@
+// ─── HANDS MODULE ─────────────────────────────────────────
+
+model Hands_ServiceAssociate {
+  id     String @id @default(uuid())
+  userId String @unique
+  saCode String @unique @default(dbgenerated("concat('SA-', nextval('app_sa_code_seq'))"))
+
+  saType HandsAssociateType // contractor | worker
+
+  // identity
+  displayName     String
+  profilePicture  String?
+  isIdentityAdded Boolean @default(false)
+
+  // address
+  address        String?
+  email          String?
+  phone          String?
+  isAddressAdded Boolean @default(false)
+
+  // skills
+  primarySkill  ServiceTypes?
+  subSkills     ServiceTypes[]
+  isSkillsAdded Boolean        @default(false)
+
+  // credentials
+  governmentIdType   GovernmentIdType?
+  governmentIdNumber String?
+  PAN                String?
+  isCredentialsAdded Boolean           @default(false)
+
+  // bank details
+  financeAccountId    String?
+  maskedAccountNumber String?
+  bankName            String?
+  isBankDetailsAdded  Boolean @default(false)
+
+  // consent
+  isPlatformConsentAdded Boolean @default(false)
+
+  status    ServiceAssociateStatus @default(onboarding)
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+
+  serviceAreas      Hands_ServiceArea[]
+  contractorProfile Hands_ContractorProfile?
+  workerProfile     Hands_WorkerProfile?
+
+  @@map("hands_service_associate")
+}
+
+model Hands_ContractorProfile {
+  id                 String                 @id @default(uuid())
+  serviceAssociateId String                 @unique
+  serviceAssociate   Hands_ServiceAssociate @relation(fields: [serviceAssociateId], references: [id])
+
+  workerCount  Int?
+  workingSince Int?
+
+  @@map("hands_contractor_profile")
+}
+
+model Hands_WorkerProfile {
+  id                 String                 @id @default(uuid())
+  serviceAssociateId String                 @unique
+  serviceAssociate   Hands_ServiceAssociate @relation(fields: [serviceAssociateId], references: [id])
+
+  contractorId String? // if affiliated to a contractor, references Hands_ServiceAssociate.id
+  workingSince Int?
+  wagePerDay   Float?
+  wageCurrency String? @default("INR")
+
+  @@map("hands_worker_profile")
+}
+
+model Hands_ServiceArea {
+  id                String                 @id @default(uuid())
+  serviceProviderId String
+  serviceProvider   Hands_ServiceAssociate @relation(fields: [serviceProviderId], references: [id])
+
+  city        String
+  isPrimary   Boolean                               @default(false)
+  centerPoint Unsupported("geography(Point, 4326)")
+  radiusKm    Float
+  createdAt   DateTime                              @default(now())
+  updatedAt   DateTime                              @updatedAt
+
+  @@map("hands_service_area")
+}

@@ -1,9 +1,9 @@
 // ─── PARENT ───────────────────────────────────────────────
 
-model ServiceProvider {
+model Bridge_ServiceProvider {
     id     String @id @default(uuid())
     userId String @unique
-    spCode String @unique
+    spCode String @unique @default(dbgenerated("concat('SP-', nextval('app_sp_code_seq'))"))
 
     spType ServiceProviderType // organisation | professional | contractor
 
@@ -53,20 +53,20 @@ model ServiceProvider {
     updatedAt DateTime              @updatedAt
 
     // relations
-    serviceAreas        ServiceArea[]
-    organisationProfile OrganisationSPProfile?
-    professionalProfile ProfessionalSPProfile?
-    contractorProfile   ContractorSPProfile?
+    serviceAreas_Bridge Bridge_ServiceArea[]
+    organisationProfile Bridge_OrganisationProfile?
+    professionalProfile Bridge_ProfessionalProfile?
+    contractorProfile   Bridge_ContractorProfile?
 
-    @@map("service_provider")
+    @@map("bridge_service_provider")
 }
 
 // ─── SUB TABLES ───────────────────────────────────────────
 
-model OrganisationSPProfile {
-    id                String          @id @default(uuid())
-    serviceProviderId String          @unique
-    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+model Bridge_OrganisationProfile {
+    id                String                 @id @default(uuid())
+    serviceProviderId String                 @unique
+    serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
 
     brandName        String?
     brandLogo        String?
@@ -86,34 +86,34 @@ model OrganisationSPProfile {
     representativeGovtIDNumber String?
     representativeGovtIDProof  String?
 
-    @@map("organisation_sp_profile")
+    @@map("organisation_profile")
 }
 
-model ProfessionalSPProfile {
-    id                String          @id @default(uuid())
-    serviceProviderId String          @unique
-    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+model Bridge_ProfessionalProfile {
+    id                String                 @id @default(uuid())
+    serviceProviderId String                 @unique
+    serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
 
     workingSince Int? // years of experience
 
-    @@map("professional_sp_profile")
+    @@map("bridge_professional_profile")
 }
 
-model ContractorSPProfile {
-    id                String          @id @default(uuid())
-    serviceProviderId String          @unique
-    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+model Bridge_ContractorProfile {
+    id                String                 @id @default(uuid())
+    serviceProviderId String                 @unique
+    serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
 
     workingSince Int?
     // workerCount  Int? not needed for service provider
 
-    @@map("contractor_sp_profile")
+    @@map("bridge_contractor_profile")
 }
 
-model ServiceArea {
-    id                String          @id @default(uuid())
+model Bridge_ServiceArea {
+    id                String                 @id @default(uuid())
     serviceProviderId String
-    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+    serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
 
     city        String
     isPrimary   Boolean                               @default(false)
@@ -122,5 +122,5 @@ model ServiceArea {
     createdAt   DateTime                              @default(now())
     updatedAt   DateTime                              @updatedAt
 
-    @@map("service_area")
+    @@map("bridge_service_area")
 }

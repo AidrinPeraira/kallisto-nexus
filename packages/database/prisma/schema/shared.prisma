@@ -58,3 +58,24 @@ enum GovernmentIdType {
     passport
     voter_id
 }
+
+enum BasicsAssociateType {
+    organisation
+    individual
+}
+
+enum HandsAssociateType {
+    contractor
+    worker
+}
+
+enum ServiceAssociateStatus {
+    onboarding
+    verification_pending
+    rejected
+    active
+    suspended
+    inactive
+    blocked
+    deleted
+}
