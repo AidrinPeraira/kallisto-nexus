@@ -58,6 +58,12 @@ export interface RefreshTokenRequestDTO {
   sessionToken: string;
 }
 
+export interface RefreshTokenResult {
+  accessToken: string;
+  refreshToken: string;
+  sessionToken: string;
+}
+
 export interface RefreshTokenResponseDTO {
   accessToken: string;
   refreshToken: string;

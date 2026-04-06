@@ -9,6 +9,7 @@ import {
   RefreshTokenRequestDTO,
   RefreshTokenResponseDTO,
   RegisterUserRequestDTO,
+  RefreshTokenResult,
 } from "@src/modules/kallisto-auth/application/dto/AuthDto";
 
 export class AuthMapper {
@@ -74,11 +75,9 @@ export class AuthMapper {
     };
   }
 
-  static toRefreshTokenResponseDTO(result: {
-    accessToken: string;
-    refreshToken: string;
-    sessionToken: string;
-  }): RefreshTokenResponseDTO {
+  static toRefreshTokenResponseDTO(
+    result: RefreshTokenResult,
+  ): RefreshTokenResponseDTO {
     return {
       accessToken: result.accessToken,
       refreshToken: result.refreshToken,

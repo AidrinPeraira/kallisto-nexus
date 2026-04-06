@@ -1,3 +1,8 @@
+import {
+  RefreshTokenRequestDTO,
+  RefreshTokenResult,
+} from "@src/modules/kallisto-auth/application/dto/AuthDto";
+
 export interface IRefreshTokenUseCase {
   /**
    * Refreshes the access token and session token.
@@ -6,12 +11,5 @@ export interface IRefreshTokenUseCase {
    * @param accessToken expired access token from client
    * @param sessionToken active session token from client
    */
-  execute(
-    accessToken: string,
-    sessionToken: string,
-  ): Promise<{
-    sessionToken: string;
-    accessToken: string;
-    refreshToken: string;
-  }>;
+  execute(dto: RefreshTokenRequestDTO): Promise<RefreshTokenResult>;
 }

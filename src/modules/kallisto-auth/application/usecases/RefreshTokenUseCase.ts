@@ -6,6 +6,10 @@ import { HttpStatus, TokenType } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { AuthMessages } from "@packages/common/messages";
 import { TokenPayload } from "@packages/common/types";
+import {
+  RefreshTokenRequestDTO,
+  RefreshTokenResult,
+} from "@src/modules/kallisto-auth/application/dto/AuthDto";
 
 export class RefreshTokenUseCase implements IRefreshTokenUseCase {
   constructor(
@@ -14,15 +18,18 @@ export class RefreshTokenUseCase implements IRefreshTokenUseCase {
     private readonly _tokenService: ITokenService,
   ) {}
 
-  async execute(
-    accessToken: string,
-    sessionToken: string,
-  ): Promise<{
-    sessionToken: string;
-    accessToken: string;
-    refreshToken: string;
-  }> {
-    const payload = this._tokenService.getPayload<TokenPayload>(accessToken);
+  async execute(dto: RefreshTokenRequestDTO): Promise<RefreshTokenResult> {
+    const payload = this._tokenService.getPayload<TokenPayload>(
+      dto.refreshToken,
+    );
+
+    if (payload.tokenType !== TokenType.REFRESH) {
+      throw new AppError(
+        ErrorCode.TOKEN_INVALID,
+        AuthMessages.TOKEN_INVALID,
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
 
     const user = await this._userRepostiry.findByEmail(payload.email);
     if (!user) {
@@ -56,8 +63,9 @@ export class RefreshTokenUseCase implements IRefreshTokenUseCase {
     const newRefreshToken =
       this._tokenService.generateRefreshToken(refreshTokenPayload);
 
-    const newSessionToken =
-      await this._authService.refreshSession(sessionToken);
+    const newSessionToken = await this._authService.refreshSession(
+      dto.sessionToken,
+    );
 
     return {
       accessToken: newAccessToken,

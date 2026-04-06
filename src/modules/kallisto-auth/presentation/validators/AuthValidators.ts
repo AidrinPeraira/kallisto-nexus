@@ -49,7 +49,7 @@ export const LoginUserSchema = z.object({
 export type LoginUserData = z.infer<typeof LoginUserSchema>;
 
 export const RefreshTokenSchema = z.object({
-  accessToken: z.string().min(1, "Access token is required"),
+  refreshToken: z.string().min(1, "Refresh token is required"),
   sessionToken: z.string().min(1, "Session token is required"),
 });
 

@@ -10,12 +10,13 @@
 */
 
 export const UserRole = {
-  owner: 'owner',
+  project_owner: 'project_owner',
   sp_organization: 'sp_organization',
   sp_professional: 'sp_professional',
-  contractor: 'contractor',
-  labourer: 'labourer',
-  admin: 'admin'
+  sp_contractor: 'sp_contractor',
+  sa_contractor: 'sa_contractor',
+  sa_worker: 'sa_worker',
+  system_admin: 'system_admin'
 } as const
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
