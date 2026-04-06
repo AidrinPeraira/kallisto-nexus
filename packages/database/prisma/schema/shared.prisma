@@ -14,3 +14,47 @@ enum UserStatus {
     deleted
 }
 
+enum ServiceProviderType {
+    organisation
+    professional
+    contractor
+}
+
+enum ServiceProviderStatus {
+    onboarding
+    verification_pending
+    rejected
+    active
+    suspended
+    deleted
+    inactive //temporary turn of from matching
+    blocked //permanently blocked
+}
+
+enum ServiceTypes {
+    architecture
+    interior_design
+    construction_contracting
+}
+
+enum OrganisationType {
+    partnership_firm
+    private_limited_company
+    public_limited_company
+    limited_liability_partnership
+    one_person_company
+}
+
+enum BusinessProofType {
+    gst_certificate
+    msme_certificate
+    partnership_deed
+    llp_registration
+    cin_certificate
+}
+
+enum GovernmentIdType {
+    aadhaar
+    passport
+    voter_id
+}

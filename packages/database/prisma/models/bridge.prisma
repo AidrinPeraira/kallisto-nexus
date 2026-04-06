@@ -1,0 +1,126 @@
+// ─── PARENT ───────────────────────────────────────────────
+
+model ServiceProvider {
+    id     String @id @default(uuid())
+    userId String @unique
+    spCode String @unique
+
+    spType ServiceProviderType // organisation | professional | contractor
+
+    // identity
+    displayName    String // org name or full name
+    profilePicture String?
+
+    // address
+    officeAddress String?
+    officeEmail   String?
+    officePhone   String?
+
+    // services
+    primaryServices     ServiceTypes[]
+    subServices         ServiceTypes[]
+    typicalProjectValue Int?
+    isServicesAdded     Boolean        @default(false)
+
+    // credentials (common subset)
+    PAN                       String?
+    GSTIN                     String?
+    governmentIdType          GovernmentIdType?
+    governmentIdNumber        String?
+    professionalLicenseType   String?
+    professionalLicenseNumber String?
+
+    // bank details
+    financeAccountId    String? // reference to Finance module record
+    maskedAccountNumber String?
+    bankName            String?
+
+    // portfolio
+    portfolioId String?
+
+    // consent details go here
+
+    //   isPlatformConsentAdded Boolean @default(false)
+    isIdentityAdded       Boolean @default(false)
+    isAddressAdded        Boolean @default(false)
+    isPortfolioAdded      Boolean @default(false)
+    isCredentialsAdded    Boolean @default(false)
+    isBankDetailsAdded    Boolean @default(false)
+    isRepresentativeAdded Boolean @default(false)
+
+    status    ServiceProviderStatus @default(onboarding)
+    createdAt DateTime              @default(now())
+    updatedAt DateTime              @updatedAt
+
+    // relations
+    serviceAreas        ServiceArea[]
+    organisationProfile OrganisationSPProfile?
+    professionalProfile ProfessionalSPProfile?
+    contractorProfile   ContractorSPProfile?
+
+    @@map("service_provider")
+}
+
+// ─── SUB TABLES ───────────────────────────────────────────
+
+model OrganisationSPProfile {
+    id                String          @id @default(uuid())
+    serviceProviderId String          @unique
+    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+
+    brandName        String?
+    brandLogo        String?
+    organisationType OrganisationType?
+
+    // org-specific credentials
+    businessProofType  BusinessProofType?
+    businessProofImage String?
+    tradeLicense       String?
+    insurance          String?
+
+    // representative
+    representativeName         String?
+    representativeDesignation  String?
+    representativeMobile       String?
+    representativeGovtIDType   GovernmentIdType?
+    representativeGovtIDNumber String?
+    representativeGovtIDProof  String?
+
+    @@map("organisation_sp_profile")
+}
+
+model ProfessionalSPProfile {
+    id                String          @id @default(uuid())
+    serviceProviderId String          @unique
+    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+
+    workingSince Int? // years of experience
+
+    @@map("professional_sp_profile")
+}
+
+model ContractorSPProfile {
+    id                String          @id @default(uuid())
+    serviceProviderId String          @unique
+    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+
+    workingSince Int?
+    // workerCount  Int? not needed for service provider
+
+    @@map("contractor_sp_profile")
+}
+
+model ServiceArea {
+    id                String          @id @default(uuid())
+    serviceProviderId String
+    serviceProvider   ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+
+    city        String
+    isPrimary   Boolean                               @default(false)
+    centerPoint Unsupported("geography(Point, 4326)")
+    radiusKm    Float
+    createdAt   DateTime                              @default(now())
+    updatedAt   DateTime                              @updatedAt
+
+    @@map("service_area")
+}
