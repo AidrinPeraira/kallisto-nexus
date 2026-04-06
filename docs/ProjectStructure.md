@@ -29,9 +29,9 @@ kallisto-nexus/
 └── src/
     └── modules/                # The 8 Core Business Domains
         ├── [module-name]/      # e.g., kallisto-hands
-        │   ├── domain/         # Entities & Repository Interfaces (Pure TS)
-        │   ├── application/    # Use Cases (Business Logic / MVP logic)
-        │   ├── infrastructure/ # External Adapters (Prisma Repos, Controllers)
+        │   ├── domain/         # Entities & ValueObjects Interfaces (Pure TS)
+        │   ├── application/    # Use Cases (Business Logic / MVP logic / Interfaces )
+        │   ├── infrastructure/ # External Adapters (Prisma Repos, Services)
         │   │   ├── persistence/# Prisma implementations
         │   │   └── messaging/  # Event Listeners for Redundancy
         │   ├── presentation/ # DTOs, Mappers, Controller Interfaces, Controllers & Express Routes

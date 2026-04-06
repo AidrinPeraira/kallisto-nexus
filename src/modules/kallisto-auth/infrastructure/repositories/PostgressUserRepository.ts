@@ -1,4 +1,4 @@
-import { IUserRepository } from "@src/modules/kallisto-auth/domain/repositories/IUserRepository";
+import { IUserRepository } from "@src/modules/kallisto-auth/application/interfaces/repositories/IUserRepository";
 import { UserEntity } from "@src/modules/kallisto-auth/domain/entities/UserEntity";
 import { UserRole, UserStatus } from "@packages/common/enums";
 import { prisma } from "@packages/config/prisma";

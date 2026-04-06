@@ -1,9 +1,9 @@
-import { IUserRepository } from "@src/modules/kallisto-auth/domain/repositories/IUserRepository";
-import { IAuthService } from "@src/modules/kallisto-auth/domain/services/IAuthService";
+import { IUserRepository } from "@src/modules/kallisto-auth/application/interfaces/repositories/IUserRepository";
+import { IAuthService } from "@src/modules/kallisto-auth/application/interfaces/services/IAuthService";
 import { UserEntity } from "@src/modules/kallisto-auth/domain/entities/UserEntity";
 import { UserRole, UserStatus, HttpStatus } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
-import { IRegisterUserUseCase } from "@src/modules/kallisto-auth/domain/usecases/IRegisterUserUseCase";
+import { IRegisterUserUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IRegisterUserUseCase";
 import {
   RegisterUserRequestDTO,
   RegisterUserResult,

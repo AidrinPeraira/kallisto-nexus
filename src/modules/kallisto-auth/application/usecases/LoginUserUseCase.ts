@@ -2,10 +2,10 @@ import {
   LoginUserRequestDTO,
   LoginUserResult,
 } from "@src/modules/kallisto-auth/application/dto/AuthDto";
-import { IUserRepository } from "@src/modules/kallisto-auth/domain/repositories/IUserRepository";
-import { IAuthService } from "@src/modules/kallisto-auth/domain/services/IAuthService";
-import { ITokenService } from "@src/modules/kallisto-auth/domain/services/ITokenService";
-import { ILoginUserUseCase } from "@src/modules/kallisto-auth/domain/usecases/ILoginUserUseCase";
+import { IUserRepository } from "@src/modules/kallisto-auth/application/interfaces/repositories/IUserRepository";
+import { IAuthService } from "@src/modules/kallisto-auth/application/interfaces/services/IAuthService";
+import { ITokenService } from "@src/modules/kallisto-auth/application/interfaces/services/ITokenService";
+import { ILoginUserUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/ILoginUserUseCase";
 import { HttpStatus, TokenType, UserStatus } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { AuthMessages } from "@packages/common/messages";

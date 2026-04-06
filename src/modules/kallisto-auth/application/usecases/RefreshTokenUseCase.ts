@@ -1,7 +1,7 @@
-import { IUserRepository } from "@src/modules/kallisto-auth/domain/repositories/IUserRepository";
-import { IAuthService } from "@src/modules/kallisto-auth/domain/services/IAuthService";
-import { ITokenService } from "@src/modules/kallisto-auth/domain/services/ITokenService";
-import { IRefreshTokenUseCase } from "@src/modules/kallisto-auth/domain/usecases/IRefreshTokenUseCase";
+import { IUserRepository } from "@src/modules/kallisto-auth/application/interfaces/repositories/IUserRepository";
+import { IAuthService } from "@src/modules/kallisto-auth/application/interfaces/services/IAuthService";
+import { ITokenService } from "@src/modules/kallisto-auth/application/interfaces/services/ITokenService";
+import { IRefreshTokenUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IRefreshTokenUseCase";
 import { HttpStatus, TokenType } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { AuthMessages } from "@packages/common/messages";

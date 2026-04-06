@@ -1,5 +1,5 @@
 import { env } from "@packages/config/env";
-import { IEmailService } from "@src/modules/kallisto-auth/domain/services/IEmailService";
+import { IEmailService } from "@src/modules/kallisto-auth/application/interfaces/services/IEmailService";
 import { ILogger } from "@packages/logger";
 import { Resend } from "resend";
 

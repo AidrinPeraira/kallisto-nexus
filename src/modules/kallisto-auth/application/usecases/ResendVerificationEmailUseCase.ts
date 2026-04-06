@@ -1,6 +1,6 @@
 import { ResendVerificationEmailRequestDTO } from "@src/modules/kallisto-auth/application/dto/AuthDto";
-import { IAuthService } from "@src/modules/kallisto-auth/domain/services/IAuthService";
-import { IResendVerificationEmailUseCase } from "@src/modules/kallisto-auth/domain/usecases/IResendVerificationEmailUseCase";
+import { IAuthService } from "@src/modules/kallisto-auth/application/interfaces/services/IAuthService";
+import { IResendVerificationEmailUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IResendVerificationEmailUseCase";
 
 export class ResendVerificationEmailUseCase implements IResendVerificationEmailUseCase {
   constructor(private readonly _authService: IAuthService) {}

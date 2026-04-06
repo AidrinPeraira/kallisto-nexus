@@ -14,7 +14,43 @@
   - Modify repositories to use a base repository to reduce code duplication.
   - Publish events with project data and user data for any future ML server that may need it.
 
----
+- Bridge: Aidrin | 06/04/2026
+  - Added a service area sub table for joins
+  - Initially, every provider entity has two fields for location:
+
+    ```
+    location geography(Point, 4326)   // where they are based
+    serviceRadius float                // how far they travel
+    ```
+
+  - That single point + radius model works fine if a provider operates from one city with a uniform coverage circle. But the design doc specifies something more complicated:
+
+    ```
+    Current Location : City / Service Area
+      - Primary Service City
+      - Secondary Service Cities    ← plural
+      - Service Radius
+    ```
+
+  - So a contractor might be based in Kochi, but also willing to take projects in Trivandrum and Kozhikode. Those are not covered by a single radius around one point — they are discrete, separate zones.
+
+    ```
+    ServiceArea
+      ownerId → SP_Professional.id
+      city = "Kochi"
+      isPrimary = true
+      centerPoint = geography(9.93, 76.26)
+      radiusKm = 20
+
+    ServiceArea
+      ownerId → SP_Professional.id
+      city = "Trivandrum"
+      isPrimary = false
+      centerPoint = geography(8.52, 76.93)
+      radiusKm = 15
+    ```
+
+  - Now we can query this sub table first and then show the right SPs to the project owners
 
 ## Open Questions
 

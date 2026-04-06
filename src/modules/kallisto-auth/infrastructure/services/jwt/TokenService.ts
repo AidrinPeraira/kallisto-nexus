@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { ITokenService } from "@src/modules/kallisto-auth/domain/services/ITokenService";
+import { ITokenService } from "@src/modules/kallisto-auth/application/interfaces/services/ITokenService";
 import { TokenPayload } from "@packages/common/types";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { HttpStatus } from "@packages/common/enums";

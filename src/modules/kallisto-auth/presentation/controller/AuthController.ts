@@ -1,5 +1,5 @@
 import { env } from "@packages/config/env";
-import { IRegisterUserUseCase } from "@src/modules/kallisto-auth/domain/usecases/IRegisterUserUseCase";
+import { IRegisterUserUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IRegisterUserUseCase";
 import { IAuthController } from "@src/modules/kallisto-auth/presentation/interfaces/IAuthController";
 import { AuthMapper } from "@src/modules/kallisto-auth/presentation/mapper/AuthMapper";
 import { ILogger } from "@packages/logger";
@@ -7,10 +7,10 @@ import { AuthMessages } from "@packages/common/messages";
 import { successResponse } from "@packages/common/responses";
 import { HttpStatus } from "@packages/common/enums";
 import { Request, Response, NextFunction } from "express";
-import { ILoginUserUseCase } from "@src/modules/kallisto-auth/domain/usecases/ILoginUserUseCase";
-import { IVerifyEmailUseCase } from "@src/modules/kallisto-auth/domain/usecases/IVerifyEmailUseCase";
-import { IResendVerificationEmailUseCase } from "@src/modules/kallisto-auth/domain/usecases/IResendVerificationEmailUseCase";
-import { IRefreshTokenUseCase } from "@src/modules/kallisto-auth/domain/usecases/IRefreshTokenUseCase";
+import { ILoginUserUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/ILoginUserUseCase";
+import { IVerifyEmailUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IVerifyEmailUseCase";
+import { IResendVerificationEmailUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IResendVerificationEmailUseCase";
+import { IRefreshTokenUseCase } from "@src/modules/kallisto-auth/application/interfaces/usecases/IRefreshTokenUseCase";
 
 export class AuthController implements IAuthController {
   constructor(
