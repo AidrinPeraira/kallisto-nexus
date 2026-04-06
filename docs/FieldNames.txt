@@ -1,0 +1,241 @@
+// this is the list of all field names i could find in the figma design  and 
+// the user flow diagram
+// Aidrin | 06-04-25
+
+
+User
+First Name
+Last Name
+Email
+Phone Number
+Password
+Confirm Password
+
+
+SP Professional / Contractor
+- Type: Architect, Interior Designer, Contractor, Technician / Skilled Proffesional
+- Basic Details
+	- Full Name as per ID
+	- Mobile Number
+	- Email
+	- Current Location : City / Service Area
+		- Primary Service City
+		- Secondary Service  Cities
+		- Service Radius
+	- Profile Photo * 
+- Professional Details: 
+	- Primary Service Category
+	- Sub Services (multiple)
+	- Years of Experience
+	- Typical Project Size (Budget Range)
+	- Availability (Full Time / Project Based)
+- Identity & Legal Verification 
+	- Government ID Type (Addhar, Passport, VoterID)
+	- ID Number
+	- PAN Card
+	- GST * 
+	- Professional  License (Engineer / Architect licence etc)
+	- Licence NUmber
+- Work Credentials
+	- Past Projects: 
+		- Name
+		- Location
+		- Scope
+		- Photos
+	- Portfolio LInk * 
+	- References
+- Finance Details
+	- Bank Name
+	- Bank Branch
+	- account number
+	- Account Holder Name
+	- IFSC
+	- UPI ID * 
+- Platform Consent
+	- Kallisto Terms
+	- Service Quality Agreement
+	- Payment & Commision Terms
+	- Dispute Resolution Consenet
+
+SP Frim / Company
+- Type: Architecture Firm, Construction Company, Interior Firm, Vendor Company, Multi-person service providers
+- Firm Profile:
+	- Firm Name (Legal)
+	- Brand Name (if different)
+	- Firm Type: Proprietorship, Partnership, LLP, Pvt Ltd
+	- Year of Establishment
+- Business Details
+	- Office Address
+	- Service Locations
+	- Primary Services (multi select)
+	- Team Size
+	- Typical Project Value Range
+- Legal & Compliance
+	- GST Certificate
+	- PAN (Firm)
+	- Registration Proof: MSME / LLP / CIN / Partnership Deed
+	- Trade License * 
+	- Professional Licenses * 
+	- Insurance (if any) *
+- Authorised Representative 
+	- Authorised Person Name
+	- Designation
+	- Mobile
+	- Government ID type
+	- ID Number
+	- email
+- Portfolio
+	- Project : (Min 3)
+		- Client Name
+		- Project Name
+		- Project Types
+		- Project Photos
+		- Project budget
+		- Photos
+	- Awards * 
+	- Certifications * 
+	- Major Clients * 
+- FinancialDetais
+	- Frim Bank account
+		- Bank name
+		- Bank branch	
+		- Account number
+		- account holder name
+		- IFSC
+		- GST Linked True or false
+	- Cancelled Cheque
+	- GST Linked account
+- Team Management: 
+	- Add team members
+		- member name
+		- role
+		- permission: Create Update Delete (selection)
+	- Assign Roles
+ 	- Control Access
+- Platform Constent
+	- Same as Individula
+	- Fitm level SLA
+	- Libaility CLause
+	- Quality & Escalation  Agreement
+- Brand Title
+- Brand Logo
+
+Portfolio
+- Identity
+	- Profile Photo / Logo
+	- Name / Firm Name
+	- Primary Service category
+	- Experience years
+	- Loation
+	- Verification Badge
+	- Rating summary
+	- Portfolio website
+- Project 
+	- Thumbnail
+	- Type: Residential / Commercial etc
+	- Scope: Structure, Interior, MEP etc
+	- Verified Badge (if from kallisto)
+	- year
+Testimonials
+Client Name
+Phone Number
+
+Project: 
+- Proejct Name
+- Status
+- Next action 
+- Pending milestons
+- project Scope
+	- Tasks
+		- title
+		- assigned to 
+		- due date
+		- progress %
+	- Milestsone and deadlines
+		- Progress
+		- Approval
+		- Payment Releas
+		- Progress Update
+	- Progress Upload
+	- Files
+		- Plan
+		- Docs
+		- Agreements
+		- Renders
+		- Site Progress Images
+	- Chat
+		- List messages
+		- attatchments
+		- voice call
+	- Payment Status
+	- Locatoin
+- Project team (people working on and is resposibel for the project)
+Activity Log
+Budget used
+progress % 
+
+
+Project Agreement Data
+	- Agreed Amount
+	- Paid
+	- Pending
+	- Action needed now
+	- Total Project value
+	- Current Milestons
+
+Wallet
+
+
+Subscription Plans
+- Price
+- Benefits
+- Unavailable
+Credits available & left
+- Comparison with current plan
+
+BOQ
+- Project Reference
+
+
+Orders
+- Project Name
+- Boq reference
+- Delivery status
+- Invoice Links
+
+Material
+- Material Name & Spec
+- Brand
+- Unit
+- Price
+- Delivery Timeline
+- Quality Badge
+
+
+Rating for everything product, contractor, worker, firm, material
+
+
+Task
+	- Type
+	- Status
+	- Scope (what to do?)
+	- Expected Deliverables
+	- Deadline
+	- Refernce files
+	- Notes
+	- Project ID
+	- Provider ID
+	- Project Stage
+	- ETA
+	- Assigned team
+	- Last Update
+	- Status: Submitted, In Progress, Clarification needed, Delivered, Revision Requested, Completed
+
+Actions / Tickets in Basics?
+	- Assignee
+	- Type (BOQ Revision)
+	- Actor
+	- Description
+	- Status
+	- Mileston
+	- Project

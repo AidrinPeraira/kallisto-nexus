@@ -62,7 +62,7 @@ export class RegisterUserUseCase implements IRegisterUserUseCase {
       email: dto.email,
       fullName: dto.fullName,
       phoneNumber: dto.contactNumber,
-      role: dto.role || UserRole.INDIVIDUAL,
+      role: dto.role || UserRole.PROJECT_OWNER,
       status: UserStatus.ACTIVE,
       createdAt: now,
       updatedAt: now,
