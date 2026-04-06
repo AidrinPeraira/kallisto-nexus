@@ -52,6 +52,16 @@
 
   - Now we can query this sub table first and then show the right SPs to the project owners
 
+- Payments: Aidrin | 06/04/2026
+  - Payment module will be responsible for account details
+  - Other modules will only have a boolean to simplfy checking for account details
+  - Use a synchronous internal API call for adding/updating bank details. This ensures the user gets immediate feedback if the data is invalid (e.g., wrong IFSC format).
+  - Modules like Bridge or Hands will store a local "cached" snippet (e.g., is_verified: true, masked_acc: \*\*\*\*6789) updated via RabbitMQ events. This ensures the profile page loads even if the Payments service is offline.
+
+- Hive (Projects): Aidrin | 06/04/2026
+  - Hive will store master project data
+  - Other modules will only have a small copy of what is needed
+
 ## Open Questions
 
 - Aidrin | 05/04/2026

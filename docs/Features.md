@@ -46,7 +46,7 @@
 - [ ] SP Professional Onboarding
 - [ ] SP Organisation Onboarding
 - [ ] Update profile
-- [ ] Get profile details
+- [ ] Get profile details (check completion status. to be called before any action is taken.)
 - [ ] User account settings
 - [ ] Search / Discovery for providers
 - [ ] KYC actions
