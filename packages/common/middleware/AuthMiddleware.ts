@@ -1,5 +1,5 @@
 import { env } from "@packages/config/env";
-import { HttpStatus } from "@packages/common/enums";
+import { HttpStatus, TokenType } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { AuthMessages } from "@packages/common/messages";
 import { Request, Response, NextFunction } from "express";
@@ -13,9 +13,7 @@ export function authMidllewarre(
   try {
     const authHeader = req.headers.authorization;
 
-    console.log("Hit 1: ", authHeader);
     if (!authHeader?.startsWith("Bearer ")) {
-      console.log("Hit 2");
       throw new AppError(
         ErrorCode.TOKEN_NOT_FOUND,
         AuthMessages.TOKEN_NOT_FOUND,
@@ -25,6 +23,13 @@ export function authMidllewarre(
 
     const token = authHeader.slice(7);
     const payload = jwt.verify(token, env.AUTH_SECRET);
+    if ((payload as any).tokenType !== TokenType.ACCESS) {
+      throw new AppError(
+        ErrorCode.TOKEN_INVALID,
+        AuthMessages.TOKEN_INVALID,
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
 
     (req as any).user = payload;
     next();

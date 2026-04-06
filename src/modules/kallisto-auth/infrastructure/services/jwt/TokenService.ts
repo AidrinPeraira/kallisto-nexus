@@ -8,11 +8,18 @@ import { AuthMessages } from "@packages/common/messages";
 
 export class TokenService implements ITokenService {
   private readonly secretKey = env.AUTH_SECRET || "default_secret_key";
-  private readonly expiresIn = env.ACCESS_TOKEN_EXPIRES_IN || "1d";
+  private readonly accessTokenExpiresIn = env.ACCESS_TOKEN_EXPIRES_IN || "1d";
+  private readonly refreshTokenExpiresIn = env.REFRESH_TOKEN_EXPIRES_IN || "7d";
 
   generateAccessToken(payload: TokenPayload): string {
     return jwt.sign(payload, this.secretKey, {
-      expiresIn: this.expiresIn as any,
+      expiresIn: this.accessTokenExpiresIn as any,
+    });
+  }
+
+  generateRefreshToken(payload: TokenPayload): string {
+    return jwt.sign(payload, this.secretKey, {
+      expiresIn: this.refreshTokenExpiresIn as any,
     });
   }
 

@@ -2,7 +2,7 @@ import { IUserRepository } from "@src/modules/kallisto-auth/domain/repositories/
 import { IAuthService } from "@src/modules/kallisto-auth/domain/services/IAuthService";
 import { ITokenService } from "@src/modules/kallisto-auth/domain/services/ITokenService";
 import { IRefreshTokenUseCase } from "@src/modules/kallisto-auth/domain/usecases/IRefreshTokenUseCase";
-import { HttpStatus } from "@packages/common/enums";
+import { HttpStatus, TokenType } from "@packages/common/enums";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { AuthMessages } from "@packages/common/messages";
 import { TokenPayload } from "@packages/common/types";
@@ -17,7 +17,11 @@ export class RefreshTokenUseCase implements IRefreshTokenUseCase {
   async execute(
     accessToken: string,
     sessionToken: string,
-  ): Promise<{ sessionToken: string; accessToken: string }> {
+  ): Promise<{
+    sessionToken: string;
+    accessToken: string;
+    refreshToken: string;
+  }> {
     const payload = this._tokenService.getPayload<TokenPayload>(accessToken);
 
     const user = await this._userRepostiry.findByEmail(payload.email);
@@ -29,21 +33,35 @@ export class RefreshTokenUseCase implements IRefreshTokenUseCase {
       );
     }
 
-    const newPayload: TokenPayload = {
+    const accessTokenPayload: TokenPayload = {
       userId: user.id,
       email: user.email,
       fullName: user.fullName,
       userCode: user.userCode,
       role: user.role,
+      tokenType: TokenType.ACCESS,
     };
 
-    const newAccessToken = this._tokenService.generateAccessToken(newPayload);
+    const refreshTokenPayload: TokenPayload = {
+      userId: user.id,
+      email: user.email,
+      fullName: user.fullName,
+      userCode: user.userCode,
+      role: user.role,
+      tokenType: TokenType.REFRESH,
+    };
+
+    const newAccessToken =
+      this._tokenService.generateAccessToken(accessTokenPayload);
+    const newRefreshToken =
+      this._tokenService.generateRefreshToken(refreshTokenPayload);
 
     const newSessionToken =
       await this._authService.refreshSession(sessionToken);
 
     return {
       accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
       sessionToken: newSessionToken,
     };
   }

@@ -9,5 +9,9 @@ export interface IRefreshTokenUseCase {
   execute(
     accessToken: string,
     sessionToken: string,
-  ): Promise<{ sessionToken: string; accessToken: string }>;
+  ): Promise<{
+    sessionToken: string;
+    accessToken: string;
+    refreshToken: string;
+  }>;
 }

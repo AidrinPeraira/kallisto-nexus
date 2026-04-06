@@ -29,6 +29,7 @@ export interface LoginUserRequestDTO {
 export interface LoginUserResult {
   user: UserEntity;
   accessToken: string;
+  refreshToken: string;
   sessionToken: string;
 }
 
@@ -40,6 +41,7 @@ export interface LoginUserResponseDTO {
     role: UserRole;
   };
   accessToken: string;
+  refreshToken: string;
   sessionToken: string;
 }
 
@@ -52,11 +54,12 @@ export interface ResendVerificationEmailRequestDTO {
 }
 
 export interface RefreshTokenRequestDTO {
-  accessToken: string;
+  refreshToken: string;
   sessionToken: string;
 }
 
 export interface RefreshTokenResponseDTO {
   accessToken: string;
+  refreshToken: string;
   sessionToken: string;
 }

@@ -3,11 +3,6 @@
 > This file is used to document architectural decisions, ideas, discussions, and known issues.
 > Always include **Author** and **Date** for every entry.
 
-```markdown
-- Point / Title : AuthorName | Date
-  - sub point 1
-```
-
 ---
 
 ## Architecture Decisions
@@ -50,6 +45,7 @@
 
 - Auth Module: Aidrin | 06/04/2024
   - Move resend notification service to packages (is it a common service, or should it be separate?)
+  - Check auth middleware working with updated token type
 
 - General: Aidrin | 05/04/2026
   - Add validation for all input data and throw corresponding errors. Recheck regex and move patterns to a common enum in shared.

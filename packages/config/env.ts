@@ -15,7 +15,9 @@ export const env = {
   AUTH_SECRET: process.env.AUTH_SECRET || "",
   SESSION_EXPIRES_IN: Number(process.env.SESSION_EXPIRES_IN) || 604800,
   SESSION_UPDATE_AGE: Number(process.env.SESSION_UPDATE_AGE) || 86400,
-  ACCESS_TOKEN_EXPIRES_IN: Number(process.env.ACCESS_TOKEN_EXPIRES_IN) || 86400,
+  ACCESS_TOKEN_EXPIRES_IN: Number(process.env.ACCESS_TOKEN_EXPIRES_IN) || 900,
+  REFRESH_TOKEN_EXPIRES_IN:
+    Number(process.env.REFRESH_TOKEN_EXPIRES_IN) || 604800,
 
   WEB_VERIFY_REDIRECT_URL:
     process.env.WEB_VERIFY_REDIRECT_URL || "http://localhost:3000/verified",

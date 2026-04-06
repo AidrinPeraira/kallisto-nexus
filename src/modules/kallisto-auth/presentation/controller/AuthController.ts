@@ -127,7 +127,7 @@ export class AuthController implements IAuthController {
       const data = AuthMapper.toRefreshTokenRequestDTO(req.body);
 
       const result = await this._refreshTokenUseCase.execute(
-        data.accessToken,
+        data.refreshToken,
         data.sessionToken,
       );
 

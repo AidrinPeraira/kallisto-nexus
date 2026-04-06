@@ -48,6 +48,7 @@ export class AuthMapper {
         role: result.user.role,
       },
       accessToken: result.accessToken,
+      refreshToken: result.refreshToken,
       sessionToken: result.sessionToken,
     };
   }
@@ -68,17 +69,19 @@ export class AuthMapper {
 
   static toRefreshTokenRequestDTO(body: any): RefreshTokenRequestDTO {
     return {
-      accessToken: body.accessToken,
+      refreshToken: body.refreshToken,
       sessionToken: body.sessionToken,
     };
   }
 
   static toRefreshTokenResponseDTO(result: {
     accessToken: string;
+    refreshToken: string;
     sessionToken: string;
   }): RefreshTokenResponseDTO {
     return {
       accessToken: result.accessToken,
+      refreshToken: result.refreshToken,
       sessionToken: result.sessionToken,
     };
   }
