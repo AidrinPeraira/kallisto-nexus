@@ -1,4 +1,4 @@
-import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/ServiceProviderDTO";
+import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * This interface is used to update the organisation identity of a service provider.

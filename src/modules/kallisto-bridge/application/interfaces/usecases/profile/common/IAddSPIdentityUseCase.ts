@@ -1,4 +1,4 @@
-import { AddIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/ServiceProviderDTO";
+import { AddIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * This usecase is responsible for adding the identity of a service provider.

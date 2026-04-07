@@ -1,4 +1,4 @@
-import { AddBankDetailsRequestDTO } from "@src/modules/kallisto-bridge/application/dto/ServiceProviderDTO";
+import { AddBankDetailsRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * This use casw will call the finance module and update add banking details

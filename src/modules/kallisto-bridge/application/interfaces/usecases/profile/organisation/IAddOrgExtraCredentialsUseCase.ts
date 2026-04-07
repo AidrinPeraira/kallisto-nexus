@@ -1,4 +1,4 @@
-import { AddOrgExtraCredentialsRequestDTO } from "@src/modules/kallisto-bridge/application/dto/ServiceProviderDTO";
+import { AddOrgExtraCredentialsRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * @description

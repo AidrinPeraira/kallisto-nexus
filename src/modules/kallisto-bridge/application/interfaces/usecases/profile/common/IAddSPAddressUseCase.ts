@@ -1,4 +1,4 @@
-import { AddAddressRequestDTO } from "@src/modules/kallisto-bridge/application/dto/ServiceProviderDTO";
+import { AddAddressRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * Checks id and sp type and adds the address
