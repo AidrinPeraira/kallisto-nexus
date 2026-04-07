@@ -13,6 +13,7 @@ export interface OrganisationProfileEntity {
   id: string;
   serviceProviderId: string;
 
+  // org specific identity
   brandName?: string;
   brandLogo?: string;
   organisationType?: OrganisationType;
@@ -39,6 +40,7 @@ export interface ProfessionalProfileEntity {
   id: string;
   serviceProviderId: string;
 
+  //identity
   workingSince?: number; // years of experience
 }
 
@@ -48,6 +50,7 @@ export interface ContractorProfileEntity {
   id: string;
   serviceProviderId: string;
 
+  //identity
   workingSince?: number;
 }
 

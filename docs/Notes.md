@@ -84,6 +84,9 @@
 
 - Aidrin | 05/04/2026
   - When email is not verified, login fails with an internal server error message to the frontend. Revisit after polishing error handling.
+- Aidrin | 07/04/2026
+  - Service provider credential proffesional licence type not defined. Currently string change to enum and refactor.
+  - Also add change to the DB and migrate prisma
 
 ---
 
