@@ -1,7 +1,7 @@
 model Basics_ServiceAssociate {
     id     String @id @default(uuid())
     userId String @unique
-    saCode String @unique @default(dbgenerated("concat('SA-', nextval('app_sa_code_seq'))"))
+    saCode String @unique @default(dbgenerated("concat('SA-B', nextval('app_sab_code_seq'))"))
 
     saType BasicsAssociateType // organisation | individual
 
@@ -42,7 +42,7 @@ model Basics_ServiceAssociate {
     isPortfolioAdded Boolean @default(false)
 
     // consent
-    isPlatformConsentAdded Boolean @default(false)
+    // isPlatformConsentAdded Boolean @default(false)
 
     isRepresentativeAdded Boolean @default(false)
 

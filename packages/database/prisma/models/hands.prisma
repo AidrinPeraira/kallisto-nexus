@@ -3,7 +3,7 @@
 model Hands_ServiceAssociate {
   id     String @id @default(uuid())
   userId String @unique
-  saCode String @unique @default(dbgenerated("concat('SA-', nextval('app_sa_code_seq'))"))
+  saCode String @unique @default(dbgenerated("concat('SA-H', nextval('app_sah_code_seq'))"))
 
   saType HandsAssociateType // contractor | worker
 
@@ -19,9 +19,9 @@ model Hands_ServiceAssociate {
   isAddressAdded Boolean @default(false)
 
   // skills
-  primarySkill  ServiceTypes?
-  subSkills     ServiceTypes[]
-  isSkillsAdded Boolean        @default(false)
+  primarySkill  SkillTypes?
+  subSkills     SkillTypes[]
+  isSkillsAdded Boolean      @default(false)
 
   // credentials
   governmentIdType   GovernmentIdType?
@@ -36,7 +36,7 @@ model Hands_ServiceAssociate {
   isBankDetailsAdded  Boolean @default(false)
 
   // consent
-  isPlatformConsentAdded Boolean @default(false)
+  // isPlatformConsentAdded Boolean @default(false)
 
   status    ServiceAssociateStatus @default(onboarding)
   createdAt DateTime               @default(now())

@@ -57,20 +57,21 @@ model Bridge_ServiceProvider {
     organisationProfile Bridge_OrganisationProfile?
     professionalProfile Bridge_ProfessionalProfile?
     contractorProfile   Bridge_ContractorProfile?
+    bridgePortfolio     Bridge_Portfolio?
 
     @@map("bridge_service_provider")
 }
 
 // ─── SUB TABLES ───────────────────────────────────────────
-
 model Bridge_OrganisationProfile {
     id                String                 @id @default(uuid())
     serviceProviderId String                 @unique
     serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
 
-    brandName        String?
-    brandLogo        String?
-    organisationType OrganisationType?
+    brandName           String?
+    brandLogo           String?
+    organisationType    OrganisationType?
+    yearOfEstablishment Int
 
     // org-specific credentials
     businessProofType  BusinessProofType?
@@ -86,7 +87,7 @@ model Bridge_OrganisationProfile {
     representativeGovtIDNumber String?
     representativeGovtIDProof  String?
 
-    @@map("organisation_profile")
+    @@map("bridge_organisation_profile")
 }
 
 model Bridge_ProfessionalProfile {
@@ -110,6 +111,7 @@ model Bridge_ContractorProfile {
     @@map("bridge_contractor_profile")
 }
 
+// ─── SERVICE AREA TABLES ───────────────────────────────────────────
 model Bridge_ServiceArea {
     id                String                 @id @default(uuid())
     serviceProviderId String
@@ -123,4 +125,53 @@ model Bridge_ServiceArea {
     updatedAt   DateTime                              @updatedAt
 
     @@map("bridge_service_area")
+}
+
+// ─── PORTFOLIO TABLES ───────────────────────────────────────────
+model Bridge_Portfolio {
+    id                String                 @id @default(uuid())
+    serviceProviderId String                 @unique
+    serviceProvider   Bridge_ServiceProvider @relation(fields: [serviceProviderId], references: [id])
+
+    portfolioWebsite String?
+    isPublic         Boolean @default(false)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    projects Bridge_PortfolioProject[]
+
+    @@map("bridge_portfolio")
+}
+
+model Bridge_PortfolioProject {
+    id          String           @id @default(uuid())
+    portfolioId String
+    portfolio   Bridge_Portfolio @relation(fields: [portfolioId], references: [id])
+
+    // project info
+    projectName    String
+    location       String?
+    projectType    String // Residential | Commercial | Industrial | Hospitality etc
+    scope          String[] // Structure | Interior | MEP | Landscape etc
+    completionYear Int?
+    budgetValue    Int?
+    budgetCurrency String?  @default("INR")
+
+    // media
+    thumbnailUrl String?
+    photos       String[]
+
+    // verification
+    isKallistoVerified Boolean @default(false)
+
+    // testimonial
+    testimonialClientName  String?
+    testimonialClientPhone String?
+    testimonialText        String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("bridge_portfolio_project")
 }

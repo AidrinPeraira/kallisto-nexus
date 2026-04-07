@@ -108,4 +108,9 @@
   - Testing (unit, integration, e2e)
   - CI/CD pipeline
 
+- Database: Aidrin | 07/04/2026
+  - Now expertise and skills and types etc are fixed enums.
+  - adding new ones will need a server restart.
+  - OK for beta. Change for production. Make it tables that the admin can modify from.
+
 ---

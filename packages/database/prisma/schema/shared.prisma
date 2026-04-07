@@ -37,6 +37,19 @@ enum ServiceTypes {
     construction_contracting
 }
 
+enum SkillTypes {
+    mason
+    plumber
+    electrician
+    painter
+    carpenter
+    welder
+    tiler
+    plasterer
+    glazier
+    landscaper
+}
+
 enum OrganisationType {
     partnership_firm
     private_limited_company
@@ -78,4 +91,20 @@ enum ServiceAssociateStatus {
     inactive
     blocked
     deleted
+}
+
+enum ProjectType {
+    residential
+    commercial
+    industrial
+    hospitality
+    institutional
+}
+
+enum ProjectScope {
+    structure
+    interior
+    mep
+    landscape
+    facade
 }
