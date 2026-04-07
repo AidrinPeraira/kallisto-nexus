@@ -29,3 +29,134 @@ export const UserStatus = {
 } as const
 
 export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
+
+
+export const ServiceProviderType = {
+  organisation: 'organisation',
+  professional: 'professional',
+  contractor: 'contractor'
+} as const
+
+export type ServiceProviderType = (typeof ServiceProviderType)[keyof typeof ServiceProviderType]
+
+
+export const ServiceProviderStatus = {
+  onboarding: 'onboarding',
+  verification_pending: 'verification_pending',
+  rejected: 'rejected',
+  active: 'active',
+  suspended: 'suspended',
+  deleted: 'deleted',
+  inactive: 'inactive',
+  blocked: 'blocked'
+} as const
+
+export type ServiceProviderStatus = (typeof ServiceProviderStatus)[keyof typeof ServiceProviderStatus]
+
+
+export const ServiceTypes = {
+  architecture: 'architecture',
+  interior_design: 'interior_design',
+  construction_contracting: 'construction_contracting'
+} as const
+
+export type ServiceTypes = (typeof ServiceTypes)[keyof typeof ServiceTypes]
+
+
+export const SkillTypes = {
+  mason: 'mason',
+  plumber: 'plumber',
+  electrician: 'electrician',
+  painter: 'painter',
+  carpenter: 'carpenter',
+  welder: 'welder',
+  tiler: 'tiler',
+  plasterer: 'plasterer',
+  glazier: 'glazier',
+  landscaper: 'landscaper'
+} as const
+
+export type SkillTypes = (typeof SkillTypes)[keyof typeof SkillTypes]
+
+
+export const OrganisationType = {
+  partnership_firm: 'partnership_firm',
+  private_limited_company: 'private_limited_company',
+  public_limited_company: 'public_limited_company',
+  limited_liability_partnership: 'limited_liability_partnership',
+  one_person_company: 'one_person_company'
+} as const
+
+export type OrganisationType = (typeof OrganisationType)[keyof typeof OrganisationType]
+
+
+export const BusinessProofType = {
+  gst_certificate: 'gst_certificate',
+  msme_certificate: 'msme_certificate',
+  partnership_deed: 'partnership_deed',
+  llp_registration: 'llp_registration',
+  cin_certificate: 'cin_certificate'
+} as const
+
+export type BusinessProofType = (typeof BusinessProofType)[keyof typeof BusinessProofType]
+
+
+export const GovernmentIdType = {
+  aadhaar: 'aadhaar',
+  passport: 'passport',
+  voter_id: 'voter_id'
+} as const
+
+export type GovernmentIdType = (typeof GovernmentIdType)[keyof typeof GovernmentIdType]
+
+
+export const BasicsAssociateType = {
+  organisation: 'organisation',
+  individual: 'individual'
+} as const
+
+export type BasicsAssociateType = (typeof BasicsAssociateType)[keyof typeof BasicsAssociateType]
+
+
+export const HandsAssociateType = {
+  contractor: 'contractor',
+  worker: 'worker'
+} as const
+
+export type HandsAssociateType = (typeof HandsAssociateType)[keyof typeof HandsAssociateType]
+
+
+export const ServiceAssociateStatus = {
+  onboarding: 'onboarding',
+  verification_pending: 'verification_pending',
+  rejected: 'rejected',
+  active: 'active',
+  suspended: 'suspended',
+  inactive: 'inactive',
+  blocked: 'blocked',
+  deleted: 'deleted'
+} as const
+
+export type ServiceAssociateStatus = (typeof ServiceAssociateStatus)[keyof typeof ServiceAssociateStatus]
+
+
+export const ProjectType = {
+  residential: 'residential',
+  commercial: 'commercial',
+  industrial: 'industrial',
+  hospitality: 'hospitality',
+  institutional: 'institutional'
+} as const
+
+export type ProjectType = (typeof ProjectType)[keyof typeof ProjectType]
+
+
+export const ProjectScope = {
+  structure: 'structure',
+  interior: 'interior',
+  mep: 'mep',
+  landscape: 'landscape',
+  facade: 'facade'
+} as const
+
+export type ProjectScope = (typeof ProjectScope)[keyof typeof ProjectScope]

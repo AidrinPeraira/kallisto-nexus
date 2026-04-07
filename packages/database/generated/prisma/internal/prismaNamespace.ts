@@ -388,7 +388,23 @@ export const ModelName = {
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification',
-  AppUser: 'AppUser'
+  AppUser: 'AppUser',
+  Basics_ServiceAssociate: 'Basics_ServiceAssociate',
+  Basics_OrganisationProfile: 'Basics_OrganisationProfile',
+  Basics_IndividualProfile: 'Basics_IndividualProfile',
+  Basics_ServiceArea: 'Basics_ServiceArea',
+  Bridge_ServiceProvider: 'Bridge_ServiceProvider',
+  Bridge_OrganisationProfile: 'Bridge_OrganisationProfile',
+  Bridge_ProfessionalProfile: 'Bridge_ProfessionalProfile',
+  Bridge_ContractorProfile: 'Bridge_ContractorProfile',
+  Bridge_ServiceArea: 'Bridge_ServiceArea',
+  Bridge_Portfolio: 'Bridge_Portfolio',
+  Bridge_PortfolioProject: 'Bridge_PortfolioProject',
+  Hands_ServiceAssociate: 'Hands_ServiceAssociate',
+  Hands_ContractorProfile: 'Hands_ContractorProfile',
+  Hands_WorkerProfile: 'Hands_WorkerProfile',
+  Hands_ServiceArea: 'Hands_ServiceArea',
+  Payment_BankAccount: 'Payment_BankAccount'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -404,7 +420,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "account" | "verification" | "appUser"
+    modelProps: "user" | "session" | "account" | "verification" | "appUser" | "basics_ServiceAssociate" | "basics_OrganisationProfile" | "basics_IndividualProfile" | "basics_ServiceArea" | "bridge_ServiceProvider" | "bridge_OrganisationProfile" | "bridge_ProfessionalProfile" | "bridge_ContractorProfile" | "bridge_ServiceArea" | "bridge_Portfolio" | "bridge_PortfolioProject" | "hands_ServiceAssociate" | "hands_ContractorProfile" | "hands_WorkerProfile" | "hands_ServiceArea" | "payment_BankAccount"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -778,6 +794,1142 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Basics_ServiceAssociate: {
+      payload: Prisma.$Basics_ServiceAssociatePayload<ExtArgs>
+      fields: Prisma.Basics_ServiceAssociateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Basics_ServiceAssociateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Basics_ServiceAssociateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        findFirst: {
+          args: Prisma.Basics_ServiceAssociateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Basics_ServiceAssociateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        findMany: {
+          args: Prisma.Basics_ServiceAssociateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>[]
+        }
+        create: {
+          args: Prisma.Basics_ServiceAssociateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        createMany: {
+          args: Prisma.Basics_ServiceAssociateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Basics_ServiceAssociateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>[]
+        }
+        delete: {
+          args: Prisma.Basics_ServiceAssociateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        update: {
+          args: Prisma.Basics_ServiceAssociateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        deleteMany: {
+          args: Prisma.Basics_ServiceAssociateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Basics_ServiceAssociateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Basics_ServiceAssociateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>[]
+        }
+        upsert: {
+          args: Prisma.Basics_ServiceAssociateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAssociatePayload>
+        }
+        aggregate: {
+          args: Prisma.Basics_ServiceAssociateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_ServiceAssociate>
+        }
+        groupBy: {
+          args: Prisma.Basics_ServiceAssociateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ServiceAssociateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Basics_ServiceAssociateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ServiceAssociateCountAggregateOutputType> | number
+        }
+      }
+    }
+    Basics_OrganisationProfile: {
+      payload: Prisma.$Basics_OrganisationProfilePayload<ExtArgs>
+      fields: Prisma.Basics_OrganisationProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Basics_OrganisationProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Basics_OrganisationProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Basics_OrganisationProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Basics_OrganisationProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Basics_OrganisationProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Basics_OrganisationProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Basics_OrganisationProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Basics_OrganisationProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Basics_OrganisationProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        update: {
+          args: Prisma.Basics_OrganisationProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Basics_OrganisationProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Basics_OrganisationProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Basics_OrganisationProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Basics_OrganisationProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_OrganisationProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Basics_OrganisationProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_OrganisationProfile>
+        }
+        groupBy: {
+          args: Prisma.Basics_OrganisationProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_OrganisationProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Basics_OrganisationProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_OrganisationProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Basics_IndividualProfile: {
+      payload: Prisma.$Basics_IndividualProfilePayload<ExtArgs>
+      fields: Prisma.Basics_IndividualProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Basics_IndividualProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Basics_IndividualProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Basics_IndividualProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Basics_IndividualProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Basics_IndividualProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Basics_IndividualProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Basics_IndividualProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Basics_IndividualProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Basics_IndividualProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        update: {
+          args: Prisma.Basics_IndividualProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Basics_IndividualProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Basics_IndividualProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Basics_IndividualProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Basics_IndividualProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Basics_IndividualProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_IndividualProfile>
+        }
+        groupBy: {
+          args: Prisma.Basics_IndividualProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_IndividualProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Basics_IndividualProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_IndividualProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Basics_ServiceArea: {
+      payload: Prisma.$Basics_ServiceAreaPayload<ExtArgs>
+      fields: Prisma.Basics_ServiceAreaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Basics_ServiceAreaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Basics_ServiceAreaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>
+        }
+        findFirst: {
+          args: Prisma.Basics_ServiceAreaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Basics_ServiceAreaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>
+        }
+        findMany: {
+          args: Prisma.Basics_ServiceAreaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>[]
+        }
+        delete: {
+          args: Prisma.Basics_ServiceAreaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>
+        }
+        update: {
+          args: Prisma.Basics_ServiceAreaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>
+        }
+        deleteMany: {
+          args: Prisma.Basics_ServiceAreaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Basics_ServiceAreaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Basics_ServiceAreaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ServiceAreaPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Basics_ServiceAreaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_ServiceArea>
+        }
+        groupBy: {
+          args: Prisma.Basics_ServiceAreaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ServiceAreaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Basics_ServiceAreaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ServiceAreaCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_ServiceProvider: {
+      payload: Prisma.$Bridge_ServiceProviderPayload<ExtArgs>
+      fields: Prisma.Bridge_ServiceProviderFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_ServiceProviderFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_ServiceProviderFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_ServiceProviderFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_ServiceProviderFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_ServiceProviderFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_ServiceProviderCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_ServiceProviderCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_ServiceProviderCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_ServiceProviderDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        update: {
+          args: Prisma.Bridge_ServiceProviderUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_ServiceProviderDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_ServiceProviderUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_ServiceProviderUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_ServiceProviderUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceProviderPayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_ServiceProviderAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_ServiceProvider>
+        }
+        groupBy: {
+          args: Prisma.Bridge_ServiceProviderGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ServiceProviderGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_ServiceProviderCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ServiceProviderCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_OrganisationProfile: {
+      payload: Prisma.$Bridge_OrganisationProfilePayload<ExtArgs>
+      fields: Prisma.Bridge_OrganisationProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_OrganisationProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_OrganisationProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_OrganisationProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_OrganisationProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_OrganisationProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_OrganisationProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_OrganisationProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_OrganisationProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_OrganisationProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        update: {
+          args: Prisma.Bridge_OrganisationProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_OrganisationProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_OrganisationProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_OrganisationProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_OrganisationProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_OrganisationProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_OrganisationProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_OrganisationProfile>
+        }
+        groupBy: {
+          args: Prisma.Bridge_OrganisationProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_OrganisationProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_OrganisationProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_OrganisationProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_ProfessionalProfile: {
+      payload: Prisma.$Bridge_ProfessionalProfilePayload<ExtArgs>
+      fields: Prisma.Bridge_ProfessionalProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_ProfessionalProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_ProfessionalProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_ProfessionalProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_ProfessionalProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_ProfessionalProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_ProfessionalProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_ProfessionalProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_ProfessionalProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_ProfessionalProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        update: {
+          args: Prisma.Bridge_ProfessionalProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_ProfessionalProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_ProfessionalProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_ProfessionalProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_ProfessionalProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ProfessionalProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_ProfessionalProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_ProfessionalProfile>
+        }
+        groupBy: {
+          args: Prisma.Bridge_ProfessionalProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ProfessionalProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_ProfessionalProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ProfessionalProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_ContractorProfile: {
+      payload: Prisma.$Bridge_ContractorProfilePayload<ExtArgs>
+      fields: Prisma.Bridge_ContractorProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_ContractorProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_ContractorProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_ContractorProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_ContractorProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_ContractorProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_ContractorProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_ContractorProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_ContractorProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_ContractorProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        update: {
+          args: Prisma.Bridge_ContractorProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_ContractorProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_ContractorProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_ContractorProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_ContractorProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ContractorProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_ContractorProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_ContractorProfile>
+        }
+        groupBy: {
+          args: Prisma.Bridge_ContractorProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ContractorProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_ContractorProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ContractorProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_ServiceArea: {
+      payload: Prisma.$Bridge_ServiceAreaPayload<ExtArgs>
+      fields: Prisma.Bridge_ServiceAreaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_ServiceAreaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_ServiceAreaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_ServiceAreaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_ServiceAreaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_ServiceAreaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_ServiceAreaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>
+        }
+        update: {
+          args: Prisma.Bridge_ServiceAreaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_ServiceAreaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_ServiceAreaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_ServiceAreaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_ServiceAreaPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Bridge_ServiceAreaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_ServiceArea>
+        }
+        groupBy: {
+          args: Prisma.Bridge_ServiceAreaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ServiceAreaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_ServiceAreaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_ServiceAreaCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_Portfolio: {
+      payload: Prisma.$Bridge_PortfolioPayload<ExtArgs>
+      fields: Prisma.Bridge_PortfolioFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_PortfolioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_PortfolioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_PortfolioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_PortfolioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_PortfolioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_PortfolioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_PortfolioCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_PortfolioCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_PortfolioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        update: {
+          args: Prisma.Bridge_PortfolioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_PortfolioDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_PortfolioUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_PortfolioUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_PortfolioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioPayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_PortfolioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_Portfolio>
+        }
+        groupBy: {
+          args: Prisma.Bridge_PortfolioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_PortfolioGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_PortfolioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_PortfolioCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bridge_PortfolioProject: {
+      payload: Prisma.$Bridge_PortfolioProjectPayload<ExtArgs>
+      fields: Prisma.Bridge_PortfolioProjectFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Bridge_PortfolioProjectFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Bridge_PortfolioProjectFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        findFirst: {
+          args: Prisma.Bridge_PortfolioProjectFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Bridge_PortfolioProjectFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        findMany: {
+          args: Prisma.Bridge_PortfolioProjectFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>[]
+        }
+        create: {
+          args: Prisma.Bridge_PortfolioProjectCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        createMany: {
+          args: Prisma.Bridge_PortfolioProjectCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Bridge_PortfolioProjectCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>[]
+        }
+        delete: {
+          args: Prisma.Bridge_PortfolioProjectDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        update: {
+          args: Prisma.Bridge_PortfolioProjectUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        deleteMany: {
+          args: Prisma.Bridge_PortfolioProjectDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Bridge_PortfolioProjectUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Bridge_PortfolioProjectUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>[]
+        }
+        upsert: {
+          args: Prisma.Bridge_PortfolioProjectUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Bridge_PortfolioProjectPayload>
+        }
+        aggregate: {
+          args: Prisma.Bridge_PortfolioProjectAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBridge_PortfolioProject>
+        }
+        groupBy: {
+          args: Prisma.Bridge_PortfolioProjectGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_PortfolioProjectGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Bridge_PortfolioProjectCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Bridge_PortfolioProjectCountAggregateOutputType> | number
+        }
+      }
+    }
+    Hands_ServiceAssociate: {
+      payload: Prisma.$Hands_ServiceAssociatePayload<ExtArgs>
+      fields: Prisma.Hands_ServiceAssociateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Hands_ServiceAssociateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Hands_ServiceAssociateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        findFirst: {
+          args: Prisma.Hands_ServiceAssociateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Hands_ServiceAssociateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        findMany: {
+          args: Prisma.Hands_ServiceAssociateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>[]
+        }
+        create: {
+          args: Prisma.Hands_ServiceAssociateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        createMany: {
+          args: Prisma.Hands_ServiceAssociateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Hands_ServiceAssociateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>[]
+        }
+        delete: {
+          args: Prisma.Hands_ServiceAssociateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        update: {
+          args: Prisma.Hands_ServiceAssociateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        deleteMany: {
+          args: Prisma.Hands_ServiceAssociateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Hands_ServiceAssociateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Hands_ServiceAssociateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>[]
+        }
+        upsert: {
+          args: Prisma.Hands_ServiceAssociateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAssociatePayload>
+        }
+        aggregate: {
+          args: Prisma.Hands_ServiceAssociateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHands_ServiceAssociate>
+        }
+        groupBy: {
+          args: Prisma.Hands_ServiceAssociateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ServiceAssociateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Hands_ServiceAssociateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ServiceAssociateCountAggregateOutputType> | number
+        }
+      }
+    }
+    Hands_ContractorProfile: {
+      payload: Prisma.$Hands_ContractorProfilePayload<ExtArgs>
+      fields: Prisma.Hands_ContractorProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Hands_ContractorProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Hands_ContractorProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Hands_ContractorProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Hands_ContractorProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Hands_ContractorProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Hands_ContractorProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Hands_ContractorProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Hands_ContractorProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Hands_ContractorProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        update: {
+          args: Prisma.Hands_ContractorProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Hands_ContractorProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Hands_ContractorProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Hands_ContractorProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Hands_ContractorProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ContractorProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Hands_ContractorProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHands_ContractorProfile>
+        }
+        groupBy: {
+          args: Prisma.Hands_ContractorProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ContractorProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Hands_ContractorProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ContractorProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Hands_WorkerProfile: {
+      payload: Prisma.$Hands_WorkerProfilePayload<ExtArgs>
+      fields: Prisma.Hands_WorkerProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Hands_WorkerProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Hands_WorkerProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.Hands_WorkerProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Hands_WorkerProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        findMany: {
+          args: Prisma.Hands_WorkerProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>[]
+        }
+        create: {
+          args: Prisma.Hands_WorkerProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        createMany: {
+          args: Prisma.Hands_WorkerProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Hands_WorkerProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.Hands_WorkerProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        update: {
+          args: Prisma.Hands_WorkerProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.Hands_WorkerProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Hands_WorkerProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Hands_WorkerProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.Hands_WorkerProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_WorkerProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.Hands_WorkerProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHands_WorkerProfile>
+        }
+        groupBy: {
+          args: Prisma.Hands_WorkerProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_WorkerProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Hands_WorkerProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_WorkerProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    Hands_ServiceArea: {
+      payload: Prisma.$Hands_ServiceAreaPayload<ExtArgs>
+      fields: Prisma.Hands_ServiceAreaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Hands_ServiceAreaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Hands_ServiceAreaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>
+        }
+        findFirst: {
+          args: Prisma.Hands_ServiceAreaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Hands_ServiceAreaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>
+        }
+        findMany: {
+          args: Prisma.Hands_ServiceAreaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>[]
+        }
+        delete: {
+          args: Prisma.Hands_ServiceAreaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>
+        }
+        update: {
+          args: Prisma.Hands_ServiceAreaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>
+        }
+        deleteMany: {
+          args: Prisma.Hands_ServiceAreaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Hands_ServiceAreaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Hands_ServiceAreaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Hands_ServiceAreaPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Hands_ServiceAreaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHands_ServiceArea>
+        }
+        groupBy: {
+          args: Prisma.Hands_ServiceAreaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ServiceAreaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Hands_ServiceAreaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Hands_ServiceAreaCountAggregateOutputType> | number
+        }
+      }
+    }
+    Payment_BankAccount: {
+      payload: Prisma.$Payment_BankAccountPayload<ExtArgs>
+      fields: Prisma.Payment_BankAccountFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.Payment_BankAccountFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.Payment_BankAccountFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        findFirst: {
+          args: Prisma.Payment_BankAccountFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.Payment_BankAccountFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        findMany: {
+          args: Prisma.Payment_BankAccountFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>[]
+        }
+        create: {
+          args: Prisma.Payment_BankAccountCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        createMany: {
+          args: Prisma.Payment_BankAccountCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.Payment_BankAccountCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>[]
+        }
+        delete: {
+          args: Prisma.Payment_BankAccountDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        update: {
+          args: Prisma.Payment_BankAccountUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        deleteMany: {
+          args: Prisma.Payment_BankAccountDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.Payment_BankAccountUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.Payment_BankAccountUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>[]
+        }
+        upsert: {
+          args: Prisma.Payment_BankAccountUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Payment_BankAccountPayload>
+        }
+        aggregate: {
+          args: Prisma.Payment_BankAccountAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePayment_BankAccount>
+        }
+        groupBy: {
+          args: Prisma.Payment_BankAccountGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Payment_BankAccountGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.Payment_BankAccountCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Payment_BankAccountCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -892,6 +2044,301 @@ export const AppUserScalarFieldEnum = {
 export type AppUserScalarFieldEnum = (typeof AppUserScalarFieldEnum)[keyof typeof AppUserScalarFieldEnum]
 
 
+export const Basics_ServiceAssociateScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  saCode: 'saCode',
+  saType: 'saType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  isIdentityAdded: 'isIdentityAdded',
+  officeAddress: 'officeAddress',
+  email: 'email',
+  phone: 'phone',
+  isAddressAdded: 'isAddressAdded',
+  primaryServices: 'primaryServices',
+  subServices: 'subServices',
+  typicalProjectValue: 'typicalProjectValue',
+  isServicesAdded: 'isServicesAdded',
+  PAN: 'PAN',
+  GSTIN: 'GSTIN',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  professionalLicenseType: 'professionalLicenseType',
+  professionalLicenseNumber: 'professionalLicenseNumber',
+  isCredentialsAdded: 'isCredentialsAdded',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  portfolioId: 'portfolioId',
+  isPortfolioAdded: 'isPortfolioAdded',
+  isRepresentativeAdded: 'isRepresentativeAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Basics_ServiceAssociateScalarFieldEnum = (typeof Basics_ServiceAssociateScalarFieldEnum)[keyof typeof Basics_ServiceAssociateScalarFieldEnum]
+
+
+export const Basics_OrganisationProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  brandName: 'brandName',
+  brandLogo: 'brandLogo',
+  organisationType: 'organisationType',
+  yearOfEstablishment: 'yearOfEstablishment',
+  businessProofType: 'businessProofType',
+  businessProofImage: 'businessProofImage',
+  tradeLicense: 'tradeLicense',
+  insurance: 'insurance',
+  representativeName: 'representativeName',
+  representativeDesignation: 'representativeDesignation',
+  representativeMobile: 'representativeMobile',
+  representativeGovtIDType: 'representativeGovtIDType',
+  representativeGovtIDNumber: 'representativeGovtIDNumber',
+  representativeGovtIDProof: 'representativeGovtIDProof'
+} as const
+
+export type Basics_OrganisationProfileScalarFieldEnum = (typeof Basics_OrganisationProfileScalarFieldEnum)[keyof typeof Basics_OrganisationProfileScalarFieldEnum]
+
+
+export const Basics_IndividualProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  workingSince: 'workingSince'
+} as const
+
+export type Basics_IndividualProfileScalarFieldEnum = (typeof Basics_IndividualProfileScalarFieldEnum)[keyof typeof Basics_IndividualProfileScalarFieldEnum]
+
+
+export const Basics_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Basics_ServiceAreaScalarFieldEnum = (typeof Basics_ServiceAreaScalarFieldEnum)[keyof typeof Basics_ServiceAreaScalarFieldEnum]
+
+
+export const Bridge_ServiceProviderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  spCode: 'spCode',
+  spType: 'spType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  officeAddress: 'officeAddress',
+  officeEmail: 'officeEmail',
+  officePhone: 'officePhone',
+  primaryServices: 'primaryServices',
+  subServices: 'subServices',
+  typicalProjectValue: 'typicalProjectValue',
+  isServicesAdded: 'isServicesAdded',
+  PAN: 'PAN',
+  GSTIN: 'GSTIN',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  professionalLicenseType: 'professionalLicenseType',
+  professionalLicenseNumber: 'professionalLicenseNumber',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  portfolioId: 'portfolioId',
+  isIdentityAdded: 'isIdentityAdded',
+  isAddressAdded: 'isAddressAdded',
+  isPortfolioAdded: 'isPortfolioAdded',
+  isCredentialsAdded: 'isCredentialsAdded',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  isRepresentativeAdded: 'isRepresentativeAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_ServiceProviderScalarFieldEnum = (typeof Bridge_ServiceProviderScalarFieldEnum)[keyof typeof Bridge_ServiceProviderScalarFieldEnum]
+
+
+export const Bridge_OrganisationProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  brandName: 'brandName',
+  brandLogo: 'brandLogo',
+  organisationType: 'organisationType',
+  yearOfEstablishment: 'yearOfEstablishment',
+  businessProofType: 'businessProofType',
+  businessProofImage: 'businessProofImage',
+  tradeLicense: 'tradeLicense',
+  insurance: 'insurance',
+  representativeName: 'representativeName',
+  representativeDesignation: 'representativeDesignation',
+  representativeMobile: 'representativeMobile',
+  representativeGovtIDType: 'representativeGovtIDType',
+  representativeGovtIDNumber: 'representativeGovtIDNumber',
+  representativeGovtIDProof: 'representativeGovtIDProof'
+} as const
+
+export type Bridge_OrganisationProfileScalarFieldEnum = (typeof Bridge_OrganisationProfileScalarFieldEnum)[keyof typeof Bridge_OrganisationProfileScalarFieldEnum]
+
+
+export const Bridge_ProfessionalProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  workingSince: 'workingSince'
+} as const
+
+export type Bridge_ProfessionalProfileScalarFieldEnum = (typeof Bridge_ProfessionalProfileScalarFieldEnum)[keyof typeof Bridge_ProfessionalProfileScalarFieldEnum]
+
+
+export const Bridge_ContractorProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  workingSince: 'workingSince'
+} as const
+
+export type Bridge_ContractorProfileScalarFieldEnum = (typeof Bridge_ContractorProfileScalarFieldEnum)[keyof typeof Bridge_ContractorProfileScalarFieldEnum]
+
+
+export const Bridge_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_ServiceAreaScalarFieldEnum = (typeof Bridge_ServiceAreaScalarFieldEnum)[keyof typeof Bridge_ServiceAreaScalarFieldEnum]
+
+
+export const Bridge_PortfolioScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  portfolioWebsite: 'portfolioWebsite',
+  isPublic: 'isPublic',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_PortfolioScalarFieldEnum = (typeof Bridge_PortfolioScalarFieldEnum)[keyof typeof Bridge_PortfolioScalarFieldEnum]
+
+
+export const Bridge_PortfolioProjectScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  projectName: 'projectName',
+  location: 'location',
+  projectType: 'projectType',
+  scope: 'scope',
+  completionYear: 'completionYear',
+  budgetValue: 'budgetValue',
+  budgetCurrency: 'budgetCurrency',
+  thumbnailUrl: 'thumbnailUrl',
+  photos: 'photos',
+  isKallistoVerified: 'isKallistoVerified',
+  testimonialClientName: 'testimonialClientName',
+  testimonialClientPhone: 'testimonialClientPhone',
+  testimonialText: 'testimonialText',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_PortfolioProjectScalarFieldEnum = (typeof Bridge_PortfolioProjectScalarFieldEnum)[keyof typeof Bridge_PortfolioProjectScalarFieldEnum]
+
+
+export const Hands_ServiceAssociateScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  saCode: 'saCode',
+  saType: 'saType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  isIdentityAdded: 'isIdentityAdded',
+  address: 'address',
+  email: 'email',
+  phone: 'phone',
+  isAddressAdded: 'isAddressAdded',
+  primarySkill: 'primarySkill',
+  subSkills: 'subSkills',
+  isSkillsAdded: 'isSkillsAdded',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  PAN: 'PAN',
+  isCredentialsAdded: 'isCredentialsAdded',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Hands_ServiceAssociateScalarFieldEnum = (typeof Hands_ServiceAssociateScalarFieldEnum)[keyof typeof Hands_ServiceAssociateScalarFieldEnum]
+
+
+export const Hands_ContractorProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  workerCount: 'workerCount',
+  workingSince: 'workingSince'
+} as const
+
+export type Hands_ContractorProfileScalarFieldEnum = (typeof Hands_ContractorProfileScalarFieldEnum)[keyof typeof Hands_ContractorProfileScalarFieldEnum]
+
+
+export const Hands_WorkerProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  contractorId: 'contractorId',
+  workingSince: 'workingSince',
+  wagePerDay: 'wagePerDay',
+  wageCurrency: 'wageCurrency'
+} as const
+
+export type Hands_WorkerProfileScalarFieldEnum = (typeof Hands_WorkerProfileScalarFieldEnum)[keyof typeof Hands_WorkerProfileScalarFieldEnum]
+
+
+export const Hands_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Hands_ServiceAreaScalarFieldEnum = (typeof Hands_ServiceAreaScalarFieldEnum)[keyof typeof Hands_ServiceAreaScalarFieldEnum]
+
+
+export const Payment_BankAccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  accountHolderName: 'accountHolderName',
+  bankName: 'bankName',
+  bankBranch: 'bankBranch',
+  accountNumber: 'accountNumber',
+  IFSCCode: 'IFSCCode',
+  UPIId: 'UPIId',
+  GSTNumber: 'GSTNumber',
+  isGSTLinked: 'isGSTLinked',
+  cancelledChequeUrl: 'cancelledChequeUrl',
+  isPrimary: 'isPrimary',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Payment_BankAccountScalarFieldEnum = (typeof Payment_BankAccountScalarFieldEnum)[keyof typeof Payment_BankAccountScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -986,6 +2433,34 @@ export type ListEnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$P
 
 
 /**
+ * Reference to a field of type 'BasicsAssociateType'
+ */
+export type EnumBasicsAssociateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BasicsAssociateType'>
+    
+
+
+/**
+ * Reference to a field of type 'BasicsAssociateType[]'
+ */
+export type ListEnumBasicsAssociateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BasicsAssociateType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceTypes[]'
+ */
+export type ListEnumServiceTypesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceTypes[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceTypes'
+ */
+export type EnumServiceTypesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceTypes'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -996,6 +2471,132 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernmentIdType'
+ */
+export type EnumGovernmentIdTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernmentIdType'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernmentIdType[]'
+ */
+export type ListEnumGovernmentIdTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernmentIdType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceAssociateStatus'
+ */
+export type EnumServiceAssociateStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceAssociateStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceAssociateStatus[]'
+ */
+export type ListEnumServiceAssociateStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceAssociateStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrganisationType'
+ */
+export type EnumOrganisationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrganisationType'>
+    
+
+
+/**
+ * Reference to a field of type 'OrganisationType[]'
+ */
+export type ListEnumOrganisationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrganisationType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BusinessProofType'
+ */
+export type EnumBusinessProofTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BusinessProofType'>
+    
+
+
+/**
+ * Reference to a field of type 'BusinessProofType[]'
+ */
+export type ListEnumBusinessProofTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BusinessProofType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceProviderType'
+ */
+export type EnumServiceProviderTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceProviderType'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceProviderType[]'
+ */
+export type ListEnumServiceProviderTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceProviderType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceProviderStatus'
+ */
+export type EnumServiceProviderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceProviderStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ServiceProviderStatus[]'
+ */
+export type ListEnumServiceProviderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceProviderStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'HandsAssociateType'
+ */
+export type EnumHandsAssociateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HandsAssociateType'>
+    
+
+
+/**
+ * Reference to a field of type 'HandsAssociateType[]'
+ */
+export type ListEnumHandsAssociateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HandsAssociateType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SkillTypes'
+ */
+export type EnumSkillTypesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SkillTypes'>
+    
+
+
+/**
+ * Reference to a field of type 'SkillTypes[]'
+ */
+export type ListEnumSkillTypesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SkillTypes[]'>
     
 
 /**
@@ -1098,6 +2699,22 @@ export type GlobalOmitConfig = {
   account?: Prisma.AccountOmit
   verification?: Prisma.VerificationOmit
   appUser?: Prisma.AppUserOmit
+  basics_ServiceAssociate?: Prisma.Basics_ServiceAssociateOmit
+  basics_OrganisationProfile?: Prisma.Basics_OrganisationProfileOmit
+  basics_IndividualProfile?: Prisma.Basics_IndividualProfileOmit
+  basics_ServiceArea?: Prisma.Basics_ServiceAreaOmit
+  bridge_ServiceProvider?: Prisma.Bridge_ServiceProviderOmit
+  bridge_OrganisationProfile?: Prisma.Bridge_OrganisationProfileOmit
+  bridge_ProfessionalProfile?: Prisma.Bridge_ProfessionalProfileOmit
+  bridge_ContractorProfile?: Prisma.Bridge_ContractorProfileOmit
+  bridge_ServiceArea?: Prisma.Bridge_ServiceAreaOmit
+  bridge_Portfolio?: Prisma.Bridge_PortfolioOmit
+  bridge_PortfolioProject?: Prisma.Bridge_PortfolioProjectOmit
+  hands_ServiceAssociate?: Prisma.Hands_ServiceAssociateOmit
+  hands_ContractorProfile?: Prisma.Hands_ContractorProfileOmit
+  hands_WorkerProfile?: Prisma.Hands_WorkerProfileOmit
+  hands_ServiceArea?: Prisma.Hands_ServiceAreaOmit
+  payment_BankAccount?: Prisma.Payment_BankAccountOmit
 }
 
 /* Types for Logging */

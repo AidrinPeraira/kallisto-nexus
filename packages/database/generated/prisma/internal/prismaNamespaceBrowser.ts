@@ -55,7 +55,23 @@ export const ModelName = {
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification',
-  AppUser: 'AppUser'
+  AppUser: 'AppUser',
+  Basics_ServiceAssociate: 'Basics_ServiceAssociate',
+  Basics_OrganisationProfile: 'Basics_OrganisationProfile',
+  Basics_IndividualProfile: 'Basics_IndividualProfile',
+  Basics_ServiceArea: 'Basics_ServiceArea',
+  Bridge_ServiceProvider: 'Bridge_ServiceProvider',
+  Bridge_OrganisationProfile: 'Bridge_OrganisationProfile',
+  Bridge_ProfessionalProfile: 'Bridge_ProfessionalProfile',
+  Bridge_ContractorProfile: 'Bridge_ContractorProfile',
+  Bridge_ServiceArea: 'Bridge_ServiceArea',
+  Bridge_Portfolio: 'Bridge_Portfolio',
+  Bridge_PortfolioProject: 'Bridge_PortfolioProject',
+  Hands_ServiceAssociate: 'Hands_ServiceAssociate',
+  Hands_ContractorProfile: 'Hands_ContractorProfile',
+  Hands_WorkerProfile: 'Hands_WorkerProfile',
+  Hands_ServiceArea: 'Hands_ServiceArea',
+  Payment_BankAccount: 'Payment_BankAccount'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -147,6 +163,301 @@ export const AppUserScalarFieldEnum = {
 } as const
 
 export type AppUserScalarFieldEnum = (typeof AppUserScalarFieldEnum)[keyof typeof AppUserScalarFieldEnum]
+
+
+export const Basics_ServiceAssociateScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  saCode: 'saCode',
+  saType: 'saType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  isIdentityAdded: 'isIdentityAdded',
+  officeAddress: 'officeAddress',
+  email: 'email',
+  phone: 'phone',
+  isAddressAdded: 'isAddressAdded',
+  primaryServices: 'primaryServices',
+  subServices: 'subServices',
+  typicalProjectValue: 'typicalProjectValue',
+  isServicesAdded: 'isServicesAdded',
+  PAN: 'PAN',
+  GSTIN: 'GSTIN',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  professionalLicenseType: 'professionalLicenseType',
+  professionalLicenseNumber: 'professionalLicenseNumber',
+  isCredentialsAdded: 'isCredentialsAdded',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  portfolioId: 'portfolioId',
+  isPortfolioAdded: 'isPortfolioAdded',
+  isRepresentativeAdded: 'isRepresentativeAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Basics_ServiceAssociateScalarFieldEnum = (typeof Basics_ServiceAssociateScalarFieldEnum)[keyof typeof Basics_ServiceAssociateScalarFieldEnum]
+
+
+export const Basics_OrganisationProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  brandName: 'brandName',
+  brandLogo: 'brandLogo',
+  organisationType: 'organisationType',
+  yearOfEstablishment: 'yearOfEstablishment',
+  businessProofType: 'businessProofType',
+  businessProofImage: 'businessProofImage',
+  tradeLicense: 'tradeLicense',
+  insurance: 'insurance',
+  representativeName: 'representativeName',
+  representativeDesignation: 'representativeDesignation',
+  representativeMobile: 'representativeMobile',
+  representativeGovtIDType: 'representativeGovtIDType',
+  representativeGovtIDNumber: 'representativeGovtIDNumber',
+  representativeGovtIDProof: 'representativeGovtIDProof'
+} as const
+
+export type Basics_OrganisationProfileScalarFieldEnum = (typeof Basics_OrganisationProfileScalarFieldEnum)[keyof typeof Basics_OrganisationProfileScalarFieldEnum]
+
+
+export const Basics_IndividualProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  workingSince: 'workingSince'
+} as const
+
+export type Basics_IndividualProfileScalarFieldEnum = (typeof Basics_IndividualProfileScalarFieldEnum)[keyof typeof Basics_IndividualProfileScalarFieldEnum]
+
+
+export const Basics_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Basics_ServiceAreaScalarFieldEnum = (typeof Basics_ServiceAreaScalarFieldEnum)[keyof typeof Basics_ServiceAreaScalarFieldEnum]
+
+
+export const Bridge_ServiceProviderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  spCode: 'spCode',
+  spType: 'spType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  officeAddress: 'officeAddress',
+  officeEmail: 'officeEmail',
+  officePhone: 'officePhone',
+  primaryServices: 'primaryServices',
+  subServices: 'subServices',
+  typicalProjectValue: 'typicalProjectValue',
+  isServicesAdded: 'isServicesAdded',
+  PAN: 'PAN',
+  GSTIN: 'GSTIN',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  professionalLicenseType: 'professionalLicenseType',
+  professionalLicenseNumber: 'professionalLicenseNumber',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  portfolioId: 'portfolioId',
+  isIdentityAdded: 'isIdentityAdded',
+  isAddressAdded: 'isAddressAdded',
+  isPortfolioAdded: 'isPortfolioAdded',
+  isCredentialsAdded: 'isCredentialsAdded',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  isRepresentativeAdded: 'isRepresentativeAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_ServiceProviderScalarFieldEnum = (typeof Bridge_ServiceProviderScalarFieldEnum)[keyof typeof Bridge_ServiceProviderScalarFieldEnum]
+
+
+export const Bridge_OrganisationProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  brandName: 'brandName',
+  brandLogo: 'brandLogo',
+  organisationType: 'organisationType',
+  yearOfEstablishment: 'yearOfEstablishment',
+  businessProofType: 'businessProofType',
+  businessProofImage: 'businessProofImage',
+  tradeLicense: 'tradeLicense',
+  insurance: 'insurance',
+  representativeName: 'representativeName',
+  representativeDesignation: 'representativeDesignation',
+  representativeMobile: 'representativeMobile',
+  representativeGovtIDType: 'representativeGovtIDType',
+  representativeGovtIDNumber: 'representativeGovtIDNumber',
+  representativeGovtIDProof: 'representativeGovtIDProof'
+} as const
+
+export type Bridge_OrganisationProfileScalarFieldEnum = (typeof Bridge_OrganisationProfileScalarFieldEnum)[keyof typeof Bridge_OrganisationProfileScalarFieldEnum]
+
+
+export const Bridge_ProfessionalProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  workingSince: 'workingSince'
+} as const
+
+export type Bridge_ProfessionalProfileScalarFieldEnum = (typeof Bridge_ProfessionalProfileScalarFieldEnum)[keyof typeof Bridge_ProfessionalProfileScalarFieldEnum]
+
+
+export const Bridge_ContractorProfileScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  workingSince: 'workingSince'
+} as const
+
+export type Bridge_ContractorProfileScalarFieldEnum = (typeof Bridge_ContractorProfileScalarFieldEnum)[keyof typeof Bridge_ContractorProfileScalarFieldEnum]
+
+
+export const Bridge_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_ServiceAreaScalarFieldEnum = (typeof Bridge_ServiceAreaScalarFieldEnum)[keyof typeof Bridge_ServiceAreaScalarFieldEnum]
+
+
+export const Bridge_PortfolioScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  portfolioWebsite: 'portfolioWebsite',
+  isPublic: 'isPublic',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_PortfolioScalarFieldEnum = (typeof Bridge_PortfolioScalarFieldEnum)[keyof typeof Bridge_PortfolioScalarFieldEnum]
+
+
+export const Bridge_PortfolioProjectScalarFieldEnum = {
+  id: 'id',
+  portfolioId: 'portfolioId',
+  projectName: 'projectName',
+  location: 'location',
+  projectType: 'projectType',
+  scope: 'scope',
+  completionYear: 'completionYear',
+  budgetValue: 'budgetValue',
+  budgetCurrency: 'budgetCurrency',
+  thumbnailUrl: 'thumbnailUrl',
+  photos: 'photos',
+  isKallistoVerified: 'isKallistoVerified',
+  testimonialClientName: 'testimonialClientName',
+  testimonialClientPhone: 'testimonialClientPhone',
+  testimonialText: 'testimonialText',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Bridge_PortfolioProjectScalarFieldEnum = (typeof Bridge_PortfolioProjectScalarFieldEnum)[keyof typeof Bridge_PortfolioProjectScalarFieldEnum]
+
+
+export const Hands_ServiceAssociateScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  saCode: 'saCode',
+  saType: 'saType',
+  displayName: 'displayName',
+  profilePicture: 'profilePicture',
+  isIdentityAdded: 'isIdentityAdded',
+  address: 'address',
+  email: 'email',
+  phone: 'phone',
+  isAddressAdded: 'isAddressAdded',
+  primarySkill: 'primarySkill',
+  subSkills: 'subSkills',
+  isSkillsAdded: 'isSkillsAdded',
+  governmentIdType: 'governmentIdType',
+  governmentIdNumber: 'governmentIdNumber',
+  PAN: 'PAN',
+  isCredentialsAdded: 'isCredentialsAdded',
+  financeAccountId: 'financeAccountId',
+  maskedAccountNumber: 'maskedAccountNumber',
+  bankName: 'bankName',
+  isBankDetailsAdded: 'isBankDetailsAdded',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Hands_ServiceAssociateScalarFieldEnum = (typeof Hands_ServiceAssociateScalarFieldEnum)[keyof typeof Hands_ServiceAssociateScalarFieldEnum]
+
+
+export const Hands_ContractorProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  workerCount: 'workerCount',
+  workingSince: 'workingSince'
+} as const
+
+export type Hands_ContractorProfileScalarFieldEnum = (typeof Hands_ContractorProfileScalarFieldEnum)[keyof typeof Hands_ContractorProfileScalarFieldEnum]
+
+
+export const Hands_WorkerProfileScalarFieldEnum = {
+  id: 'id',
+  serviceAssociateId: 'serviceAssociateId',
+  contractorId: 'contractorId',
+  workingSince: 'workingSince',
+  wagePerDay: 'wagePerDay',
+  wageCurrency: 'wageCurrency'
+} as const
+
+export type Hands_WorkerProfileScalarFieldEnum = (typeof Hands_WorkerProfileScalarFieldEnum)[keyof typeof Hands_WorkerProfileScalarFieldEnum]
+
+
+export const Hands_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  serviceProviderId: 'serviceProviderId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Hands_ServiceAreaScalarFieldEnum = (typeof Hands_ServiceAreaScalarFieldEnum)[keyof typeof Hands_ServiceAreaScalarFieldEnum]
+
+
+export const Payment_BankAccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  accountHolderName: 'accountHolderName',
+  bankName: 'bankName',
+  bankBranch: 'bankBranch',
+  accountNumber: 'accountNumber',
+  IFSCCode: 'IFSCCode',
+  UPIId: 'UPIId',
+  GSTNumber: 'GSTNumber',
+  isGSTLinked: 'isGSTLinked',
+  cancelledChequeUrl: 'cancelledChequeUrl',
+  isPrimary: 'isPrimary',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Payment_BankAccountScalarFieldEnum = (typeof Payment_BankAccountScalarFieldEnum)[keyof typeof Payment_BankAccountScalarFieldEnum]
 
 
 export const SortOrder = {

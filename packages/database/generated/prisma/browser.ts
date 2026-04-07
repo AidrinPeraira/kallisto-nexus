@@ -42,3 +42,83 @@ export type Verification = Prisma.VerificationModel
  * 
  */
 export type AppUser = Prisma.AppUserModel
+/**
+ * Model Basics_ServiceAssociate
+ * 
+ */
+export type Basics_ServiceAssociate = Prisma.Basics_ServiceAssociateModel
+/**
+ * Model Basics_OrganisationProfile
+ * 
+ */
+export type Basics_OrganisationProfile = Prisma.Basics_OrganisationProfileModel
+/**
+ * Model Basics_IndividualProfile
+ * 
+ */
+export type Basics_IndividualProfile = Prisma.Basics_IndividualProfileModel
+/**
+ * Model Basics_ServiceArea
+ * 
+ */
+export type Basics_ServiceArea = Prisma.Basics_ServiceAreaModel
+/**
+ * Model Bridge_ServiceProvider
+ * 
+ */
+export type Bridge_ServiceProvider = Prisma.Bridge_ServiceProviderModel
+/**
+ * Model Bridge_OrganisationProfile
+ * 
+ */
+export type Bridge_OrganisationProfile = Prisma.Bridge_OrganisationProfileModel
+/**
+ * Model Bridge_ProfessionalProfile
+ * 
+ */
+export type Bridge_ProfessionalProfile = Prisma.Bridge_ProfessionalProfileModel
+/**
+ * Model Bridge_ContractorProfile
+ * 
+ */
+export type Bridge_ContractorProfile = Prisma.Bridge_ContractorProfileModel
+/**
+ * Model Bridge_ServiceArea
+ * 
+ */
+export type Bridge_ServiceArea = Prisma.Bridge_ServiceAreaModel
+/**
+ * Model Bridge_Portfolio
+ * 
+ */
+export type Bridge_Portfolio = Prisma.Bridge_PortfolioModel
+/**
+ * Model Bridge_PortfolioProject
+ * 
+ */
+export type Bridge_PortfolioProject = Prisma.Bridge_PortfolioProjectModel
+/**
+ * Model Hands_ServiceAssociate
+ * 
+ */
+export type Hands_ServiceAssociate = Prisma.Hands_ServiceAssociateModel
+/**
+ * Model Hands_ContractorProfile
+ * 
+ */
+export type Hands_ContractorProfile = Prisma.Hands_ContractorProfileModel
+/**
+ * Model Hands_WorkerProfile
+ * 
+ */
+export type Hands_WorkerProfile = Prisma.Hands_WorkerProfileModel
+/**
+ * Model Hands_ServiceArea
+ * 
+ */
+export type Hands_ServiceArea = Prisma.Hands_ServiceAreaModel
+/**
+ * Model Payment_BankAccount
+ * 
+ */
+export type Payment_BankAccount = Prisma.Payment_BankAccountModel
