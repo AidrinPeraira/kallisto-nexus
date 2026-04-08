@@ -82,5 +82,12 @@ export class AddProfessionalExtraIdentityUseCase implements IAddProfessionalExtr
 
       await this._professionalProfileRepository.create(createData);
     }
+
+    if (!existingServiceProvider.isIdentityAdded) {
+      await this._serviceProviderRepository.update({
+        id: dto.serviceProviderId,
+        isIdentityAdded: true,
+      });
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { AddServiceAreaRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
-export interface IAddServiceAreaUseCase {
+export interface IAddSPServiceAreaUseCase {
   execute(dto: AddServiceAreaRequestDTO): Promise<void>;
 }

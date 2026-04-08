@@ -115,5 +115,12 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
 
       await this._organisationProfileRepository.create(createData);
     }
+
+    if (!existingServiceProvider.isIdentityAdded) {
+      await this._serviceProviderRepository.update({
+        id: dto.serviceProviderId,
+        isIdentityAdded: true,
+      });
+    }
   }
 }

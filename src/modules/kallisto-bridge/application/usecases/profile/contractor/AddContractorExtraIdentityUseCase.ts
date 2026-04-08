@@ -82,5 +82,12 @@ export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIde
 
       await this._contractorProfileRepository.create(createData);
     }
+
+    if (!existingServiceProvider.isIdentityAdded) {
+      await this._serviceProviderRepository.update({
+        id: dto.serviceProviderId,
+        isIdentityAdded: true,
+      });
+    }
   }
 }
