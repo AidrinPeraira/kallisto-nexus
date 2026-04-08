@@ -1,6 +1,6 @@
 import express, { Application } from "express";
 import {
-  httpLogger,
+  createHttpLogger,
   createErrorHandler,
   notFoundHandler,
 } from "@packages/common/middleware";
@@ -21,7 +21,7 @@ export function createApp(): Application {
   // Global Middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(httpLogger);
+  app.use(createHttpLogger(logger));
 
   // Health Check
   app.get("/health", (_req, res) => {
