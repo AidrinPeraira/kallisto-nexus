@@ -104,5 +104,6 @@
   - portfolio listing
   - portflio matching
   - SA Onboarding
+  - Resend email bug
 
 ---

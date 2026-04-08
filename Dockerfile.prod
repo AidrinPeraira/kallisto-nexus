@@ -15,6 +15,8 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Generate Prisma Client
+# Provide dummy URL for config parsing during build
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 RUN pnpm db:generate
 
 # Build the project
@@ -39,11 +41,9 @@ RUN pnpm install --prod --frozen-lockfile
 
 # Copy output from the builder stage
 COPY --from=builder /usr/src/app/dist ./dist
-# Copy the Prisma directory from builder so we can construct the production client
+# Copy the pre-generated Prisma client and schemas from the builder stage
 COPY --from=builder /usr/src/app/packages/database/prisma ./packages/database/prisma
-
-# Generate production Prisma Client (slimmed down thanks to --prod dependencies)
-RUN pnpm db:generate
+COPY --from=builder /usr/src/app/packages/database/generated ./packages/database/generated
 
 # Ensure port exposes
 EXPOSE 3000

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   kallisto-api:
     image: ${DOCKER_HUB_USERNAME:-yourusername}/kallisto-nexus:${IMAGE_TAG:-latest}
