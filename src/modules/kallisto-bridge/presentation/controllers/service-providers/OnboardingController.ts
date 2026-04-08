@@ -14,6 +14,9 @@ import { IAddSPAddressUseCase } from "@src/modules/kallisto-bridge/application/i
 import { IAddServicesUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPServicesUseCase";
 import { IAddSPServiceAreaUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPServiceAreaUseCase";
 import { AppError, ErrorCode } from "@packages/common/errors";
+import { IAddSPCredentialsUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPCredentialsUseCase";
+import { IAddOrgExtraCredentialsUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgExtraCredentialsUseCase";
+import { IAddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgRepresentativeUseCase";
 
 export class OnboardingController implements IOnboardingController {
   constructor(
@@ -26,6 +29,11 @@ export class OnboardingController implements IOnboardingController {
     private readonly _addSPAddressUseCase: IAddSPAddressUseCase,
     private readonly _addSPServicesUseCase: IAddServicesUseCase,
     private readonly _addSPServiceAreasUseCase: IAddSPServiceAreaUseCase,
+
+    private readonly _addSPCredentialsUseCase: IAddSPCredentialsUseCase,
+    private readonly _addOrgExtraCredentialsUseCase: IAddOrgExtraCredentialsUseCase,
+
+    private readonly _addOrgRepresentativeUseCase: IAddOrgRepresentativeUseCase,
 
     private readonly _updateProfileCompletionUseCase: IUpdateProfileCompletionUseCase,
   ) {}
@@ -99,6 +107,7 @@ export class OnboardingController implements IOnboardingController {
       await this._updateProfileCompletionUseCase.execute({
         serviceProviderId: result.serviceProviderId,
         isIdentityAdded: true,
+        isRepresentativeAdded: true,
       });
 
       res
@@ -143,6 +152,7 @@ export class OnboardingController implements IOnboardingController {
       await this._updateProfileCompletionUseCase.execute({
         serviceProviderId: result.serviceProviderId,
         isIdentityAdded: true,
+        isRepresentativeAdded: true,
       });
 
       res
@@ -256,6 +266,130 @@ export class OnboardingController implements IOnboardingController {
       return;
     } catch (error: unknown) {
       this._logger.error("Add SP Service Areas Error: ", error);
+      throw error;
+    }
+  }
+
+  async addOrgSPCredentials(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add Org SP Credentials request received");
+
+      const data = OnboardingMapper.toAddOrgSPCredentialsRequestDTO(req.body);
+
+      //add credentials
+      await this._addSPCredentialsUseCase.execute(data);
+      await this._addOrgExtraCredentialsUseCase.execute(data);
+
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isCredentialsAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.CREDENTIALS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add Org SP Credentials Error: ", error);
+      throw error;
+    }
+  }
+
+  async addProfessionalSPCredentials(
+    req: Request,
+    res: Response,
+  ): Promise<void> {
+    try {
+      this._logger.info("Add Professional SP Credentials request received");
+
+      const data = OnboardingMapper.toAddProfessionalSPCredentialsRequestDTO(
+        req.body,
+      );
+
+      //add credentials
+      await this._addSPCredentialsUseCase.execute(data);
+
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isCredentialsAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.CREDENTIALS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add Professional SP Credentials Error: ", error);
+      throw error;
+    }
+  }
+
+  async addContractorSPCredentials(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add Contractor SP Credentials request received");
+
+      const data = OnboardingMapper.toAddContractorSPCredentialsRequestDTO(
+        req.body,
+      );
+
+      //add credentials
+      await this._addSPCredentialsUseCase.execute(data);
+
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isCredentialsAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.CREDENTIALS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add Contractor SP Credentials Error: ", error);
+      throw error;
+    }
+  }
+
+  async addOrgRepresentative(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add Org Representative request received");
+
+      const data = OnboardingMapper.toAddOrgRepresentativeRequestDTO(req.body);
+
+      //add representative
+      await this._addOrgRepresentativeUseCase.execute(data);
+
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isRepresentativeAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.REPRESENTATIVE_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add Org Representative Error: ", error);
       throw error;
     }
   }

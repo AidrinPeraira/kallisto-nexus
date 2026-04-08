@@ -1,7 +1,10 @@
 import {
   AddAddressRequestDTO,
   AddContractorExtraIdentityRequestDTO,
+  AddCredentialsRequestDTO,
+  AddOrgExtraCredentialsRequestDTO,
   AddOrgExtraIdentityRequestDTO,
+  AddOrgRespresentativeRequestDTO,
   AddProfessionalExtraIdentityRequestDTO,
   AddServiceAreaRequestDTO,
   AddServicesRequestDTO,
@@ -79,5 +82,69 @@ export class OnboardingMapper {
         radiusKm: serviceArea.radiusKm,
       };
     });
+  }
+
+  static toAddOrgSPCredentialsRequestDTO(
+    body: any,
+  ): AddCredentialsRequestDTO & AddOrgExtraCredentialsRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      PAN: body.PAN,
+      GSTIN: body.GSTIN,
+      businessProofType: body.businessProofType,
+      businessProofImage: body.businessProofImage,
+      governmentIdNumber: body.governmentIdNumber,
+      governmentIdType: body.governmentIdType,
+      insurance: body.insurance,
+      professionalLicenseNumber: body.professionalLicenseNumber,
+      professionalLicenseType: body.professionalLicenseType,
+      tradeLicense: body.tradeLicense,
+    };
+  }
+
+  static toAddProfessionalSPCredentialsRequestDTO(
+    body: any,
+  ): AddCredentialsRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      PAN: body.PAN,
+      GSTIN: body.GSTIN,
+      governmentIdNumber: body.governmentIdNumber,
+      governmentIdType: body.governmentIdType,
+      professionalLicenseNumber: body.professionalLicenseNumber,
+      professionalLicenseType: body.professionalLicenseType,
+    };
+  }
+
+  static toAddContractorSPCredentialsRequestDTO(
+    body: any,
+  ): AddCredentialsRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      PAN: body.PAN,
+      GSTIN: body.GSTIN,
+      governmentIdNumber: body.governmentIdNumber,
+      governmentIdType: body.governmentIdType,
+      professionalLicenseNumber: body.professionalLicenseNumber,
+      professionalLicenseType: body.professionalLicenseType,
+    };
+  }
+
+  static toAddOrgRepresentativeRequestDTO(
+    body: any,
+  ): AddOrgRespresentativeRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      representativeName: body.representativeName,
+      representativeDesignation: body.representativeDesignation,
+      representativeGovtIDNumber: body.representativeGovtIDNumber,
+      representativeGovtIDType: body.representativeGovtIDType,
+      representativeGovtIDProof: body.representativeGovtIDProof,
+      representativeMobile: body.representativeMobile,
+    };
   }
 }

@@ -35,4 +35,16 @@ export interface IOnboardingController {
    * This function adds service areas for all service providers
    */
   addSPServiceAreas(req: Request, res: Response): Promise<void>;
+
+  //----- Credentials ------
+
+  addOrgSPCredentials(req: Request, res: Response): Promise<void>;
+  addProfessionalSPCredentials(req: Request, res: Response): Promise<void>;
+  addContractorSPCredentials(req: Request, res: Response): Promise<void>;
+
+  //----- representative ----
+
+  addOrgRepresentative(req: Request, res: Response): Promise<void>;
+
+  //----- Bank Details ------
 }

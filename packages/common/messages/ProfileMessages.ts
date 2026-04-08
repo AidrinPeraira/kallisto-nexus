@@ -35,12 +35,17 @@ export enum ProfileMessages {
   BUSINESS_PROOF_TYPE_MANDATORY = "Business proof type is mandatory",
   BUSINESS_PROOF_IMAGE_MANDATORY = "Business proof image is mandatory",
 
+  CREDENTIALS_ADDED = "Credentials added successfully",
+  CREDENTIALS_ALREADY_ADDED = "Credentials already added",
+
   REPRESENTATIVE_NAME_MANDATORY = "Representative name is mandatory",
   REPRESENTATIVE_DESIGNATION_MANDATORY = "Representative designation is mandatory",
   REPRESENTATIVE_MOBILE_MANDATORY = "Representative mobile is mandatory",
   REPRESENTATIVE_GOVT_ID_TYPE_MANDATORY = "Representative government ID type is mandatory",
   REPRESENTATIVE_GOVT_ID_NUMBER_MANDATORY = "Representative government ID number is mandatory",
   REPRESENTATIVE_GOVT_ID_PROOF_MANDATORY = "Representative government ID proof is mandatory",
+  REPRESENTATIVE_ADDED = "Representative added successfully",
+  REPRESENTATIVE_ALREADY_ADDED = "Representative already added",
 
   ACCOUNT_HOLDER_NAME_MANDATORY = "Account holder name is mandatory",
   BANK_NAME_MANDATORY = "Bank name is mandatory",

@@ -71,6 +71,14 @@ export class AddSPCredentialsUseCase implements IAddSPCredentialsUseCase {
       );
     }
 
+    if (existingServiceProvider.isCredentialsAdded) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.CREDENTIALS_ALREADY_ADDED,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     const updateData: Partial<ServiceProviderEntity> = {
       id: dto.serviceProviderId,
       PAN: dto.PAN,

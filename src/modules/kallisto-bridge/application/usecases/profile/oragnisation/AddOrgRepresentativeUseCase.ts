@@ -4,7 +4,11 @@ import { OrganisationProfileEntity } from "@src/modules/kallisto-bridge/domain/e
 import { IAddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgRepresentativeUseCase";
 import { AddOrgRespresentativeRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 import { AppError, ErrorCode } from "@packages/common/errors";
-import { HttpStatus, ServiceProviderType, GovernmentIdType } from "@packages/common/enums";
+import {
+  HttpStatus,
+  ServiceProviderType,
+  GovernmentIdType,
+} from "@packages/common/enums";
 import { ProfileMessages } from "@packages/common/messages";
 
 export class AddOrgRepresentativeUseCase implements IAddOrgRepresentativeUseCase {
@@ -71,9 +75,8 @@ export class AddOrgRepresentativeUseCase implements IAddOrgRepresentativeUseCase
     }
 
     // Validate the service provider exists
-    const existingServiceProvider = await this._serviceProviderRepository.findById(
-      dto.serviceProviderId,
-    );
+    const existingServiceProvider =
+      await this._serviceProviderRepository.findById(dto.serviceProviderId);
 
     if (
       !existingServiceProvider ||
@@ -86,42 +89,26 @@ export class AddOrgRepresentativeUseCase implements IAddOrgRepresentativeUseCase
       );
     }
 
-    const existingProfile =
-      await this._organisationProfileRepository.findByServiceProviderId(
-        dto.serviceProviderId,
+    if (existingServiceProvider.isRepresentativeAdded) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.REPRESENTATIVE_ALREADY_ADDED,
+        HttpStatus.BAD_REQUEST,
       );
-
-    if (existingProfile) {
-      const updateData: OrganisationProfileEntity = {
-        ...existingProfile,
-        representativeName: dto.representativeName,
-        representativeDesignation: dto.representativeDesignation,
-        representativeMobile: dto.representativeMobile,
-        representativeGovtIDType: dto.representativeGovtIDType as unknown as GovernmentIdType,
-        representativeGovtIDNumber: dto.representativeGovtIDNumber,
-        representativeGovtIDProof: dto.representativeGovtIDProof,
-      };
-
-      await this._organisationProfileRepository.update(updateData);
-    } else {
-      const createData: OrganisationProfileEntity = {
-        id: "", // Handled by DB generation
-        serviceProviderId: dto.serviceProviderId,
-        representativeName: dto.representativeName,
-        representativeDesignation: dto.representativeDesignation,
-        representativeMobile: dto.representativeMobile,
-        representativeGovtIDType: dto.representativeGovtIDType as unknown as GovernmentIdType,
-        representativeGovtIDNumber: dto.representativeGovtIDNumber,
-        representativeGovtIDProof: dto.representativeGovtIDProof,
-      };
-
-      await this._organisationProfileRepository.create(createData);
     }
 
-    // Update the main service provider flag
-    await this._serviceProviderRepository.update({
-      id: dto.serviceProviderId,
-      isRepresentativeAdded: true,
-    });
+    const createData: OrganisationProfileEntity = {
+      id: "", // Handled by DB generation
+      serviceProviderId: dto.serviceProviderId,
+      representativeName: dto.representativeName,
+      representativeDesignation: dto.representativeDesignation,
+      representativeMobile: dto.representativeMobile,
+      representativeGovtIDType:
+        dto.representativeGovtIDType as unknown as GovernmentIdType,
+      representativeGovtIDNumber: dto.representativeGovtIDNumber,
+      representativeGovtIDProof: dto.representativeGovtIDProof,
+    };
+
+    await this._organisationProfileRepository.create(createData);
   }
 }
