@@ -251,7 +251,7 @@ export type Bridge_OrganisationProfileGroupByOutputType = {
   brandName: string | null
   brandLogo: string | null
   organisationType: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment: number | null
   businessProofType: $Enums.BusinessProofType | null
   businessProofImage: string | null
   tradeLicense: string | null
@@ -293,7 +293,7 @@ export type Bridge_OrganisationProfileWhereInput = {
   brandName?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   brandLogo?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   organisationType?: Prisma.EnumOrganisationTypeNullableFilter<"Bridge_OrganisationProfile"> | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFilter<"Bridge_OrganisationProfile"> | number
+  yearOfEstablishment?: Prisma.IntNullableFilter<"Bridge_OrganisationProfile"> | number | null
   businessProofType?: Prisma.EnumBusinessProofTypeNullableFilter<"Bridge_OrganisationProfile"> | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   tradeLicense?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
@@ -313,7 +313,7 @@ export type Bridge_OrganisationProfileOrderByWithRelationInput = {
   brandName?: Prisma.SortOrderInput | Prisma.SortOrder
   brandLogo?: Prisma.SortOrderInput | Prisma.SortOrder
   organisationType?: Prisma.SortOrderInput | Prisma.SortOrder
-  yearOfEstablishment?: Prisma.SortOrder
+  yearOfEstablishment?: Prisma.SortOrderInput | Prisma.SortOrder
   businessProofType?: Prisma.SortOrderInput | Prisma.SortOrder
   businessProofImage?: Prisma.SortOrderInput | Prisma.SortOrder
   tradeLicense?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -336,7 +336,7 @@ export type Bridge_OrganisationProfileWhereUniqueInput = Prisma.AtLeast<{
   brandName?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   brandLogo?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   organisationType?: Prisma.EnumOrganisationTypeNullableFilter<"Bridge_OrganisationProfile"> | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFilter<"Bridge_OrganisationProfile"> | number
+  yearOfEstablishment?: Prisma.IntNullableFilter<"Bridge_OrganisationProfile"> | number | null
   businessProofType?: Prisma.EnumBusinessProofTypeNullableFilter<"Bridge_OrganisationProfile"> | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
   tradeLicense?: Prisma.StringNullableFilter<"Bridge_OrganisationProfile"> | string | null
@@ -356,7 +356,7 @@ export type Bridge_OrganisationProfileOrderByWithAggregationInput = {
   brandName?: Prisma.SortOrderInput | Prisma.SortOrder
   brandLogo?: Prisma.SortOrderInput | Prisma.SortOrder
   organisationType?: Prisma.SortOrderInput | Prisma.SortOrder
-  yearOfEstablishment?: Prisma.SortOrder
+  yearOfEstablishment?: Prisma.SortOrderInput | Prisma.SortOrder
   businessProofType?: Prisma.SortOrderInput | Prisma.SortOrder
   businessProofImage?: Prisma.SortOrderInput | Prisma.SortOrder
   tradeLicense?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -383,7 +383,7 @@ export type Bridge_OrganisationProfileScalarWhereWithAggregatesInput = {
   brandName?: Prisma.StringNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | string | null
   brandLogo?: Prisma.StringNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | string | null
   organisationType?: Prisma.EnumOrganisationTypeNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntWithAggregatesFilter<"Bridge_OrganisationProfile"> | number
+  yearOfEstablishment?: Prisma.IntNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | number | null
   businessProofType?: Prisma.EnumBusinessProofTypeNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.StringNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | string | null
   tradeLicense?: Prisma.StringNullableWithAggregatesFilter<"Bridge_OrganisationProfile"> | string | null
@@ -401,7 +401,7 @@ export type Bridge_OrganisationProfileCreateInput = {
   brandName?: string | null
   brandLogo?: string | null
   organisationType?: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment?: number | null
   businessProofType?: $Enums.BusinessProofType | null
   businessProofImage?: string | null
   tradeLicense?: string | null
@@ -421,7 +421,7 @@ export type Bridge_OrganisationProfileUncheckedCreateInput = {
   brandName?: string | null
   brandLogo?: string | null
   organisationType?: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment?: number | null
   businessProofType?: $Enums.BusinessProofType | null
   businessProofImage?: string | null
   tradeLicense?: string | null
@@ -439,7 +439,7 @@ export type Bridge_OrganisationProfileUpdateInput = {
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -459,7 +459,7 @@ export type Bridge_OrganisationProfileUncheckedUpdateInput = {
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -478,7 +478,7 @@ export type Bridge_OrganisationProfileCreateManyInput = {
   brandName?: string | null
   brandLogo?: string | null
   organisationType?: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment?: number | null
   businessProofType?: $Enums.BusinessProofType | null
   businessProofImage?: string | null
   tradeLicense?: string | null
@@ -496,7 +496,7 @@ export type Bridge_OrganisationProfileUpdateManyMutationInput = {
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -515,7 +515,7 @@ export type Bridge_OrganisationProfileUncheckedUpdateManyInput = {
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -630,20 +630,12 @@ export type Bridge_OrganisationProfileUncheckedUpdateOneWithoutServiceProviderNe
   update?: Prisma.XOR<Prisma.XOR<Prisma.Bridge_OrganisationProfileUpdateToOneWithWhereWithoutServiceProviderInput, Prisma.Bridge_OrganisationProfileUpdateWithoutServiceProviderInput>, Prisma.Bridge_OrganisationProfileUncheckedUpdateWithoutServiceProviderInput>
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type Bridge_OrganisationProfileCreateWithoutServiceProviderInput = {
   id?: string
   brandName?: string | null
   brandLogo?: string | null
   organisationType?: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment?: number | null
   businessProofType?: $Enums.BusinessProofType | null
   businessProofImage?: string | null
   tradeLicense?: string | null
@@ -661,7 +653,7 @@ export type Bridge_OrganisationProfileUncheckedCreateWithoutServiceProviderInput
   brandName?: string | null
   brandLogo?: string | null
   organisationType?: $Enums.OrganisationType | null
-  yearOfEstablishment: number
+  yearOfEstablishment?: number | null
   businessProofType?: $Enums.BusinessProofType | null
   businessProofImage?: string | null
   tradeLicense?: string | null
@@ -695,7 +687,7 @@ export type Bridge_OrganisationProfileUpdateWithoutServiceProviderInput = {
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -713,7 +705,7 @@ export type Bridge_OrganisationProfileUncheckedUpdateWithoutServiceProviderInput
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandLogo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   organisationType?: Prisma.NullableEnumOrganisationTypeFieldUpdateOperationsInput | $Enums.OrganisationType | null
-  yearOfEstablishment?: Prisma.IntFieldUpdateOperationsInput | number
+  yearOfEstablishment?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   businessProofType?: Prisma.NullableEnumBusinessProofTypeFieldUpdateOperationsInput | $Enums.BusinessProofType | null
   businessProofImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tradeLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -829,7 +821,7 @@ export type $Bridge_OrganisationProfilePayload<ExtArgs extends runtime.Types.Ext
     brandName: string | null
     brandLogo: string | null
     organisationType: $Enums.OrganisationType | null
-    yearOfEstablishment: number
+    yearOfEstablishment: number | null
     businessProofType: $Enums.BusinessProofType | null
     businessProofImage: string | null
     tradeLicense: string | null

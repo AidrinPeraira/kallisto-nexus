@@ -71,7 +71,7 @@ model Bridge_OrganisationProfile {
     brandName           String?
     brandLogo           String?
     organisationType    OrganisationType?
-    yearOfEstablishment Int
+    yearOfEstablishment Int?
 
     // org-specific credentials
     businessProofType  BusinessProofType?
