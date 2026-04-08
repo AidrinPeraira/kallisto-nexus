@@ -7,6 +7,7 @@ import { HttpStatus } from "@packages/common/enums";
 
 export const createErrorHandler = (logger: ILogger) => {
   return (err: any, req: Request, res: Response, next: NextFunction) => {
+    console.log("Hitttt");
     // 1. Handle Known Application Errors
     if (err instanceof AppError) {
       logger.error(`AppError: ${err.message}`, {

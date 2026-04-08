@@ -32,8 +32,27 @@ export function authMidllewarre(
     }
 
     (req as any).user = payload;
+    req.body.userId = (payload as any).userId;
     next();
-  } catch (error) {
+  } catch (error: any) {
+    if (error instanceof jwt.TokenExpiredError) {
+      return next(
+        new AppError(
+          ErrorCode.TOKEN_EXPIRED,
+          AuthMessages.TOKEN_EXPIRED,
+          HttpStatus.UNAUTHORIZED,
+        ),
+      );
+    }
+    if (error instanceof jwt.JsonWebTokenError) {
+      return next(
+        new AppError(
+          ErrorCode.TOKEN_INVALID,
+          AuthMessages.TOKEN_INVALID,
+          HttpStatus.UNAUTHORIZED,
+        ),
+      );
+    }
     next(error);
   }
 }

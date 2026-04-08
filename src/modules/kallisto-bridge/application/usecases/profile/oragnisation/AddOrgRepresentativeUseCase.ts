@@ -97,8 +97,7 @@ export class AddOrgRepresentativeUseCase implements IAddOrgRepresentativeUseCase
       );
     }
 
-    const createData: OrganisationProfileEntity = {
-      id: "", // Handled by DB generation
+    const createData = {
       serviceProviderId: dto.serviceProviderId,
       representativeName: dto.representativeName,
       representativeDesignation: dto.representativeDesignation,
@@ -107,7 +106,7 @@ export class AddOrgRepresentativeUseCase implements IAddOrgRepresentativeUseCase
         dto.representativeGovtIDType as unknown as GovernmentIdType,
       representativeGovtIDNumber: dto.representativeGovtIDNumber,
       representativeGovtIDProof: dto.representativeGovtIDProof,
-    };
+    } as OrganisationProfileEntity;
 
     await this._organisationProfileRepository.create(createData);
   }

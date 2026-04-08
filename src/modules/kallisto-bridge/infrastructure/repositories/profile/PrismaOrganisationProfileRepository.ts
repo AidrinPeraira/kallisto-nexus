@@ -39,8 +39,10 @@ export class PrismaOrganisationProfileRepository implements IOrganisationProfile
       }
     });
 
-    const createdProfile = await prisma.bridge_OrganisationProfile.create({
-      data,
+    const createdProfile = await prisma.bridge_OrganisationProfile.upsert({
+      where: { serviceProviderId: profile.serviceProviderId },
+      update: data,
+      create: data,
     });
 
     return this.mapToDomain(createdProfile);

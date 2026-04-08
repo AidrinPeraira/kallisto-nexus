@@ -20,7 +20,7 @@ export class OnboardingMapper {
       displayName: body.displayName,
       profilePicture: body.profilePicture,
       spType: body.spType,
-      serviceProviderId: body.serviceProviderId,
+      serviceProviderId: body.serviceProviderId, //REDUNDANT
       organisationType: body.organisationType,
       yearOfEstablishment: body.yearOfEstablishment,
     };
@@ -78,7 +78,7 @@ export class OnboardingMapper {
         serviceProviderId: body.serviceProviderId,
         city: serviceArea.city,
         isPrimary: serviceArea.isPrimary,
-        centerPoint: serviceArea.centerPoint,
+        centerPoint: [serviceArea.centerPoint.lng, serviceArea.centerPoint.lat],
         radiusKm: serviceArea.radiusKm,
       };
     });

@@ -78,11 +78,10 @@ export class AddProfessionalExtraIdentityUseCase implements IAddProfessionalExtr
       );
     }
 
-    const createData: ProfessionalProfileEntity = {
-      id: "", // Handled by DB generation
+    const createData = {
       serviceProviderId: dto.serviceProviderId,
       workingSince: dto.workingSince,
-    };
+    } as ProfessionalProfileEntity;
 
     const result = await this._professionalProfileRepository.create(createData);
 

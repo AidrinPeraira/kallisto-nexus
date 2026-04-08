@@ -1,0 +1,25 @@
+import { UserRole } from "@packages/common/enums";
+import { authMidllewarre, roleMiddleware } from "@packages/common/middleware";
+import { createBridgeModule } from "@src/modules/kallisto-bridge/bridge.module";
+import { createOnboardingRoutes } from "@src/modules/kallisto-bridge/presentation/routers/OnboardingRouter";
+import { Router } from "express";
+
+export function createBridgeRouter(): Router {
+  const { onboardingController } = createBridgeModule();
+  const router = Router();
+
+  // You can mount multiple sub-routers under bridge module here
+  // Right now onboarding is main logic
+  router.use(
+    "/onboarding",
+    authMidllewarre,
+    roleMiddleware(
+      UserRole.SP_CONTRACTOR,
+      UserRole.SP_PROFESSIONAL,
+      UserRole.SP_ORGANIZATION,
+    ),
+    createOnboardingRoutes(onboardingController),
+  );
+
+  return router;
+}
