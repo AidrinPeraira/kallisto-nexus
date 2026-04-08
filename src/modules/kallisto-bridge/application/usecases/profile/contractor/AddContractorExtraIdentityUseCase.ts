@@ -5,10 +5,12 @@ import { AddContractorExtraIdentityRequestDTO } from "@src/modules/kallisto-brid
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { HttpStatus, ServiceProviderType } from "@packages/common/enums";
 import { ProfileMessages } from "@packages/common/messages";
+import { IServiceProviderRepository } from "@src/modules/kallisto-bridge/application/interfaces/repositories/profile/IServiceProviderRepository";
 
 export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIdentityUseCase {
   constructor(
     private readonly _contractorProfileRepository: IContractorProfileRepository,
+    private readonly _serviceProviderRepository: IServiceProviderRepository,
   ) {}
 
   async execute(dto: AddContractorExtraIdentityRequestDTO): Promise<void> {
@@ -17,6 +19,20 @@ export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIde
         ErrorCode.VALIDATION_ERROR,
         ProfileMessages.SERVICE_PROVIDER_ID_MANDATORY,
         HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    const existingServiceProvider =
+      await this._serviceProviderRepository.findById(dto.serviceProviderId);
+
+    if (
+      !existingServiceProvider ||
+      existingServiceProvider.spType !== ServiceProviderType.CONTRACTOR
+    ) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.PROFILE_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
       );
     }
 

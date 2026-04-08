@@ -4,7 +4,11 @@ import { OrganisationProfileEntity } from "@src/modules/kallisto-bridge/domain/e
 import { IAddOrgExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgExtraIdentityUseCase";
 import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 import { AppError, ErrorCode } from "@packages/common/errors";
-import { HttpStatus, ServiceProviderType, OrganisationType } from "@packages/common/enums";
+import {
+  HttpStatus,
+  ServiceProviderType,
+  OrganisationType,
+} from "@packages/common/enums";
 import { ProfileMessages } from "@packages/common/messages";
 
 export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
@@ -19,6 +23,20 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
         ErrorCode.VALIDATION_ERROR,
         ProfileMessages.SERVICE_PROVIDER_ID_MANDATORY,
         HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    const existingServiceProvider =
+      await this._serviceProviderRepository.findById(dto.serviceProviderId);
+
+    if (
+      !existingServiceProvider ||
+      existingServiceProvider.spType !== ServiceProviderType.ORGANISATION
+    ) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.PROFILE_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
       );
     }
 
@@ -96,14 +114,6 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
       };
 
       await this._organisationProfileRepository.create(createData);
-    }
-
-    // Set the identity added flag to true
-    if (!sp.isIdentityAdded) {
-      await this._serviceProviderRepository.update({
-        id: dto.serviceProviderId,
-        isIdentityAdded: true,
-      });
     }
   }
 }

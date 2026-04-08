@@ -28,23 +28,19 @@ export class AddSPIdentityUseCase implements IAddSPIdentityUseCase {
         displayName: dto.displayName,
         profilePicture: dto.profilePicture,
         spType: dto.spType,
-        isIdentityAdded: isIdentityComplete,
-        isRepresentativeAdded: isIdentityComplete,
       };
 
       await this._serviceProviderRepository.update(updateData);
     } else {
       // 2b. Create new SP
       const now = new Date();
-      
+
       const createData = {
         userId: dto.userId,
         displayName: dto.displayName,
         profilePicture: dto.profilePicture,
         spType: dto.spType,
         status: ServiceProviderStatus.ONBOARDING,
-        isIdentityAdded: isIdentityComplete,
-        isRepresentativeAdded: isIdentityComplete,
         createdAt: now,
         updatedAt: now,
       } as ServiceProviderEntity;
