@@ -53,10 +53,10 @@ export type Basics_ServiceAssociate = Prisma.Basics_ServiceAssociateModel
  */
 export type Basics_OrganisationProfile = Prisma.Basics_OrganisationProfileModel
 /**
- * Model Basics_IndividualProfile
+ * Model Basics_ProfessionalProfile
  * 
  */
-export type Basics_IndividualProfile = Prisma.Basics_IndividualProfileModel
+export type Basics_ProfessionalProfile = Prisma.Basics_ProfessionalProfileModel
 /**
  * Model Basics_ServiceArea
  * 

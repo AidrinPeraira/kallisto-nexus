@@ -391,7 +391,7 @@ export const ModelName = {
   AppUser: 'AppUser',
   Basics_ServiceAssociate: 'Basics_ServiceAssociate',
   Basics_OrganisationProfile: 'Basics_OrganisationProfile',
-  Basics_IndividualProfile: 'Basics_IndividualProfile',
+  Basics_ProfessionalProfile: 'Basics_ProfessionalProfile',
   Basics_ServiceArea: 'Basics_ServiceArea',
   Bridge_ServiceProvider: 'Bridge_ServiceProvider',
   Bridge_OrganisationProfile: 'Bridge_OrganisationProfile',
@@ -420,7 +420,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "account" | "verification" | "appUser" | "basics_ServiceAssociate" | "basics_OrganisationProfile" | "basics_IndividualProfile" | "basics_ServiceArea" | "bridge_ServiceProvider" | "bridge_OrganisationProfile" | "bridge_ProfessionalProfile" | "bridge_ContractorProfile" | "bridge_ServiceArea" | "bridge_Portfolio" | "bridge_PortfolioProject" | "hands_ServiceAssociate" | "hands_ContractorProfile" | "hands_WorkerProfile" | "hands_ServiceArea" | "payment_BankAccount"
+    modelProps: "user" | "session" | "account" | "verification" | "appUser" | "basics_ServiceAssociate" | "basics_OrganisationProfile" | "basics_ProfessionalProfile" | "basics_ServiceArea" | "bridge_ServiceProvider" | "bridge_OrganisationProfile" | "bridge_ProfessionalProfile" | "bridge_ContractorProfile" | "bridge_ServiceArea" | "bridge_Portfolio" | "bridge_PortfolioProject" | "hands_ServiceAssociate" | "hands_ContractorProfile" | "hands_WorkerProfile" | "hands_ServiceArea" | "payment_BankAccount"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -942,77 +942,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Basics_IndividualProfile: {
-      payload: Prisma.$Basics_IndividualProfilePayload<ExtArgs>
-      fields: Prisma.Basics_IndividualProfileFieldRefs
+    Basics_ProfessionalProfile: {
+      payload: Prisma.$Basics_ProfessionalProfilePayload<ExtArgs>
+      fields: Prisma.Basics_ProfessionalProfileFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.Basics_IndividualProfileFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload> | null
+          args: Prisma.Basics_ProfessionalProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.Basics_IndividualProfileFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         findFirst: {
-          args: Prisma.Basics_IndividualProfileFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload> | null
+          args: Prisma.Basics_ProfessionalProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.Basics_IndividualProfileFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         findMany: {
-          args: Prisma.Basics_IndividualProfileFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+          args: Prisma.Basics_ProfessionalProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>[]
         }
         create: {
-          args: Prisma.Basics_IndividualProfileCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         createMany: {
-          args: Prisma.Basics_IndividualProfileCreateManyArgs<ExtArgs>
+          args: Prisma.Basics_ProfessionalProfileCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.Basics_IndividualProfileCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+          args: Prisma.Basics_ProfessionalProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>[]
         }
         delete: {
-          args: Prisma.Basics_IndividualProfileDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         update: {
-          args: Prisma.Basics_IndividualProfileUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         deleteMany: {
-          args: Prisma.Basics_IndividualProfileDeleteManyArgs<ExtArgs>
+          args: Prisma.Basics_ProfessionalProfileDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.Basics_IndividualProfileUpdateManyArgs<ExtArgs>
+          args: Prisma.Basics_ProfessionalProfileUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.Basics_IndividualProfileUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>[]
+          args: Prisma.Basics_ProfessionalProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>[]
         }
         upsert: {
-          args: Prisma.Basics_IndividualProfileUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_IndividualProfilePayload>
+          args: Prisma.Basics_ProfessionalProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$Basics_ProfessionalProfilePayload>
         }
         aggregate: {
-          args: Prisma.Basics_IndividualProfileAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_IndividualProfile>
+          args: Prisma.Basics_ProfessionalProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBasics_ProfessionalProfile>
         }
         groupBy: {
-          args: Prisma.Basics_IndividualProfileGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Basics_IndividualProfileGroupByOutputType>[]
+          args: Prisma.Basics_ProfessionalProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ProfessionalProfileGroupByOutputType>[]
         }
         count: {
-          args: Prisma.Basics_IndividualProfileCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Basics_IndividualProfileCountAggregateOutputType> | number
+          args: Prisma.Basics_ProfessionalProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Basics_ProfessionalProfileCountAggregateOutputType> | number
         }
       }
     }
@@ -2104,13 +2104,13 @@ export const Basics_OrganisationProfileScalarFieldEnum = {
 export type Basics_OrganisationProfileScalarFieldEnum = (typeof Basics_OrganisationProfileScalarFieldEnum)[keyof typeof Basics_OrganisationProfileScalarFieldEnum]
 
 
-export const Basics_IndividualProfileScalarFieldEnum = {
+export const Basics_ProfessionalProfileScalarFieldEnum = {
   id: 'id',
   serviceAssociateId: 'serviceAssociateId',
   workingSince: 'workingSince'
 } as const
 
-export type Basics_IndividualProfileScalarFieldEnum = (typeof Basics_IndividualProfileScalarFieldEnum)[keyof typeof Basics_IndividualProfileScalarFieldEnum]
+export type Basics_ProfessionalProfileScalarFieldEnum = (typeof Basics_ProfessionalProfileScalarFieldEnum)[keyof typeof Basics_ProfessionalProfileScalarFieldEnum]
 
 
 export const Basics_ServiceAreaScalarFieldEnum = {
@@ -2715,7 +2715,7 @@ export type GlobalOmitConfig = {
   appUser?: Prisma.AppUserOmit
   basics_ServiceAssociate?: Prisma.Basics_ServiceAssociateOmit
   basics_OrganisationProfile?: Prisma.Basics_OrganisationProfileOmit
-  basics_IndividualProfile?: Prisma.Basics_IndividualProfileOmit
+  basics_ProfessionalProfile?: Prisma.Basics_ProfessionalProfileOmit
   basics_ServiceArea?: Prisma.Basics_ServiceAreaOmit
   bridge_ServiceProvider?: Prisma.Bridge_ServiceProviderOmit
   bridge_OrganisationProfile?: Prisma.Bridge_OrganisationProfileOmit

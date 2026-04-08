@@ -58,7 +58,7 @@ export const ModelName = {
   AppUser: 'AppUser',
   Basics_ServiceAssociate: 'Basics_ServiceAssociate',
   Basics_OrganisationProfile: 'Basics_OrganisationProfile',
-  Basics_IndividualProfile: 'Basics_IndividualProfile',
+  Basics_ProfessionalProfile: 'Basics_ProfessionalProfile',
   Basics_ServiceArea: 'Basics_ServiceArea',
   Bridge_ServiceProvider: 'Bridge_ServiceProvider',
   Bridge_OrganisationProfile: 'Bridge_OrganisationProfile',
@@ -225,13 +225,13 @@ export const Basics_OrganisationProfileScalarFieldEnum = {
 export type Basics_OrganisationProfileScalarFieldEnum = (typeof Basics_OrganisationProfileScalarFieldEnum)[keyof typeof Basics_OrganisationProfileScalarFieldEnum]
 
 
-export const Basics_IndividualProfileScalarFieldEnum = {
+export const Basics_ProfessionalProfileScalarFieldEnum = {
   id: 'id',
   serviceAssociateId: 'serviceAssociateId',
   workingSince: 'workingSince'
 } as const
 
-export type Basics_IndividualProfileScalarFieldEnum = (typeof Basics_IndividualProfileScalarFieldEnum)[keyof typeof Basics_IndividualProfileScalarFieldEnum]
+export type Basics_ProfessionalProfileScalarFieldEnum = (typeof Basics_ProfessionalProfileScalarFieldEnum)[keyof typeof Basics_ProfessionalProfileScalarFieldEnum]
 
 
 export const Basics_ServiceAreaScalarFieldEnum = {

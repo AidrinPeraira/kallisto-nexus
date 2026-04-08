@@ -29,7 +29,7 @@ model Basics_ServiceAssociate {
     governmentIdNumber        String?
     professionalLicenseType   ProfessionalLicenseType?
     professionalLicenseNumber String?
-    isCredentialsAdded        Boolean           @default(false)
+    isCredentialsAdded        Boolean                  @default(false)
 
     // bank details
     financeAccountId    String?
@@ -52,7 +52,7 @@ model Basics_ServiceAssociate {
 
     serviceAreas        Basics_ServiceArea[]
     organisationProfile Basics_OrganisationProfile?
-    individualProfile   Basics_IndividualProfile?
+    professionalProfile Basics_ProfessionalProfile?
 
     @@map("basics_service_associate")
 }
@@ -82,7 +82,7 @@ model Basics_OrganisationProfile {
     @@map("basics_organisation_profile")
 }
 
-model Basics_IndividualProfile {
+model Basics_ProfessionalProfile {
     id                 String                  @id @default(uuid())
     serviceAssociateId String                  @unique
     serviceAssociate   Basics_ServiceAssociate @relation(fields: [serviceAssociateId], references: [id])

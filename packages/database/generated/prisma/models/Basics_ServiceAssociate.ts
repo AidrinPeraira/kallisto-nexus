@@ -426,7 +426,7 @@ export type Basics_ServiceAssociateWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Basics_ServiceAssociate"> | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaListRelationFilter
   organisationProfile?: Prisma.XOR<Prisma.Basics_OrganisationProfileNullableScalarRelationFilter, Prisma.Basics_OrganisationProfileWhereInput> | null
-  individualProfile?: Prisma.XOR<Prisma.Basics_IndividualProfileNullableScalarRelationFilter, Prisma.Basics_IndividualProfileWhereInput> | null
+  professionalProfile?: Prisma.XOR<Prisma.Basics_ProfessionalProfileNullableScalarRelationFilter, Prisma.Basics_ProfessionalProfileWhereInput> | null
 }
 
 export type Basics_ServiceAssociateOrderByWithRelationInput = {
@@ -464,7 +464,7 @@ export type Basics_ServiceAssociateOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   serviceAreas?: Prisma.Basics_ServiceAreaOrderByRelationAggregateInput
   organisationProfile?: Prisma.Basics_OrganisationProfileOrderByWithRelationInput
-  individualProfile?: Prisma.Basics_IndividualProfileOrderByWithRelationInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileOrderByWithRelationInput
 }
 
 export type Basics_ServiceAssociateWhereUniqueInput = Prisma.AtLeast<{
@@ -505,7 +505,7 @@ export type Basics_ServiceAssociateWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Basics_ServiceAssociate"> | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaListRelationFilter
   organisationProfile?: Prisma.XOR<Prisma.Basics_OrganisationProfileNullableScalarRelationFilter, Prisma.Basics_OrganisationProfileWhereInput> | null
-  individualProfile?: Prisma.XOR<Prisma.Basics_IndividualProfileNullableScalarRelationFilter, Prisma.Basics_IndividualProfileWhereInput> | null
+  professionalProfile?: Prisma.XOR<Prisma.Basics_ProfessionalProfileNullableScalarRelationFilter, Prisma.Basics_ProfessionalProfileWhereInput> | null
 }, "id" | "userId" | "saCode">
 
 export type Basics_ServiceAssociateOrderByWithAggregationInput = {
@@ -621,7 +621,7 @@ export type Basics_ServiceAssociateCreateInput = {
   updatedAt?: Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaCreateNestedManyWithoutServiceProviderInput
   organisationProfile?: Prisma.Basics_OrganisationProfileCreateNestedOneWithoutServiceAssociateInput
-  individualProfile?: Prisma.Basics_IndividualProfileCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateUncheckedCreateInput = {
@@ -659,7 +659,7 @@ export type Basics_ServiceAssociateUncheckedCreateInput = {
   updatedAt?: Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUncheckedCreateNestedManyWithoutServiceProviderInput
   organisationProfile?: Prisma.Basics_OrganisationProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateUpdateInput = {
@@ -697,7 +697,7 @@ export type Basics_ServiceAssociateUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUpdateManyWithoutServiceProviderNestedInput
   organisationProfile?: Prisma.Basics_OrganisationProfileUpdateOneWithoutServiceAssociateNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUpdateOneWithoutServiceAssociateNestedInput
 }
 
 export type Basics_ServiceAssociateUncheckedUpdateInput = {
@@ -735,7 +735,7 @@ export type Basics_ServiceAssociateUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUncheckedUpdateManyWithoutServiceProviderNestedInput
   organisationProfile?: Prisma.Basics_OrganisationProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
 }
 
 export type Basics_ServiceAssociateCreateManyInput = {
@@ -1021,18 +1021,18 @@ export type Basics_ServiceAssociateUpdateOneRequiredWithoutOrganisationProfileNe
   update?: Prisma.XOR<Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateToOneWithWhereWithoutOrganisationProfileInput, Prisma.Basics_ServiceAssociateUpdateWithoutOrganisationProfileInput>, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutOrganisationProfileInput>
 }
 
-export type Basics_ServiceAssociateCreateNestedOneWithoutIndividualProfileInput = {
-  create?: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput>
-  connectOrCreate?: Prisma.Basics_ServiceAssociateCreateOrConnectWithoutIndividualProfileInput
+export type Basics_ServiceAssociateCreateNestedOneWithoutProfessionalProfileInput = {
+  create?: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutProfessionalProfileInput>
+  connectOrCreate?: Prisma.Basics_ServiceAssociateCreateOrConnectWithoutProfessionalProfileInput
   connect?: Prisma.Basics_ServiceAssociateWhereUniqueInput
 }
 
-export type Basics_ServiceAssociateUpdateOneRequiredWithoutIndividualProfileNestedInput = {
-  create?: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput>
-  connectOrCreate?: Prisma.Basics_ServiceAssociateCreateOrConnectWithoutIndividualProfileInput
-  upsert?: Prisma.Basics_ServiceAssociateUpsertWithoutIndividualProfileInput
+export type Basics_ServiceAssociateUpdateOneRequiredWithoutProfessionalProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutProfessionalProfileInput>
+  connectOrCreate?: Prisma.Basics_ServiceAssociateCreateOrConnectWithoutProfessionalProfileInput
+  upsert?: Prisma.Basics_ServiceAssociateUpsertWithoutProfessionalProfileInput
   connect?: Prisma.Basics_ServiceAssociateWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateToOneWithWhereWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUpdateWithoutIndividualProfileInput>, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutIndividualProfileInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateToOneWithWhereWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUpdateWithoutProfessionalProfileInput>, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutProfessionalProfileInput>
 }
 
 export type Basics_ServiceAssociateUpdateOneRequiredWithoutServiceAreasNestedInput = {
@@ -1077,7 +1077,7 @@ export type Basics_ServiceAssociateCreateWithoutOrganisationProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaCreateNestedManyWithoutServiceProviderInput
-  individualProfile?: Prisma.Basics_IndividualProfileCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateUncheckedCreateWithoutOrganisationProfileInput = {
@@ -1114,7 +1114,7 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutOrganisationProfileInpu
   createdAt?: Date | string
   updatedAt?: Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUncheckedCreateNestedManyWithoutServiceProviderInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateCreateOrConnectWithoutOrganisationProfileInput = {
@@ -1167,7 +1167,7 @@ export type Basics_ServiceAssociateUpdateWithoutOrganisationProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUpdateManyWithoutServiceProviderNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUpdateOneWithoutServiceAssociateNestedInput
 }
 
 export type Basics_ServiceAssociateUncheckedUpdateWithoutOrganisationProfileInput = {
@@ -1204,10 +1204,10 @@ export type Basics_ServiceAssociateUncheckedUpdateWithoutOrganisationProfileInpu
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceAreas?: Prisma.Basics_ServiceAreaUncheckedUpdateManyWithoutServiceProviderNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
 }
 
-export type Basics_ServiceAssociateCreateWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateCreateWithoutProfessionalProfileInput = {
   id?: string
   userId: string
   saCode?: string
@@ -1244,7 +1244,7 @@ export type Basics_ServiceAssociateCreateWithoutIndividualProfileInput = {
   organisationProfile?: Prisma.Basics_OrganisationProfileCreateNestedOneWithoutServiceAssociateInput
 }
 
-export type Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateUncheckedCreateWithoutProfessionalProfileInput = {
   id?: string
   userId: string
   saCode?: string
@@ -1281,23 +1281,23 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput 
   organisationProfile?: Prisma.Basics_OrganisationProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
 }
 
-export type Basics_ServiceAssociateCreateOrConnectWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateCreateOrConnectWithoutProfessionalProfileInput = {
   where: Prisma.Basics_ServiceAssociateWhereUniqueInput
-  create: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput>
+  create: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutProfessionalProfileInput>
 }
 
-export type Basics_ServiceAssociateUpsertWithoutIndividualProfileInput = {
-  update: Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutIndividualProfileInput>
-  create: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput>
+export type Basics_ServiceAssociateUpsertWithoutProfessionalProfileInput = {
+  update: Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutProfessionalProfileInput>
+  create: Prisma.XOR<Prisma.Basics_ServiceAssociateCreateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedCreateWithoutProfessionalProfileInput>
   where?: Prisma.Basics_ServiceAssociateWhereInput
 }
 
-export type Basics_ServiceAssociateUpdateToOneWithWhereWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateUpdateToOneWithWhereWithoutProfessionalProfileInput = {
   where?: Prisma.Basics_ServiceAssociateWhereInput
-  data: Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateWithoutIndividualProfileInput, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutIndividualProfileInput>
+  data: Prisma.XOR<Prisma.Basics_ServiceAssociateUpdateWithoutProfessionalProfileInput, Prisma.Basics_ServiceAssociateUncheckedUpdateWithoutProfessionalProfileInput>
 }
 
-export type Basics_ServiceAssociateUpdateWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateUpdateWithoutProfessionalProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   saCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1334,7 +1334,7 @@ export type Basics_ServiceAssociateUpdateWithoutIndividualProfileInput = {
   organisationProfile?: Prisma.Basics_OrganisationProfileUpdateOneWithoutServiceAssociateNestedInput
 }
 
-export type Basics_ServiceAssociateUncheckedUpdateWithoutIndividualProfileInput = {
+export type Basics_ServiceAssociateUncheckedUpdateWithoutProfessionalProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   saCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1405,7 +1405,7 @@ export type Basics_ServiceAssociateCreateWithoutServiceAreasInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   organisationProfile?: Prisma.Basics_OrganisationProfileCreateNestedOneWithoutServiceAssociateInput
-  individualProfile?: Prisma.Basics_IndividualProfileCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateUncheckedCreateWithoutServiceAreasInput = {
@@ -1442,7 +1442,7 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutServiceAreasInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   organisationProfile?: Prisma.Basics_OrganisationProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedCreateNestedOneWithoutServiceAssociateInput
 }
 
 export type Basics_ServiceAssociateCreateOrConnectWithoutServiceAreasInput = {
@@ -1495,7 +1495,7 @@ export type Basics_ServiceAssociateUpdateWithoutServiceAreasInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organisationProfile?: Prisma.Basics_OrganisationProfileUpdateOneWithoutServiceAssociateNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUpdateOneWithoutServiceAssociateNestedInput
 }
 
 export type Basics_ServiceAssociateUncheckedUpdateWithoutServiceAreasInput = {
@@ -1532,7 +1532,7 @@ export type Basics_ServiceAssociateUncheckedUpdateWithoutServiceAreasInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organisationProfile?: Prisma.Basics_OrganisationProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
-  individualProfile?: Prisma.Basics_IndividualProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
+  professionalProfile?: Prisma.Basics_ProfessionalProfileUncheckedUpdateOneWithoutServiceAssociateNestedInput
 }
 
 
@@ -1601,7 +1601,7 @@ export type Basics_ServiceAssociateSelect<ExtArgs extends runtime.Types.Extensio
   updatedAt?: boolean
   serviceAreas?: boolean | Prisma.Basics_ServiceAssociate$serviceAreasArgs<ExtArgs>
   organisationProfile?: boolean | Prisma.Basics_ServiceAssociate$organisationProfileArgs<ExtArgs>
-  individualProfile?: boolean | Prisma.Basics_ServiceAssociate$individualProfileArgs<ExtArgs>
+  professionalProfile?: boolean | Prisma.Basics_ServiceAssociate$professionalProfileArgs<ExtArgs>
   _count?: boolean | Prisma.Basics_ServiceAssociateCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["basics_ServiceAssociate"]>
 
@@ -1714,7 +1714,7 @@ export type Basics_ServiceAssociateOmit<ExtArgs extends runtime.Types.Extensions
 export type Basics_ServiceAssociateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   serviceAreas?: boolean | Prisma.Basics_ServiceAssociate$serviceAreasArgs<ExtArgs>
   organisationProfile?: boolean | Prisma.Basics_ServiceAssociate$organisationProfileArgs<ExtArgs>
-  individualProfile?: boolean | Prisma.Basics_ServiceAssociate$individualProfileArgs<ExtArgs>
+  professionalProfile?: boolean | Prisma.Basics_ServiceAssociate$professionalProfileArgs<ExtArgs>
   _count?: boolean | Prisma.Basics_ServiceAssociateCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type Basics_ServiceAssociateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1725,7 +1725,7 @@ export type $Basics_ServiceAssociatePayload<ExtArgs extends runtime.Types.Extens
   objects: {
     serviceAreas: Prisma.$Basics_ServiceAreaPayload<ExtArgs>[]
     organisationProfile: Prisma.$Basics_OrganisationProfilePayload<ExtArgs> | null
-    individualProfile: Prisma.$Basics_IndividualProfilePayload<ExtArgs> | null
+    professionalProfile: Prisma.$Basics_ProfessionalProfilePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2156,7 +2156,7 @@ export interface Prisma__Basics_ServiceAssociateClient<T, Null = never, ExtArgs 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   serviceAreas<T extends Prisma.Basics_ServiceAssociate$serviceAreasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Basics_ServiceAssociate$serviceAreasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Basics_ServiceAreaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   organisationProfile<T extends Prisma.Basics_ServiceAssociate$organisationProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Basics_ServiceAssociate$organisationProfileArgs<ExtArgs>>): Prisma.Prisma__Basics_OrganisationProfileClient<runtime.Types.Result.GetResult<Prisma.$Basics_OrganisationProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  individualProfile<T extends Prisma.Basics_ServiceAssociate$individualProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Basics_ServiceAssociate$individualProfileArgs<ExtArgs>>): Prisma.Prisma__Basics_IndividualProfileClient<runtime.Types.Result.GetResult<Prisma.$Basics_IndividualProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  professionalProfile<T extends Prisma.Basics_ServiceAssociate$professionalProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Basics_ServiceAssociate$professionalProfileArgs<ExtArgs>>): Prisma.Prisma__Basics_ProfessionalProfileClient<runtime.Types.Result.GetResult<Prisma.$Basics_ProfessionalProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2654,22 +2654,22 @@ export type Basics_ServiceAssociate$organisationProfileArgs<ExtArgs extends runt
 }
 
 /**
- * Basics_ServiceAssociate.individualProfile
+ * Basics_ServiceAssociate.professionalProfile
  */
-export type Basics_ServiceAssociate$individualProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Basics_ServiceAssociate$professionalProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Basics_IndividualProfile
+   * Select specific fields to fetch from the Basics_ProfessionalProfile
    */
-  select?: Prisma.Basics_IndividualProfileSelect<ExtArgs> | null
+  select?: Prisma.Basics_ProfessionalProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Basics_IndividualProfile
+   * Omit specific fields from the Basics_ProfessionalProfile
    */
-  omit?: Prisma.Basics_IndividualProfileOmit<ExtArgs> | null
+  omit?: Prisma.Basics_ProfessionalProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.Basics_IndividualProfileInclude<ExtArgs> | null
-  where?: Prisma.Basics_IndividualProfileWhereInput
+  include?: Prisma.Basics_ProfessionalProfileInclude<ExtArgs> | null
+  where?: Prisma.Basics_ProfessionalProfileWhereInput
 }
 
 /**
