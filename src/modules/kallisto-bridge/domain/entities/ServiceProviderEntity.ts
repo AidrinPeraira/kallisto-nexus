@@ -5,6 +5,7 @@ import {
   ServiceProviderStatus,
   ServiceProviderType,
   ServiceTypes,
+  ProfessionalLicenseType,
 } from "@packages/common/enums";
 
 // ─── SUB-ENTITY: Organisation Profile ─────────────────────────────────────────
@@ -97,7 +98,7 @@ export interface ServiceProviderEntity {
   GSTIN?: string;
   governmentIdType?: GovernmentIdType;
   governmentIdNumber?: string;
-  professionalLicenseType?: string;
+  professionalLicenseType?: ProfessionalLicenseType;
   professionalLicenseNumber?: string;
 
   // bank details

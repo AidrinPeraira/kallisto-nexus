@@ -8,4 +8,10 @@ export enum ProfileMessages {
   PROFILE_NOT_FOUND = "Profile not found",
   PROFILE_UPDATED = "Profile updated successfully",
   PROFILE_DELETED = "Profile deleted successfully",
+  SERVICE_PROVIDER_ID_MANDATORY = "Service Provider ID is mandatory",
+  SP_TYPE_MANDATORY = "Service Provider Type is mandatory",
+  WORKING_SINCE_MANDATORY = "Working since details are mandatory",
+  SP_TYPE_INVALID = "Service Provider Type is invalid",
+  ORGANISATION_TYPE_MANDATORY = "Organisation type is mandatory",
+  YEAR_OF_ESTABLISHMENT_MANDATORY = "Year of establishment is mandatory",
 }

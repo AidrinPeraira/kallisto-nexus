@@ -52,7 +52,7 @@ export type Basics_ServiceAssociateMinAggregateOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   isCredentialsAdded: boolean | null
   financeAccountId: string | null
@@ -85,7 +85,7 @@ export type Basics_ServiceAssociateMaxAggregateOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   isCredentialsAdded: boolean | null
   financeAccountId: string | null
@@ -353,7 +353,7 @@ export type Basics_ServiceAssociateGroupByOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   isCredentialsAdded: boolean
   financeAccountId: string | null
@@ -411,7 +411,7 @@ export type Basics_ServiceAssociateWhereInput = {
   GSTIN?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableFilter<"Basics_ServiceAssociate"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
-  professionalLicenseType?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Basics_ServiceAssociate"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
   isCredentialsAdded?: Prisma.BoolFilter<"Basics_ServiceAssociate"> | boolean
   financeAccountId?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
@@ -490,7 +490,7 @@ export type Basics_ServiceAssociateWhereUniqueInput = Prisma.AtLeast<{
   GSTIN?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableFilter<"Basics_ServiceAssociate"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
-  professionalLicenseType?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Basics_ServiceAssociate"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
   isCredentialsAdded?: Prisma.BoolFilter<"Basics_ServiceAssociate"> | boolean
   financeAccountId?: Prisma.StringNullableFilter<"Basics_ServiceAssociate"> | string | null
@@ -571,7 +571,7 @@ export type Basics_ServiceAssociateScalarWhereWithAggregatesInput = {
   GSTIN?: Prisma.StringNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | string | null
-  professionalLicenseType?: Prisma.StringNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | string | null
   isCredentialsAdded?: Prisma.BoolWithAggregatesFilter<"Basics_ServiceAssociate"> | boolean
   financeAccountId?: Prisma.StringNullableWithAggregatesFilter<"Basics_ServiceAssociate"> | string | null
@@ -606,7 +606,7 @@ export type Basics_ServiceAssociateCreateInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -644,7 +644,7 @@ export type Basics_ServiceAssociateUncheckedCreateInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -682,7 +682,7 @@ export type Basics_ServiceAssociateUpdateInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -720,7 +720,7 @@ export type Basics_ServiceAssociateUncheckedUpdateInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -758,7 +758,7 @@ export type Basics_ServiceAssociateCreateManyInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -793,7 +793,7 @@ export type Basics_ServiceAssociateUpdateManyMutationInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -828,7 +828,7 @@ export type Basics_ServiceAssociateUncheckedUpdateManyInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -999,6 +999,10 @@ export type NullableEnumGovernmentIdTypeFieldUpdateOperationsInput = {
   set?: $Enums.GovernmentIdType | null
 }
 
+export type NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput = {
+  set?: $Enums.ProfessionalLicenseType | null
+}
+
 export type EnumServiceAssociateStatusFieldUpdateOperationsInput = {
   set?: $Enums.ServiceAssociateStatus
 }
@@ -1059,7 +1063,7 @@ export type Basics_ServiceAssociateCreateWithoutOrganisationProfileInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1096,7 +1100,7 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutOrganisationProfileInpu
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1149,7 +1153,7 @@ export type Basics_ServiceAssociateUpdateWithoutOrganisationProfileInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1186,7 +1190,7 @@ export type Basics_ServiceAssociateUncheckedUpdateWithoutOrganisationProfileInpu
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1223,7 +1227,7 @@ export type Basics_ServiceAssociateCreateWithoutIndividualProfileInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1260,7 +1264,7 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutIndividualProfileInput 
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1313,7 +1317,7 @@ export type Basics_ServiceAssociateUpdateWithoutIndividualProfileInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1350,7 +1354,7 @@ export type Basics_ServiceAssociateUncheckedUpdateWithoutIndividualProfileInput 
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1387,7 +1391,7 @@ export type Basics_ServiceAssociateCreateWithoutServiceAreasInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1424,7 +1428,7 @@ export type Basics_ServiceAssociateUncheckedCreateWithoutServiceAreasInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   isCredentialsAdded?: boolean
   financeAccountId?: string | null
@@ -1477,7 +1481,7 @@ export type Basics_ServiceAssociateUpdateWithoutServiceAreasInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1514,7 +1518,7 @@ export type Basics_ServiceAssociateUncheckedUpdateWithoutServiceAreasInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isCredentialsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1743,7 +1747,7 @@ export type $Basics_ServiceAssociatePayload<ExtArgs extends runtime.Types.Extens
     GSTIN: string | null
     governmentIdType: $Enums.GovernmentIdType | null
     governmentIdNumber: string | null
-    professionalLicenseType: string | null
+    professionalLicenseType: $Enums.ProfessionalLicenseType | null
     professionalLicenseNumber: string | null
     isCredentialsAdded: boolean
     financeAccountId: string | null
@@ -2201,7 +2205,7 @@ export interface Basics_ServiceAssociateFieldRefs {
   readonly GSTIN: Prisma.FieldRef<"Basics_ServiceAssociate", 'String'>
   readonly governmentIdType: Prisma.FieldRef<"Basics_ServiceAssociate", 'GovernmentIdType'>
   readonly governmentIdNumber: Prisma.FieldRef<"Basics_ServiceAssociate", 'String'>
-  readonly professionalLicenseType: Prisma.FieldRef<"Basics_ServiceAssociate", 'String'>
+  readonly professionalLicenseType: Prisma.FieldRef<"Basics_ServiceAssociate", 'ProfessionalLicenseType'>
   readonly professionalLicenseNumber: Prisma.FieldRef<"Basics_ServiceAssociate", 'String'>
   readonly isCredentialsAdded: Prisma.FieldRef<"Basics_ServiceAssociate", 'Boolean'>
   readonly financeAccountId: Prisma.FieldRef<"Basics_ServiceAssociate", 'String'>

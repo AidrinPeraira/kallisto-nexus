@@ -2489,6 +2489,20 @@ export type ListEnumGovernmentIdTypeFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'ProfessionalLicenseType'
+ */
+export type EnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProfessionalLicenseType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProfessionalLicenseType[]'
+ */
+export type ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProfessionalLicenseType[]'>
+    
+
+
+/**
  * Reference to a field of type 'ServiceAssociateStatus'
  */
 export type EnumServiceAssociateStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceAssociateStatus'>

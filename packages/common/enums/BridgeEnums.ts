@@ -42,3 +42,10 @@ export enum GovernmentIdType {
   PASSPORT = "passport",
   VOTER_ID = "voter_id",
 }
+
+export enum ProfessionalLicenseType {
+  COA_LICENSE = "coa_license",
+  PWD_CONTRACTOR = "pwd_contractor",
+  MCCI_LICENSE = "mcci_license",
+  OTHER = "other",
+}

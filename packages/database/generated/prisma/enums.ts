@@ -160,3 +160,13 @@ export const ProjectScope = {
 } as const
 
 export type ProjectScope = (typeof ProjectScope)[keyof typeof ProjectScope]
+
+
+export const ProfessionalLicenseType = {
+  coa_license: 'coa_license',
+  pwd_contractor: 'pwd_contractor',
+  mcci_license: 'mcci_license',
+  other: 'other'
+} as const
+
+export type ProfessionalLicenseType = (typeof ProfessionalLicenseType)[keyof typeof ProfessionalLicenseType]

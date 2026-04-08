@@ -207,6 +207,13 @@ export type EnumGovernmentIdTypeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel> | $Enums.GovernmentIdType | null
 }
 
+export type EnumProfessionalLicenseTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProfessionalLicenseType | Prisma.EnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel> | $Enums.ProfessionalLicenseType | null
+}
+
 export type EnumServiceAssociateStatusFilter<$PrismaModel = never> = {
   equals?: $Enums.ServiceAssociateStatus | Prisma.EnumServiceAssociateStatusFieldRefInput<$PrismaModel>
   in?: $Enums.ServiceAssociateStatus[] | Prisma.ListEnumServiceAssociateStatusFieldRefInput<$PrismaModel>
@@ -248,6 +255,16 @@ export type EnumGovernmentIdTypeNullableWithAggregatesFilter<$PrismaModel = neve
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel>
+}
+
+export type EnumProfessionalLicenseTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProfessionalLicenseType | Prisma.EnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumProfessionalLicenseTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ProfessionalLicenseType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel>
 }
 
 export type EnumServiceAssociateStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -611,6 +628,13 @@ export type NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel> | $Enums.GovernmentIdType | null
 }
 
+export type NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProfessionalLicenseType | Prisma.EnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel> | $Enums.ProfessionalLicenseType | null
+}
+
 export type NestedEnumServiceAssociateStatusFilter<$PrismaModel = never> = {
   equals?: $Enums.ServiceAssociateStatus | Prisma.EnumServiceAssociateStatusFieldRefInput<$PrismaModel>
   in?: $Enums.ServiceAssociateStatus[] | Prisma.ListEnumServiceAssociateStatusFieldRefInput<$PrismaModel>
@@ -663,6 +687,16 @@ export type NestedEnumGovernmentIdTypeNullableWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumGovernmentIdTypeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumProfessionalLicenseTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProfessionalLicenseType | Prisma.EnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ProfessionalLicenseType[] | Prisma.ListEnumProfessionalLicenseTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumProfessionalLicenseTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ProfessionalLicenseType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProfessionalLicenseTypeNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumServiceAssociateStatusWithAggregatesFilter<$PrismaModel = never> = {

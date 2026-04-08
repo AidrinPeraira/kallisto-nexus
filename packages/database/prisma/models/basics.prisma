@@ -27,7 +27,7 @@ model Basics_ServiceAssociate {
     GSTIN                     String?
     governmentIdType          GovernmentIdType?
     governmentIdNumber        String?
-    professionalLicenseType   String?
+    professionalLicenseType   ProfessionalLicenseType?
     professionalLicenseNumber String?
     isCredentialsAdded        Boolean           @default(false)
 

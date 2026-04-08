@@ -6,6 +6,7 @@ import {
   ServiceProviderType,
   GovernmentIdType,
   ServiceTypes,
+  ProfessionalLicenseType,
 } from "@packages/common/enums";
 
 export class PrismaServiceProviderRepository implements IServiceProviderRepository {
@@ -129,7 +130,8 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
       governmentIdType:
         (prismaSp.governmentIdType as GovernmentIdType) || undefined,
       governmentIdNumber: prismaSp.governmentIdNumber || undefined,
-      professionalLicenseType: prismaSp.professionalLicenseType || undefined,
+      professionalLicenseType:
+        (prismaSp.professionalLicenseType as ProfessionalLicenseType) || undefined,
       professionalLicenseNumber:
         prismaSp.professionalLicenseNumber || undefined,
       financeAccountId: prismaSp.financeAccountId || undefined,

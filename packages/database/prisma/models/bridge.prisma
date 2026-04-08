@@ -27,7 +27,7 @@ model Bridge_ServiceProvider {
     GSTIN                     String?
     governmentIdType          GovernmentIdType?
     governmentIdNumber        String?
-    professionalLicenseType   String?
+    professionalLicenseType   ProfessionalLicenseType?
     professionalLicenseNumber String?
 
     // bank details

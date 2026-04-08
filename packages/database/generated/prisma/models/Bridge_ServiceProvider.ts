@@ -50,7 +50,7 @@ export type Bridge_ServiceProviderMinAggregateOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
   maskedAccountNumber: string | null
@@ -83,7 +83,7 @@ export type Bridge_ServiceProviderMaxAggregateOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
   maskedAccountNumber: string | null
@@ -351,7 +351,7 @@ export type Bridge_ServiceProviderGroupByOutputType = {
   GSTIN: string | null
   governmentIdType: $Enums.GovernmentIdType | null
   governmentIdNumber: string | null
-  professionalLicenseType: string | null
+  professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
   maskedAccountNumber: string | null
@@ -409,7 +409,7 @@ export type Bridge_ServiceProviderWhereInput = {
   GSTIN?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
-  professionalLicenseType?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   maskedAccountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
@@ -492,7 +492,7 @@ export type Bridge_ServiceProviderWhereUniqueInput = Prisma.AtLeast<{
   GSTIN?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
-  professionalLicenseType?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   maskedAccountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
@@ -575,7 +575,7 @@ export type Bridge_ServiceProviderScalarWhereWithAggregatesInput = {
   GSTIN?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   governmentIdType?: Prisma.EnumGovernmentIdTypeNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
-  professionalLicenseType?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   maskedAccountNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
@@ -610,7 +610,7 @@ export type Bridge_ServiceProviderCreateInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -650,7 +650,7 @@ export type Bridge_ServiceProviderUncheckedCreateInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -690,7 +690,7 @@ export type Bridge_ServiceProviderUpdateInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -730,7 +730,7 @@ export type Bridge_ServiceProviderUncheckedUpdateInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -770,7 +770,7 @@ export type Bridge_ServiceProviderCreateManyInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -805,7 +805,7 @@ export type Bridge_ServiceProviderUpdateManyMutationInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -840,7 +840,7 @@ export type Bridge_ServiceProviderUncheckedUpdateManyInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1079,7 +1079,7 @@ export type Bridge_ServiceProviderCreateWithoutOrganisationProfileInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1118,7 +1118,7 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutOrganisationProfileInput
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1173,7 +1173,7 @@ export type Bridge_ServiceProviderUpdateWithoutOrganisationProfileInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1212,7 +1212,7 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutOrganisationProfileInput
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1251,7 +1251,7 @@ export type Bridge_ServiceProviderCreateWithoutProfessionalProfileInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1290,7 +1290,7 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutProfessionalProfileInput
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1345,7 +1345,7 @@ export type Bridge_ServiceProviderUpdateWithoutProfessionalProfileInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1384,7 +1384,7 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutProfessionalProfileInput
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1423,7 +1423,7 @@ export type Bridge_ServiceProviderCreateWithoutContractorProfileInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1462,7 +1462,7 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutContractorProfileInput =
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1517,7 +1517,7 @@ export type Bridge_ServiceProviderUpdateWithoutContractorProfileInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1556,7 +1556,7 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutContractorProfileInput =
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1595,7 +1595,7 @@ export type Bridge_ServiceProviderCreateWithoutServiceAreas_BridgeInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1634,7 +1634,7 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutServiceAreas_BridgeInput
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1689,7 +1689,7 @@ export type Bridge_ServiceProviderUpdateWithoutServiceAreas_BridgeInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1728,7 +1728,7 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutServiceAreas_BridgeInput
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1767,7 +1767,7 @@ export type Bridge_ServiceProviderCreateWithoutBridgePortfolioInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1806,7 +1806,7 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutBridgePortfolioInput = {
   GSTIN?: string | null
   governmentIdType?: $Enums.GovernmentIdType | null
   governmentIdNumber?: string | null
-  professionalLicenseType?: string | null
+  professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
   maskedAccountNumber?: string | null
@@ -1861,7 +1861,7 @@ export type Bridge_ServiceProviderUpdateWithoutBridgePortfolioInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1900,7 +1900,7 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutBridgePortfolioInput = {
   GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   governmentIdType?: Prisma.NullableEnumGovernmentIdTypeFieldUpdateOperationsInput | $Enums.GovernmentIdType | null
   governmentIdNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionalLicenseType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2137,7 +2137,7 @@ export type $Bridge_ServiceProviderPayload<ExtArgs extends runtime.Types.Extensi
     GSTIN: string | null
     governmentIdType: $Enums.GovernmentIdType | null
     governmentIdNumber: string | null
-    professionalLicenseType: string | null
+    professionalLicenseType: $Enums.ProfessionalLicenseType | null
     professionalLicenseNumber: string | null
     financeAccountId: string | null
     maskedAccountNumber: string | null
@@ -2597,7 +2597,7 @@ export interface Bridge_ServiceProviderFieldRefs {
   readonly GSTIN: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly governmentIdType: Prisma.FieldRef<"Bridge_ServiceProvider", 'GovernmentIdType'>
   readonly governmentIdNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
-  readonly professionalLicenseType: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly professionalLicenseType: Prisma.FieldRef<"Bridge_ServiceProvider", 'ProfessionalLicenseType'>
   readonly professionalLicenseNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly financeAccountId: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly maskedAccountNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>

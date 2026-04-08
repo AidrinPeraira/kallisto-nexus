@@ -4,6 +4,7 @@ import {
   GovernmentIdType,
   OrganisationType,
   ServiceTypes,
+  ProfessionalLicenseType,
 } from "@packages/database/generated/prisma/enums";
 
 export interface AddIdentityRequestDTO {
@@ -54,7 +55,7 @@ export interface AddCredentialsRequestDTO {
   GSTIN?: string;
   governmentIdType: GovernmentIdType;
   governmentIdNumber: string;
-  professionalLicenseType?: string;
+  professionalLicenseType?: ProfessionalLicenseType;
   professionalLicenseNumber?: string;
 }
 

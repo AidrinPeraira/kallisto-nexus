@@ -108,3 +108,10 @@ enum ProjectScope {
     landscape
     facade
 }
+
+enum ProfessionalLicenseType {
+    coa_license
+    pwd_contractor
+    mcci_license
+    other
+}
