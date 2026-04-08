@@ -7,7 +7,12 @@ import {
   ProfessionalLicenseType,
 } from "@packages/database/generated/prisma/enums";
 
-export interface AddIdentityRequestDTO {
+export interface SPProfileUpdateResultDTO {
+  serviceProviderId: string;
+  spCode: string;
+}
+
+export interface AddSPIdentityRequestDTO {
   userId: string;
   displayName: string;
   profilePicture?: string;

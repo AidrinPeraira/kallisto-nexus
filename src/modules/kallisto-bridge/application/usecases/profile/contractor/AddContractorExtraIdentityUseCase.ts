@@ -1,7 +1,10 @@
 import { IContractorProfileRepository } from "@src/modules/kallisto-bridge/application/interfaces/repositories/profile/IContractorProfileRepository";
 import { ContractorProfileEntity } from "@src/modules/kallisto-bridge/domain/entities/ServiceProviderEntity";
 import { IAddContractorExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/contractor/IAddContractorExtraIdentityUseCase";
-import { AddContractorExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddContractorExtraIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { HttpStatus, ServiceProviderType } from "@packages/common/enums";
 import { ProfileMessages } from "@packages/common/messages";
@@ -13,7 +16,9 @@ export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIde
     private readonly _serviceProviderRepository: IServiceProviderRepository,
   ) {}
 
-  async execute(dto: AddContractorExtraIdentityRequestDTO): Promise<void> {
+  async execute(
+    dto: AddContractorExtraIdentityRequestDTO,
+  ): Promise<SPProfileUpdateResultDTO> {
     if (!dto.serviceProviderId) {
       throw new AppError(
         ErrorCode.VALIDATION_ERROR,
@@ -66,28 +71,24 @@ export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIde
       );
 
     if (existingProfile) {
-      const updateData: ContractorProfileEntity = {
-        id: existingProfile.id,
-        serviceProviderId: existingProfile.serviceProviderId,
-        workingSince: dto.workingSince,
-      };
-
-      await this._contractorProfileRepository.update(updateData);
-    } else {
-      const createData: ContractorProfileEntity = {
-        id: "", // Handled by DB generation
-        serviceProviderId: dto.serviceProviderId,
-        workingSince: dto.workingSince,
-      };
-
-      await this._contractorProfileRepository.create(createData);
+      throw new AppError(
+        ErrorCode.SERVICE_PROVIDER_ALREADY_EXISTS,
+        ProfileMessages.PROFILE_ALREADY_EXISTS,
+        HttpStatus.CONFLICT,
+      );
     }
 
-    if (!existingServiceProvider.isIdentityAdded) {
-      await this._serviceProviderRepository.update({
-        id: dto.serviceProviderId,
-        isIdentityAdded: true,
-      });
-    }
+    const createData: ContractorProfileEntity = {
+      id: "", // Handled by DB generation
+      serviceProviderId: dto.serviceProviderId,
+      workingSince: dto.workingSince,
+    };
+
+    const result = await this._contractorProfileRepository.create(createData);
+
+    return {
+      serviceProviderId: result.serviceProviderId,
+      spCode: existingServiceProvider.spCode,
+    };
   }
 }

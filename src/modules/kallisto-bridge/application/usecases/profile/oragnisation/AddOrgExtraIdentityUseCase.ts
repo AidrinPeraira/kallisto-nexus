@@ -2,7 +2,10 @@ import { IOrganisationProfileRepository } from "@src/modules/kallisto-bridge/app
 import { IServiceProviderRepository } from "@src/modules/kallisto-bridge/application/interfaces/repositories/profile/IServiceProviderRepository";
 import { OrganisationProfileEntity } from "@src/modules/kallisto-bridge/domain/entities/ServiceProviderEntity";
 import { IAddOrgExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgExtraIdentityUseCase";
-import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddOrgExtraIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import {
   HttpStatus,
@@ -17,7 +20,9 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
     private readonly _serviceProviderRepository: IServiceProviderRepository,
   ) {}
 
-  async execute(dto: AddOrgExtraIdentityRequestDTO): Promise<void> {
+  async execute(
+    dto: AddOrgExtraIdentityRequestDTO,
+  ): Promise<SPProfileUpdateResultDTO> {
     if (!dto.serviceProviderId) {
       throw new AppError(
         ErrorCode.VALIDATION_ERROR,
@@ -75,52 +80,33 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
       );
     }
 
-    // Validate the service provider exists
-    const sp = await this._serviceProviderRepository.findById(
-      dto.serviceProviderId,
-    );
-
-    if (!sp) {
-      throw new AppError(
-        ErrorCode.VALIDATION_ERROR,
-        ProfileMessages.PROFILE_NOT_FOUND,
-        HttpStatus.NOT_FOUND,
-      );
-    }
-
     const existingProfile =
       await this._organisationProfileRepository.findByServiceProviderId(
         dto.serviceProviderId,
       );
 
     if (existingProfile) {
-      const updateData: OrganisationProfileEntity = {
-        ...existingProfile,
-        brandName: dto.brandName,
-        brandLogo: dto.brandLogo,
-        organisationType: dto.organisationType as unknown as OrganisationType,
-        yearOfEstablishment: dto.yearOfEstablishment,
-      };
-
-      await this._organisationProfileRepository.update(updateData);
-    } else {
-      const createData: OrganisationProfileEntity = {
-        id: "", // Handled by DB generation
-        serviceProviderId: dto.serviceProviderId,
-        brandName: dto.brandName,
-        brandLogo: dto.brandLogo,
-        organisationType: dto.organisationType as unknown as OrganisationType,
-        yearOfEstablishment: dto.yearOfEstablishment,
-      };
-
-      await this._organisationProfileRepository.create(createData);
+      throw new AppError(
+        ErrorCode.SERVICE_PROVIDER_ALREADY_EXISTS,
+        ProfileMessages.PROFILE_ALREADY_EXISTS,
+        HttpStatus.CONFLICT,
+      );
     }
 
-    if (!existingServiceProvider.isIdentityAdded) {
-      await this._serviceProviderRepository.update({
-        id: dto.serviceProviderId,
-        isIdentityAdded: true,
-      });
-    }
+    const createData: OrganisationProfileEntity = {
+      id: "", // Handled by DB generation
+      serviceProviderId: dto.serviceProviderId,
+      brandName: dto.brandName,
+      brandLogo: dto.brandLogo,
+      organisationType: dto.organisationType as unknown as OrganisationType,
+      yearOfEstablishment: dto.yearOfEstablishment,
+    };
+
+    const result = await this._organisationProfileRepository.create(createData);
+
+    return {
+      serviceProviderId: result.serviceProviderId,
+      spCode: existingServiceProvider.spCode,
+    };
   }
 }

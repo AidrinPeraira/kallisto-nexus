@@ -3,16 +3,24 @@ import { ServiceProviderEntity } from "@src/modules/kallisto-bridge/domain/entit
 import {
   ServiceProviderType,
   ServiceProviderStatus,
+  HttpStatus,
 } from "@packages/common/enums";
 import { IAddSPIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPIdentityUseCase";
-import { AddIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddSPIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import { AppError, ErrorCode } from "@packages/common/errors";
+import { ProfileMessages } from "@packages/common/messages";
 
 export class AddSPIdentityUseCase implements IAddSPIdentityUseCase {
   constructor(
     private readonly _serviceProviderRepository: IServiceProviderRepository,
   ) {}
 
-  async execute(dto: AddIdentityRequestDTO): Promise<void> {
+  async execute(
+    dto: AddSPIdentityRequestDTO,
+  ): Promise<SPProfileUpdateResultDTO> {
     const isOrganisation = dto.spType === ServiceProviderType.ORGANISATION;
     const isIdentityComplete = !isOrganisation;
 
@@ -22,30 +30,30 @@ export class AddSPIdentityUseCase implements IAddSPIdentityUseCase {
     );
 
     if (existingSp) {
-      // 2a. Update existing SP
-      const updateData: Partial<ServiceProviderEntity> = {
-        id: existingSp.id,
-        displayName: dto.displayName,
-        profilePicture: dto.profilePicture,
-        spType: dto.spType,
-      };
-
-      await this._serviceProviderRepository.update(updateData);
-    } else {
-      // 2b. Create new SP
-      const now = new Date();
-
-      const createData = {
-        userId: dto.userId,
-        displayName: dto.displayName,
-        profilePicture: dto.profilePicture,
-        spType: dto.spType,
-        status: ServiceProviderStatus.ONBOARDING,
-        createdAt: now,
-        updatedAt: now,
-      } as ServiceProviderEntity;
-
-      await this._serviceProviderRepository.create(createData);
+      throw new AppError(
+        ErrorCode.SERVICE_PROVIDER_ALREADY_EXISTS,
+        ProfileMessages.PROFILE_ALREADY_EXISTS,
+        HttpStatus.CONFLICT,
+      );
     }
+    //  Create new SP
+    const now = new Date();
+
+    const createData = {
+      userId: dto.userId,
+      displayName: dto.displayName,
+      profilePicture: dto.profilePicture,
+      spType: dto.spType,
+      status: ServiceProviderStatus.ONBOARDING,
+      createdAt: now,
+      updatedAt: now,
+    } as ServiceProviderEntity;
+
+    const newSP = await this._serviceProviderRepository.create(createData);
+
+    return {
+      serviceProviderId: newSP.id,
+      spCode: newSP.spCode,
+    };
   }
 }

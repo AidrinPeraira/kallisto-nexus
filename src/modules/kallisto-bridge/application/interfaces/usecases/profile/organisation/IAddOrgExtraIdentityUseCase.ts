@@ -1,4 +1,7 @@
-import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddOrgExtraIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * This interface is used to update the organisation identity of a service provider.
@@ -6,5 +9,7 @@ import { AddOrgExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/appl
  * - it validates the service provider type is org and service provider id exists before adding the data
  */
 export interface IAddOrgExtraIdentityUseCase {
-  execute(dto: AddOrgExtraIdentityRequestDTO): Promise<void>;
+  execute(
+    dto: AddOrgExtraIdentityRequestDTO,
+  ): Promise<SPProfileUpdateResultDTO>;
 }

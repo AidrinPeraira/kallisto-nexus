@@ -1,4 +1,7 @@
-import { AddIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddSPIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 /**
  * This usecase is responsible for adding the identity of a service provider.
@@ -8,5 +11,5 @@ import { AddIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/
  * - Same for the representative details
  */
 export interface IAddSPIdentityUseCase {
-  execute(dto: AddIdentityRequestDTO): Promise<void>;
+  execute(dto: AddSPIdentityRequestDTO): Promise<SPProfileUpdateResultDTO>;
 }

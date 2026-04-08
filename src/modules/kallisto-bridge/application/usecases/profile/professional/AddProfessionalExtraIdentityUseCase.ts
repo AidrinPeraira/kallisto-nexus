@@ -1,7 +1,10 @@
 import { IProfessionalProfileRepository } from "@src/modules/kallisto-bridge/application/interfaces/repositories/profile/IProfessionalProfileRepository";
 import { ProfessionalProfileEntity } from "@src/modules/kallisto-bridge/domain/entities/ServiceProviderEntity";
 import { IAddProfessionalExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/professional/IAddProfessionalExtraIdentityUseCase";
-import { AddProfessionalExtraIdentityRequestDTO } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
+import {
+  AddProfessionalExtraIdentityRequestDTO,
+  SPProfileUpdateResultDTO,
+} from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 import { AppError, ErrorCode } from "@packages/common/errors";
 import { HttpStatus, ServiceProviderType } from "@packages/common/enums";
 import { ProfileMessages } from "@packages/common/messages";
@@ -13,7 +16,9 @@ export class AddProfessionalExtraIdentityUseCase implements IAddProfessionalExtr
     private readonly _serviceProviderRepository: IServiceProviderRepository,
   ) {}
 
-  async execute(dto: AddProfessionalExtraIdentityRequestDTO): Promise<void> {
+  async execute(
+    dto: AddProfessionalExtraIdentityRequestDTO,
+  ): Promise<SPProfileUpdateResultDTO> {
     if (!dto.serviceProviderId) {
       throw new AppError(
         ErrorCode.VALIDATION_ERROR,
@@ -66,28 +71,24 @@ export class AddProfessionalExtraIdentityUseCase implements IAddProfessionalExtr
       );
 
     if (existingProfile) {
-      const updateData: ProfessionalProfileEntity = {
-        id: existingProfile.id,
-        serviceProviderId: existingProfile.serviceProviderId,
-        workingSince: dto.workingSince,
-      };
-
-      await this._professionalProfileRepository.update(updateData);
-    } else {
-      const createData: ProfessionalProfileEntity = {
-        id: "", // Handled by DB generation
-        serviceProviderId: dto.serviceProviderId,
-        workingSince: dto.workingSince,
-      };
-
-      await this._professionalProfileRepository.create(createData);
+      throw new AppError(
+        ErrorCode.SERVICE_PROVIDER_ALREADY_EXISTS,
+        ProfileMessages.PROFILE_ALREADY_EXISTS,
+        HttpStatus.CONFLICT,
+      );
     }
 
-    if (!existingServiceProvider.isIdentityAdded) {
-      await this._serviceProviderRepository.update({
-        id: dto.serviceProviderId,
-        isIdentityAdded: true,
-      });
-    }
+    const createData: ProfessionalProfileEntity = {
+      id: "", // Handled by DB generation
+      serviceProviderId: dto.serviceProviderId,
+      workingSince: dto.workingSince,
+    };
+
+    const result = await this._professionalProfileRepository.create(createData);
+
+    return {
+      serviceProviderId: result.serviceProviderId,
+      spCode: existingServiceProvider.spCode,
+    };
   }
 }
