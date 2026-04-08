@@ -9,7 +9,7 @@ import {
 export interface AddIdentityRequestDTO {
   userId: string;
   displayName: string;
-  profilePicture: string;
+  profilePicture?: string;
   spType: ServiceProviderType;
 }
 

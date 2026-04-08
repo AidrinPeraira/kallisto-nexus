@@ -69,6 +69,9 @@
   - Move resend notification service to packages — is it a common service or should it remain module-scoped?
   - Refactor user module based on actions — needs discussion.
 
+- Aidrin | 08/04/2026
+  - Migrate all delete opertions to soft delete as needed.
+
 ---
 
 ## Ideas

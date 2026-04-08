@@ -1,0 +1,151 @@
+import { IServiceProviderRepository } from "@src/modules/kallisto-bridge/application/interfaces/repositories/profile/IServiceProviderRepository";
+import { ServiceProviderEntity } from "@src/modules/kallisto-bridge/domain/entities/ServiceProviderEntity";
+import { prisma } from "@packages/config/prisma";
+import {
+  ServiceProviderStatus,
+  ServiceProviderType,
+  GovernmentIdType,
+  ServiceTypes,
+} from "@packages/common/enums";
+
+export class PrismaServiceProviderRepository implements IServiceProviderRepository {
+  async create(
+    serviceProvider: ServiceProviderEntity,
+  ): Promise<ServiceProviderEntity> {
+    const data: any = {
+      userId: serviceProvider.userId,
+      displayName: serviceProvider.displayName,
+      spType: serviceProvider.spType,
+      status: serviceProvider.status || ServiceProviderStatus.ONBOARDING,
+      isIdentityAdded: serviceProvider.isIdentityAdded ?? false,
+      isAddressAdded: serviceProvider.isAddressAdded ?? false,
+      isServicesAdded: serviceProvider.isServicesAdded ?? false,
+      isPortfolioAdded: serviceProvider.isPortfolioAdded ?? false,
+      isCredentialsAdded: serviceProvider.isCredentialsAdded ?? false,
+      isBankDetailsAdded: serviceProvider.isBankDetailsAdded ?? false,
+      isRepresentativeAdded: serviceProvider.isRepresentativeAdded ?? false,
+    };
+
+    // Map optional fields only if they are provided
+    const optionalFields: (keyof ServiceProviderEntity)[] = [
+      "profilePicture",
+      "officeAddress",
+      "officeEmail",
+      "officePhone",
+      "primaryServices",
+      "subServices",
+      "typicalProjectValue",
+      "PAN",
+      "GSTIN",
+      "governmentIdType",
+      "governmentIdNumber",
+      "professionalLicenseType",
+      "professionalLicenseNumber",
+      "financeAccountId",
+      "maskedAccountNumber",
+      "bankName",
+      "portfolioId",
+    ];
+
+    optionalFields.forEach((field) => {
+      if (serviceProvider[field] !== undefined) {
+        data[field as string] = serviceProvider[field];
+      }
+    });
+
+    const createdSp = await prisma.bridge_ServiceProvider.create({
+      data,
+    });
+
+    return this.mapToDomain(createdSp);
+  }
+
+  async findById(id: string): Promise<ServiceProviderEntity | null> {
+    const sp = await prisma.bridge_ServiceProvider.findUnique({
+      where: { id },
+    });
+
+    if (!sp) return null;
+    return this.mapToDomain(sp);
+  }
+
+  async findByUserId(userId: string): Promise<ServiceProviderEntity | null> {
+    const sp = await prisma.bridge_ServiceProvider.findUnique({
+      where: { userId },
+    });
+
+    if (!sp) return null;
+    return this.mapToDomain(sp);
+  }
+
+  async findBySpCode(spCode: string): Promise<ServiceProviderEntity | null> {
+    const sp = await prisma.bridge_ServiceProvider.findUnique({
+      where: { spCode },
+    });
+
+    if (!sp) return null;
+    return this.mapToDomain(sp);
+  }
+
+  async update(
+    serviceProvider: Partial<ServiceProviderEntity>,
+  ): Promise<ServiceProviderEntity> {
+    const { id, ...updateData } = serviceProvider;
+
+    if (!id) {
+      throw new Error("ServiceProvider ID is required for update");
+    }
+
+    const updatedSp = await prisma.bridge_ServiceProvider.update({
+      where: { id },
+      data: updateData as any,
+    });
+
+    return this.mapToDomain(updatedSp);
+  }
+
+  async delete(id: string): Promise<void> {
+    await prisma.bridge_ServiceProvider.delete({
+      where: { id },
+    });
+  }
+
+  private mapToDomain(prismaSp: any): ServiceProviderEntity {
+    return {
+      id: prismaSp.id,
+      spCode: prismaSp.spCode,
+      userId: prismaSp.userId,
+      displayName: prismaSp.displayName,
+      profilePicture: prismaSp.profilePicture || undefined,
+      spType: prismaSp.spType as ServiceProviderType,
+      officeAddress: prismaSp.officeAddress || undefined,
+      officeEmail: prismaSp.officeEmail || undefined,
+      officePhone: prismaSp.officePhone || undefined,
+      primaryServices: (prismaSp.primaryServices as ServiceTypes[]) || [],
+      subServices: (prismaSp.subServices as ServiceTypes[]) || [],
+      typicalProjectValue: prismaSp.typicalProjectValue || undefined,
+      PAN: prismaSp.PAN || undefined,
+      GSTIN: prismaSp.GSTIN || undefined,
+      governmentIdType:
+        (prismaSp.governmentIdType as GovernmentIdType) || undefined,
+      governmentIdNumber: prismaSp.governmentIdNumber || undefined,
+      professionalLicenseType: prismaSp.professionalLicenseType || undefined,
+      professionalLicenseNumber:
+        prismaSp.professionalLicenseNumber || undefined,
+      financeAccountId: prismaSp.financeAccountId || undefined,
+      maskedAccountNumber: prismaSp.maskedAccountNumber || undefined,
+      bankName: prismaSp.bankName || undefined,
+      portfolioId: prismaSp.portfolioId || undefined,
+      isIdentityAdded: prismaSp.isIdentityAdded,
+      isAddressAdded: prismaSp.isAddressAdded,
+      isServicesAdded: prismaSp.isServicesAdded,
+      isPortfolioAdded: prismaSp.isPortfolioAdded,
+      isCredentialsAdded: prismaSp.isCredentialsAdded,
+      isBankDetailsAdded: prismaSp.isBankDetailsAdded,
+      isRepresentativeAdded: prismaSp.isRepresentativeAdded,
+      status: prismaSp.status as ServiceProviderStatus,
+      createdAt: prismaSp.createdAt,
+      updatedAt: prismaSp.updatedAt,
+    };
+  }
+}

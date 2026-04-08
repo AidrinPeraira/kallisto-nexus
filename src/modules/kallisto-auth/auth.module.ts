@@ -6,7 +6,7 @@ import { RefreshTokenUseCase } from "@src/modules/kallisto-auth/application/usec
 import { RegisterUserUseCase } from "@src/modules/kallisto-auth/application/usecases/RegisterUserUseCase";
 import { ResendVerificationEmailUseCase } from "@src/modules/kallisto-auth/application/usecases/ResendVerificationEmailUseCase";
 import { VerifyEmailUseCase } from "@src/modules/kallisto-auth/application/usecases/VerifyEmailUseCase";
-import { PostgresUserRepository } from "@src/modules/kallisto-auth/infrastructure/repositories/PostgressUserRepository";
+import { PrismaUserRepository } from "@src/modules/kallisto-auth/infrastructure/repositories/PrismaUserRepository";
 import { BetterAuthService } from "@src/modules/kallisto-auth/infrastructure/services/auth/BetterAuthService";
 import { TokenService } from "@src/modules/kallisto-auth/infrastructure/services/jwt/TokenService";
 import { AuthController } from "@src/modules/kallisto-auth/presentation/controller/AuthController";
@@ -16,7 +16,7 @@ export function createAuthModule() {
   const logger = new WinstonLogger();
 
   //repositories
-  const userRepository = new PostgresUserRepository();
+  const userRepository = new PrismaUserRepository();
 
   //services
   const authService = new BetterAuthService(logger);

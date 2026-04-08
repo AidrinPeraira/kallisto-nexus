@@ -17,7 +17,7 @@ export interface OrganisationProfileEntity {
   brandName?: string;
   brandLogo?: string;
   organisationType?: OrganisationType;
-  yearOfEstablishment: number;
+  yearOfEstablishment?: number;
 
   // org-specific credentials
   businessProofType?: BusinessProofType;
@@ -74,10 +74,10 @@ export interface ServiceAreaEntity {
 
 export interface ServiceProviderEntity {
   id: string;
-  userId: string;
   spCode: string;
 
   // identity
+  userId: string;
   displayName: string;
   profilePicture?: string;
   spType: ServiceProviderType;
@@ -88,8 +88,8 @@ export interface ServiceProviderEntity {
   officePhone?: string;
 
   // services
-  primaryServices: ServiceTypes[];
-  subServices: ServiceTypes[];
+  primaryServices?: ServiceTypes[];
+  subServices?: ServiceTypes[];
   typicalProjectValue?: number;
 
   // credentials

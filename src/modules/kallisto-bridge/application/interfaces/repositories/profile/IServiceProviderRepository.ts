@@ -7,7 +7,9 @@ export interface IServiceProviderRepository {
    * @param serviceProvider The service provider entity to persist.
    * @returns The created service provider.
    */
-  create(serviceProvider: ServiceProviderEntity): Promise<ServiceProviderEntity>;
+  create(
+    serviceProvider: ServiceProviderEntity,
+  ): Promise<ServiceProviderEntity>;
 
   /**
    * Finds a service provider by their internal UUID.
@@ -37,7 +39,9 @@ export interface IServiceProviderRepository {
    * @param serviceProvider The updated service provider entity.
    * @returns The updated service provider.
    */
-  update(serviceProvider: ServiceProviderEntity): Promise<ServiceProviderEntity>;
+  update(
+    serviceProvider: Partial<ServiceProviderEntity>,
+  ): Promise<ServiceProviderEntity>;
 
   /**
    * Deletes a service provider record by ID.

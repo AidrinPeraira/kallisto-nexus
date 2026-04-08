@@ -3,7 +3,7 @@ import { UserEntity } from "@src/modules/kallisto-auth/domain/entities/UserEntit
 import { UserRole, UserStatus } from "@packages/common/enums";
 import { prisma } from "@packages/config/prisma";
 
-export class PostgresUserRepository implements IUserRepository {
+export class PrismaUserRepository implements IUserRepository {
   async create(user: UserEntity): Promise<UserEntity> {
     const data: any = {
       authId: user.authId,
