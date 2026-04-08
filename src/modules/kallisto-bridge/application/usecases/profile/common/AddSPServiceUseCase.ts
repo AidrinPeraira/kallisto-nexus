@@ -50,11 +50,18 @@ export class AddSPServiceUseCase implements IAddServicesUseCase {
       );
     }
 
+    if (existingServiceProvider.isServicesAdded) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.SERVICES_ALREADY_ADDED,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     const updateData: Partial<ServiceProviderEntity> = {
       id: dto.serviceProviderId,
       primaryServices: dto.primaryServices as unknown as ServiceTypes[],
       subServices: dto.subServices as unknown as ServiceTypes[],
-      isServicesAdded: true,
       typicalProjectValue: dto.typicalProjectValue,
     };
 

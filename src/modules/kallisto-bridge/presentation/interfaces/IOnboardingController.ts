@@ -23,4 +23,16 @@ export interface IOnboardingController {
    * Common method for adding address for all service providers
    */
   addSPAddress(req: Request, res: Response): Promise<void>;
+
+  //----- services -----
+
+  /**
+   * This function adds services and service area for all service providers
+   */
+  addSPServices(req: Request, res: Response): Promise<void>;
+
+  /**
+   * This function adds service areas for all service providers
+   */
+  addSPServiceAreas(req: Request, res: Response): Promise<void>;
 }

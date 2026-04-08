@@ -11,6 +11,9 @@ import { ProfileMessages } from "@packages/common/messages";
 import { IAddProfessionalExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/professional/IAddProfessionalExtraIdentityUseCase";
 import { IAddContractorExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/contractor/IAddContractorExtraIdentityUseCase";
 import { IAddSPAddressUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPAddressUseCase";
+import { IAddServicesUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPServicesUseCase";
+import { IAddSPServiceAreaUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPServiceAreaUseCase";
+import { AppError, ErrorCode } from "@packages/common/errors";
 
 export class OnboardingController implements IOnboardingController {
   constructor(
@@ -21,6 +24,8 @@ export class OnboardingController implements IOnboardingController {
     private readonly _addContractorExtraIdentityUseCase: IAddContractorExtraIdentityUseCase,
 
     private readonly _addSPAddressUseCase: IAddSPAddressUseCase,
+    private readonly _addSPServicesUseCase: IAddServicesUseCase,
+    private readonly _addSPServiceAreasUseCase: IAddSPServiceAreaUseCase,
 
     private readonly _updateProfileCompletionUseCase: IUpdateProfileCompletionUseCase,
   ) {}
@@ -181,6 +186,76 @@ export class OnboardingController implements IOnboardingController {
       return;
     } catch (error: unknown) {
       this._logger.error("Add SP Address Error : ", error);
+      throw error;
+    }
+  }
+
+  /**
+   * This method adds services only
+   * - It lists the services that the service provider offers
+   */
+  async addSPServices(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add SP Services request received");
+
+      const data = OnboardingMapper.toAddSPServicesRequestDTO(req.body);
+
+      //add services
+      await this._addSPServicesUseCase.execute(data);
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.SERVICES_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add SP Services Error : ", error);
+      throw error;
+    }
+  }
+
+  /**
+   * This method adds service areas only
+   */
+  async addSPServiceAreas(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add SP Service Areas request received");
+
+      const data = OnboardingMapper.toAddSPServiceAreasRequestDTO(req.body);
+
+      if (data.length === 0) {
+        throw new AppError(
+          ErrorCode.BAD_REQUEST,
+          ProfileMessages.SERVICE_AREAS_MANDATORY,
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+
+      //add service areas
+      for (const serviceArea of data) {
+        await this._addSPServiceAreasUseCase.execute(serviceArea);
+      }
+
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: req.body.serviceProviderId,
+        isServicesAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: req.body.serviceProviderId },
+            ProfileMessages.SERVICE_AREAS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add SP Service Areas Error: ", error);
       throw error;
     }
   }

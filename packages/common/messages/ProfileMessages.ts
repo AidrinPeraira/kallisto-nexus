@@ -17,6 +17,11 @@ export enum ProfileMessages {
   WORKING_SINCE_MANDATORY = "Working since details are mandatory",
   ORGANISATION_TYPE_MANDATORY = "Organisation type is mandatory",
   YEAR_OF_ESTABLISHMENT_MANDATORY = "Year of establishment is mandatory",
+  SERVICES_ADDED = "Services added successfully",
+  SERVICES_ALREADY_ADDED = "Services already added",
+
+  SERVICE_AREAS_ADDED = "Service areas added successfully",
+  SERVICE_AREAS_MANDATORY = "Service areas are mandatory",
 
   OFFICE_ADDRESS_MANDATORY = "Office address is mandatory",
   OFFICE_EMAIL_MANDATORY = "Office email is mandatory",
