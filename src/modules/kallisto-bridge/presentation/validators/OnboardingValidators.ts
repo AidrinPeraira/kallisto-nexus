@@ -13,7 +13,7 @@ const BaseIdentitySchema = {
   userId: z.string().min(1, "User ID is required"),
   displayName: z.string().min(2, "Display name must be at least 2 characters"),
   profilePicture: z.string().url("Invalid profile picture URL").optional(),
-  serviceProviderId: z.string().min(1, "Service Provider ID is required"),
+  // serviceProviderId: z.string().min(1, "Service Provider ID is required"),
 };
 
 export const AddOrgSPIdentitySchema = z.object({

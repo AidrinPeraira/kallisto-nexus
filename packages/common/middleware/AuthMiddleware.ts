@@ -32,6 +32,7 @@ export function authMidllewarre(
     }
 
     (req as any).user = payload;
+    req.body.userId = (payload as any).userId;
     next();
   } catch (error) {
     next(error);
