@@ -66,12 +66,19 @@ export class AddSPAddressUseCase implements IAddSPAddressUseCase {
       );
     }
 
+    if (existingServiceProvider.isAddressAdded) {
+      throw new AppError(
+        ErrorCode.VALIDATION_ERROR,
+        ProfileMessages.ADDRESS_ALREADY_ADDED,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
     const updateData: Partial<ServiceProviderEntity> = {
       id: dto.serviceProviderId,
       officeAddress: dto.officeAddress,
       officeEmail: dto.officeEmail,
       officePhone: dto.officePhone,
-      isAddressAdded: true,
     };
 
     await this._serviceProviderRepository.update(updateData);

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 export interface IOnboardingController {
+  //----- identity -----
   /**
    * This function creates an organization's service provider identity
    */
@@ -15,4 +16,11 @@ export interface IOnboardingController {
    * This function creates a contractor's service provider identity
    */
   addContractorSPIdentity(req: Request, res: Response): Promise<void>;
+
+  //----- addres -----
+
+  /**
+   * Common method for adding address for all service providers
+   */
+  addSPAddress(req: Request, res: Response): Promise<void>;
 }

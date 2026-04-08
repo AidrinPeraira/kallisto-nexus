@@ -1,4 +1,5 @@
 import {
+  AddAddressRequestDTO,
   AddContractorExtraIdentityRequestDTO,
   AddOrgExtraIdentityRequestDTO,
   AddProfessionalExtraIdentityRequestDTO,
@@ -43,6 +44,16 @@ export class OnboardingMapper {
       spType: body.spType,
       serviceProviderId: body.serviceProviderId,
       workingSince: body.workingSince,
+    };
+  }
+
+  static toAddSPAddressRequestDTO(body: any): AddAddressRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      officeAddress: body.officeAddress,
+      officeEmail: body.officeEmail,
+      officePhone: body.officePhone,
     };
   }
 }

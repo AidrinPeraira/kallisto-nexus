@@ -21,6 +21,8 @@ export enum ProfileMessages {
   OFFICE_ADDRESS_MANDATORY = "Office address is mandatory",
   OFFICE_EMAIL_MANDATORY = "Office email is mandatory",
   OFFICE_PHONE_MANDATORY = "Office phone is mandatory",
+  ADDRESS_ADDED = "Address added successfully",
+  ADDRESS_ALREADY_ADDED = "Address already added",
 
   PAN_MANDATORY = "PAN details are mandatory",
   GOVERNMENT_ID_TYPE_MANDATORY = "Government ID Type is mandatory",

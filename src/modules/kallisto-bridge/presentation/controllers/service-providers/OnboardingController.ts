@@ -10,6 +10,7 @@ import { IUpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/ap
 import { ProfileMessages } from "@packages/common/messages";
 import { IAddProfessionalExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/professional/IAddProfessionalExtraIdentityUseCase";
 import { IAddContractorExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/contractor/IAddContractorExtraIdentityUseCase";
+import { IAddSPAddressUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPAddressUseCase";
 
 export class OnboardingController implements IOnboardingController {
   constructor(
@@ -18,6 +19,9 @@ export class OnboardingController implements IOnboardingController {
     private readonly _addOrgExtraIdentityUseCase: IAddOrgExtraIdentityUseCase,
     private readonly _addProfessionalExtraIdentityUseCase: IAddProfessionalExtraIdentityUseCase,
     private readonly _addContractorExtraIdentityUseCase: IAddContractorExtraIdentityUseCase,
+
+    private readonly _addSPAddressUseCase: IAddSPAddressUseCase,
+
     private readonly _updateProfileCompletionUseCase: IUpdateProfileCompletionUseCase,
   ) {}
 
@@ -147,6 +151,36 @@ export class OnboardingController implements IOnboardingController {
       return;
     } catch (error: unknown) {
       this._logger.error("Add Contractor SP Identity Error : ", error);
+      throw error;
+    }
+  }
+
+  async addSPAddress(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add SP Address request received");
+
+      const data = OnboardingMapper.toAddSPAddressRequestDTO(req.body);
+
+      //add address
+      await this._addSPAddressUseCase.execute(data);
+
+      //update completion status
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isAddressAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.ADDRESS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add SP Address Error : ", error);
       throw error;
     }
   }
