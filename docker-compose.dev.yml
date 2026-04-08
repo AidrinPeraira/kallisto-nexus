@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  kallisto-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: kallisto-api-dev
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules # Prevents local node_modules from overwriting container's
+    restart: always
+    extra_hosts:
+      - "localhost:host-gateway"

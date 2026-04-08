@@ -15,7 +15,14 @@
     "db:deploy": "prisma migrate deploy",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
-    "db:reset": "prisma migrate reset"
+    "db:reset": "prisma migrate reset",
+    "docker:build:prod": "docker build -t yourusername/kallisto-nexus:latest -f Dockerfile.prod .",
+    "docker:push": "docker push yourusername/kallisto-nexus:latest",
+    "docker:deploy:prod": "pnpm run docker:build:prod && pnpm run docker:push && docker-compose -f docker-compose.prod.yml pull && docker-compose -f docker-compose.prod.yml up -d",
+    "docker:up:dev": "docker-compose -f docker-compose.dev.yml up -d --build",
+    "docker:down:dev": "docker-compose -f docker-compose.dev.yml down",
+    "docker:up:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:down:prod": "docker-compose -f docker-compose.prod.yml down"
   },
   "keywords": [],
   "author": "",
