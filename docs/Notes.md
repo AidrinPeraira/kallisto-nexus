@@ -95,4 +95,14 @@
   - Testing (unit, integration, e2e)
   - CI/CD pipeline
 
+- ToDo: Aidrin | 08/04/2026
+  - Banking details update from payment module to bridge module
+  - get profile details SP
+  - addmin user mangement
+  - admin SP management
+  - portfolio edit
+  - portfolio listing
+  - portflio matching
+  - SA Onboarding
+
 ---
