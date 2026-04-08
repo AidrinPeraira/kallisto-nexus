@@ -74,15 +74,14 @@ export class AddOrgExtraCredentialsUseCase implements IAddOrgExtraCredentialsUse
 
       await this._organisationProfileRepository.update(updateData);
     } else {
-      const createData: OrganisationProfileEntity = {
-        id: "", // Handled by DB generation
+      const createData = {
         serviceProviderId: dto.serviceProviderId,
         businessProofType:
           dto.businessProofType as unknown as BusinessProofType,
         businessProofImage: dto.businessProofImage,
         tradeLicense: dto.tradeLicense,
         insurance: dto.insurance,
-      };
+      } as OrganisationProfileEntity;
 
       await this._organisationProfileRepository.create(createData);
     }

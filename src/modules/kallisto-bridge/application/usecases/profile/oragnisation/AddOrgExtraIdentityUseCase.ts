@@ -93,14 +93,13 @@ export class AddOrgExtraIdentityUseCase implements IAddOrgExtraIdentityUseCase {
       );
     }
 
-    const createData: OrganisationProfileEntity = {
-      id: "", // Handled by DB generation
+    const createData = {
       serviceProviderId: dto.serviceProviderId,
       brandName: dto.brandName,
       brandLogo: dto.brandLogo,
       organisationType: dto.organisationType as unknown as OrganisationType,
       yearOfEstablishment: dto.yearOfEstablishment,
-    };
+    } as OrganisationProfileEntity;
 
     const result = await this._organisationProfileRepository.create(createData);
 

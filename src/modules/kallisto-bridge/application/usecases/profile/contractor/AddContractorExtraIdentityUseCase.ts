@@ -78,11 +78,10 @@ export class AddContractorExtraIdentityUseCase implements IAddContractorExtraIde
       );
     }
 
-    const createData: ContractorProfileEntity = {
-      id: "", // Handled by DB generation
+    const createData = {
       serviceProviderId: dto.serviceProviderId,
       workingSince: dto.workingSince,
-    };
+    } as ContractorProfileEntity;
 
     const result = await this._contractorProfileRepository.create(createData);
 

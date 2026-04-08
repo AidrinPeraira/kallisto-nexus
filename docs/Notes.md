@@ -107,5 +107,6 @@
   - Is SP Type in onboarding redundant with user role already checking type?
   - SP id taken in onboarding is redundant for ord identity
   - Refactor to not use db id in sp onboarding queries. use sp code
+  - token expiration is returning 500 error. NEED IMMEDIATE CHANGE.
 
 ---

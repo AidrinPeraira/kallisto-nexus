@@ -78,10 +78,7 @@ export class OnboardingMapper {
         serviceProviderId: body.serviceProviderId,
         city: serviceArea.city,
         isPrimary: serviceArea.isPrimary,
-        centerPoint: [
-          serviceArea.centerPoint.lng,
-          serviceArea.centerPoint.lat,
-        ],
+        centerPoint: [serviceArea.centerPoint.lng, serviceArea.centerPoint.lat],
         radiusKm: serviceArea.radiusKm,
       };
     });
