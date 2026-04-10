@@ -2587,6 +2587,34 @@ export type ListEnumServiceProviderStatusFieldRefInput<$PrismaModel> = FieldRefI
 
 
 /**
+ * Reference to a field of type 'ProjectType'
+ */
+export type EnumProjectTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProjectType[]'
+ */
+export type ListEnumProjectTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProjectScope[]'
+ */
+export type ListEnumProjectScopeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectScope[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProjectScope'
+ */
+export type EnumProjectScopeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectScope'>
+    
+
+
+/**
  * Reference to a field of type 'HandsAssociateType'
  */
 export type EnumHandsAssociateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HandsAssociateType'>

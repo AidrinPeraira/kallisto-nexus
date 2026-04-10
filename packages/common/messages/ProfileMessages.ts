@@ -57,4 +57,9 @@ export enum ProfileMessages {
   CITY_MANDATORY = "City is mandatory",
   CENTER_POINT_MANDATORY = "Center point is mandatory",
   RADIUS_MANDATORY = "Radius is mandatory",
+
+  PORTFOLIO_ALREADY_EXISTS = "Portfolio already exists for this service provider",
+  PORTFOLIO_NOT_FOUND = "Portfolio not found",
+  PORTFOLIO_CREATED = "Portfolio created successfully",
+  PROJECT_ADDED = "Portfolio project added successfully",
 }

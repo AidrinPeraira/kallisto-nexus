@@ -4,6 +4,9 @@ import { PrismaOrganisationProfileRepository } from "@src/modules/kallisto-bridg
 import { PrismaProfessionalProfileRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/profile/PrismaProfessionalProfileRepository";
 import { PrismaContractorProfileRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/profile/PrismaContractorProfileRepository";
 import { PrismaServiceAreaRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/profile/PrismaServiceAreaRepository";
+import { PrismaPortfolioRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/portfolio/PrismaPortfolioRepository";
+import { PrismaPortfolioProjectRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/portfolio/PrismaPortfolioProjectRepository";
+
 
 // UseCases
 import { AddSPIdentityUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/AddSPIdentityUseCase";
@@ -21,9 +24,14 @@ import { AddOrgExtraCredentialsUseCase } from "@src/modules/kallisto-bridge/appl
 import { AddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/oragnisation/AddOrgRepresentativeUseCase";
 
 import { UpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/UpdateProfileCompletionUseCase";
+import { CreatePortfolioUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/CreatePortfolioUseCase";
+import { AddPortfolioProjectUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/AddPortfolioProjectUseCase";
+
 
 // Controller
 import { OnboardingController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/OnboardingController";
+import { PortfolioController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/PortfolioController";
+
 import { WinstonLogger } from "@packages/logger";
 
 export function createBridgeModule() {
@@ -35,6 +43,9 @@ export function createBridgeModule() {
   const prismaProfRepo = new PrismaProfessionalProfileRepository();
   const prismaContractorRepo = new PrismaContractorProfileRepository();
   const prismaServiceAreaRepo = new PrismaServiceAreaRepository();
+  const prismaPortfolioRepo = new PrismaPortfolioRepository();
+  const prismaPortfolioProjectRepo = new PrismaPortfolioProjectRepository();
+
 
   // 2. UseCases
   const addSPIdentityUseCase = new AddSPIdentityUseCase(prismaSPRepo);
@@ -52,6 +63,17 @@ export function createBridgeModule() {
   const addOrgRepresentativeUseCase = new AddOrgRepresentativeUseCase(prismaOrgRepo, prismaSPRepo);
   
   const updateProfileCompletionUseCase = new UpdateProfileCompletionUseCase(prismaSPRepo);
+
+  const createPortfolioUseCase = new CreatePortfolioUseCase(
+    prismaPortfolioRepo,
+    prismaPortfolioProjectRepo,
+    prismaSPRepo
+  );
+  const addPortfolioProjectUseCase = new AddPortfolioProjectUseCase(
+    prismaPortfolioProjectRepo,
+    prismaPortfolioRepo
+  );
+
 
   // 3. Controller
   const onboardingController = new OnboardingController(
@@ -73,7 +95,15 @@ export function createBridgeModule() {
     updateProfileCompletionUseCase
   );
 
+  const portfolioController = new PortfolioController(
+    logger,
+    createPortfolioUseCase,
+    addPortfolioProjectUseCase
+  );
+
   return {
-    onboardingController
+    onboardingController,
+    portfolioController
   };
+
 }

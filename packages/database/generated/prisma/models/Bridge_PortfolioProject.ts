@@ -41,7 +41,7 @@ export type Bridge_PortfolioProjectMinAggregateOutputType = {
   portfolioId: string | null
   projectName: string | null
   location: string | null
-  projectType: string | null
+  projectType: $Enums.ProjectType | null
   completionYear: number | null
   budgetValue: number | null
   budgetCurrency: string | null
@@ -59,7 +59,7 @@ export type Bridge_PortfolioProjectMaxAggregateOutputType = {
   portfolioId: string | null
   projectName: string | null
   location: string | null
-  projectType: string | null
+  projectType: $Enums.ProjectType | null
   completionYear: number | null
   budgetValue: number | null
   budgetCurrency: string | null
@@ -252,8 +252,8 @@ export type Bridge_PortfolioProjectGroupByOutputType = {
   portfolioId: string
   projectName: string
   location: string | null
-  projectType: string
-  scope: string[]
+  projectType: $Enums.ProjectType
+  scope: $Enums.ProjectScope[]
   completionYear: number | null
   budgetValue: number | null
   budgetCurrency: string | null
@@ -295,8 +295,8 @@ export type Bridge_PortfolioProjectWhereInput = {
   portfolioId?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   projectName?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   location?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
-  projectType?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
-  scope?: Prisma.StringNullableListFilter<"Bridge_PortfolioProject">
+  projectType?: Prisma.EnumProjectTypeFilter<"Bridge_PortfolioProject"> | $Enums.ProjectType
+  scope?: Prisma.EnumProjectScopeNullableListFilter<"Bridge_PortfolioProject">
   completionYear?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetValue?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetCurrency?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
@@ -340,8 +340,8 @@ export type Bridge_PortfolioProjectWhereUniqueInput = Prisma.AtLeast<{
   portfolioId?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   projectName?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   location?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
-  projectType?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
-  scope?: Prisma.StringNullableListFilter<"Bridge_PortfolioProject">
+  projectType?: Prisma.EnumProjectTypeFilter<"Bridge_PortfolioProject"> | $Enums.ProjectType
+  scope?: Prisma.EnumProjectScopeNullableListFilter<"Bridge_PortfolioProject">
   completionYear?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetValue?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetCurrency?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
@@ -389,8 +389,8 @@ export type Bridge_PortfolioProjectScalarWhereWithAggregatesInput = {
   portfolioId?: Prisma.StringWithAggregatesFilter<"Bridge_PortfolioProject"> | string
   projectName?: Prisma.StringWithAggregatesFilter<"Bridge_PortfolioProject"> | string
   location?: Prisma.StringNullableWithAggregatesFilter<"Bridge_PortfolioProject"> | string | null
-  projectType?: Prisma.StringWithAggregatesFilter<"Bridge_PortfolioProject"> | string
-  scope?: Prisma.StringNullableListFilter<"Bridge_PortfolioProject">
+  projectType?: Prisma.EnumProjectTypeWithAggregatesFilter<"Bridge_PortfolioProject"> | $Enums.ProjectType
+  scope?: Prisma.EnumProjectScopeNullableListFilter<"Bridge_PortfolioProject">
   completionYear?: Prisma.IntNullableWithAggregatesFilter<"Bridge_PortfolioProject"> | number | null
   budgetValue?: Prisma.IntNullableWithAggregatesFilter<"Bridge_PortfolioProject"> | number | null
   budgetCurrency?: Prisma.StringNullableWithAggregatesFilter<"Bridge_PortfolioProject"> | string | null
@@ -408,8 +408,8 @@ export type Bridge_PortfolioProjectCreateInput = {
   id?: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -429,8 +429,8 @@ export type Bridge_PortfolioProjectUncheckedCreateInput = {
   portfolioId: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -448,8 +448,8 @@ export type Bridge_PortfolioProjectUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -469,8 +469,8 @@ export type Bridge_PortfolioProjectUncheckedUpdateInput = {
   portfolioId?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -489,8 +489,8 @@ export type Bridge_PortfolioProjectCreateManyInput = {
   portfolioId: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -508,8 +508,8 @@ export type Bridge_PortfolioProjectUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -528,8 +528,8 @@ export type Bridge_PortfolioProjectUncheckedUpdateManyInput = {
   portfolioId?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -551,6 +551,14 @@ export type Bridge_PortfolioProjectListRelationFilter = {
 
 export type Bridge_PortfolioProjectOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type EnumProjectScopeNullableListFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProjectScope[] | Prisma.ListEnumProjectScopeFieldRefInput<$PrismaModel> | null
+  has?: $Enums.ProjectScope | Prisma.EnumProjectScopeFieldRefInput<$PrismaModel> | null
+  hasEvery?: $Enums.ProjectScope[] | Prisma.ListEnumProjectScopeFieldRefInput<$PrismaModel>
+  hasSome?: $Enums.ProjectScope[] | Prisma.ListEnumProjectScopeFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
 }
 
 export type StringNullableListFilter<$PrismaModel = never> = {
@@ -670,16 +678,20 @@ export type Bridge_PortfolioProjectUncheckedUpdateManyWithoutPortfolioNestedInpu
 }
 
 export type Bridge_PortfolioProjectCreatescopeInput = {
-  set: string[]
+  set: $Enums.ProjectScope[]
 }
 
 export type Bridge_PortfolioProjectCreatephotosInput = {
   set: string[]
 }
 
+export type EnumProjectTypeFieldUpdateOperationsInput = {
+  set?: $Enums.ProjectType
+}
+
 export type Bridge_PortfolioProjectUpdatescopeInput = {
-  set?: string[]
-  push?: string | string[]
+  set?: $Enums.ProjectScope[]
+  push?: $Enums.ProjectScope | $Enums.ProjectScope[]
 }
 
 export type Bridge_PortfolioProjectUpdatephotosInput = {
@@ -691,8 +703,8 @@ export type Bridge_PortfolioProjectCreateWithoutPortfolioInput = {
   id?: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -710,8 +722,8 @@ export type Bridge_PortfolioProjectUncheckedCreateWithoutPortfolioInput = {
   id?: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -759,8 +771,8 @@ export type Bridge_PortfolioProjectScalarWhereInput = {
   portfolioId?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   projectName?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
   location?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
-  projectType?: Prisma.StringFilter<"Bridge_PortfolioProject"> | string
-  scope?: Prisma.StringNullableListFilter<"Bridge_PortfolioProject">
+  projectType?: Prisma.EnumProjectTypeFilter<"Bridge_PortfolioProject"> | $Enums.ProjectType
+  scope?: Prisma.EnumProjectScopeNullableListFilter<"Bridge_PortfolioProject">
   completionYear?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetValue?: Prisma.IntNullableFilter<"Bridge_PortfolioProject"> | number | null
   budgetCurrency?: Prisma.StringNullableFilter<"Bridge_PortfolioProject"> | string | null
@@ -778,8 +790,8 @@ export type Bridge_PortfolioProjectCreateManyPortfolioInput = {
   id?: string
   projectName: string
   location?: string | null
-  projectType: string
-  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | string[]
+  projectType: $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectCreatescopeInput | $Enums.ProjectScope[]
   completionYear?: number | null
   budgetValue?: number | null
   budgetCurrency?: string | null
@@ -797,8 +809,8 @@ export type Bridge_PortfolioProjectUpdateWithoutPortfolioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -816,8 +828,8 @@ export type Bridge_PortfolioProjectUncheckedUpdateWithoutPortfolioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -835,8 +847,8 @@ export type Bridge_PortfolioProjectUncheckedUpdateManyWithoutPortfolioInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   projectName?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectType?: Prisma.StringFieldUpdateOperationsInput | string
-  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | string[]
+  projectType?: Prisma.EnumProjectTypeFieldUpdateOperationsInput | $Enums.ProjectType
+  scope?: Prisma.Bridge_PortfolioProjectUpdatescopeInput | $Enums.ProjectScope[]
   completionYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   budgetCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -956,8 +968,8 @@ export type $Bridge_PortfolioProjectPayload<ExtArgs extends runtime.Types.Extens
     portfolioId: string
     projectName: string
     location: string | null
-    projectType: string
-    scope: string[]
+    projectType: $Enums.ProjectType
+    scope: $Enums.ProjectScope[]
     completionYear: number | null
     budgetValue: number | null
     budgetCurrency: string | null
@@ -1397,8 +1409,8 @@ export interface Bridge_PortfolioProjectFieldRefs {
   readonly portfolioId: Prisma.FieldRef<"Bridge_PortfolioProject", 'String'>
   readonly projectName: Prisma.FieldRef<"Bridge_PortfolioProject", 'String'>
   readonly location: Prisma.FieldRef<"Bridge_PortfolioProject", 'String'>
-  readonly projectType: Prisma.FieldRef<"Bridge_PortfolioProject", 'String'>
-  readonly scope: Prisma.FieldRef<"Bridge_PortfolioProject", 'String[]'>
+  readonly projectType: Prisma.FieldRef<"Bridge_PortfolioProject", 'ProjectType'>
+  readonly scope: Prisma.FieldRef<"Bridge_PortfolioProject", 'ProjectScope[]'>
   readonly completionYear: Prisma.FieldRef<"Bridge_PortfolioProject", 'Int'>
   readonly budgetValue: Prisma.FieldRef<"Bridge_PortfolioProject", 'Int'>
   readonly budgetCurrency: Prisma.FieldRef<"Bridge_PortfolioProject", 'String'>

@@ -152,11 +152,11 @@ model Bridge_PortfolioProject {
     // project info
     projectName    String
     location       String?
-    projectType    String // Residential | Commercial | Industrial | Hospitality etc
-    scope          String[] // Structure | Interior | MEP | Landscape etc
+    projectType    ProjectType // Residential | Commercial | Industrial | Hospitality etc
+    scope          ProjectScope[] // Structure | Interior | MEP | Landscape etc
     completionYear Int?
     budgetValue    Int?
-    budgetCurrency String?  @default("INR")
+    budgetCurrency String?        @default("INR")
 
     // media
     thumbnailUrl String?

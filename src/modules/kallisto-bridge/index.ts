@@ -2,10 +2,11 @@ import { UserRole } from "@packages/common/enums";
 import { authMidllewarre, roleMiddleware } from "@packages/common/middleware";
 import { createBridgeModule } from "@src/modules/kallisto-bridge/bridge.module";
 import { createOnboardingRoutes } from "@src/modules/kallisto-bridge/presentation/routers/OnboardingRouter";
+import { createPortfolioRoutes } from "@src/modules/kallisto-bridge/presentation/routers/PortfolioRouter";
 import { Router } from "express";
 
 export function createBridgeRouter(): Router {
-  const { onboardingController } = createBridgeModule();
+  const { onboardingController, portfolioController } = createBridgeModule();
   const router = Router();
 
   // You can mount multiple sub-routers under bridge module here
@@ -21,5 +22,17 @@ export function createBridgeRouter(): Router {
     createOnboardingRoutes(onboardingController),
   );
 
+  router.use(
+    "/portfolio",
+    authMidllewarre,
+    roleMiddleware(
+      UserRole.SP_CONTRACTOR,
+      UserRole.SP_PROFESSIONAL,
+      UserRole.SP_ORGANIZATION,
+    ),
+    createPortfolioRoutes(portfolioController),
+  );
+
   return router;
 }
+

@@ -64,6 +64,9 @@
   - Should sessions be kept alive indefinitely while the user remains active? Check better-auth docs.
   - Refactor user module based on actions — needs discussion.
 
+- Aidrin | 10/04/2026
+  - What are the final list of enums for project type and project scope?
+
 ---
 
 ## Ideas
