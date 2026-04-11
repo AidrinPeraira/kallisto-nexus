@@ -83,6 +83,9 @@
   - Adding a service provider currently updates existing SP
     - Should this be prevented?
 
+- Aidrin | 10/04/2026
+  - HOW DOES CLIENT SIDE KNOW SP ID? LATER AFTER ONBOARDING. NEED IMMEDIATE FIX
+
 ---
 
 ## Notes / Observations

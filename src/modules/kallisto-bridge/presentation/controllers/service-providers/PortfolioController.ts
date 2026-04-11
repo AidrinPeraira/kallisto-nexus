@@ -7,12 +7,14 @@ import { PortfolioMapper } from "@src/modules/kallisto-bridge/presentation/mappe
 import { HttpStatus } from "@packages/common/enums";
 import { successResponse } from "@packages/common/responses";
 import { ProfileMessages } from "@packages/common/messages";
+import { IUpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IUpdateProfileCompletionUseCase";
 
 export class PortfolioController implements IPortfolioController {
   constructor(
     private readonly _logger: ILogger,
     private readonly _createPortfolioUseCase: CreatePortfolioUseCase,
     private readonly _addPortfolioProjectUseCase: AddPortfolioProjectUseCase,
+    private readonly _updateProfileCompletionUseCase: IUpdateProfileCompletionUseCase,
   ) {}
 
   async createPortfolio(req: Request, res: Response): Promise<void> {
@@ -23,11 +25,14 @@ export class PortfolioController implements IPortfolioController {
 
       const result = await this._createPortfolioUseCase.execute(data);
 
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isPortfolioAdded: true,
+      });
+
       res
         .status(HttpStatus.CREATED)
-        .json(
-          successResponse(result, ProfileMessages.PORTFOLIO_CREATED),
-        );
+        .json(successResponse(result, ProfileMessages.PORTFOLIO_CREATED));
     } catch (error: unknown) {
       this._logger.error("Create Portfolio Error: ", error);
       throw error;
