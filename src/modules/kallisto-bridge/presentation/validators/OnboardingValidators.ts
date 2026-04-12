@@ -125,3 +125,15 @@ export const AddOrgRepresentativeSchema = z.object({
     .or(z.string().length(0)),
   representativeMobile: z.string().min(8, "Invalid mobile number"),
 });
+
+// Bank Details
+export const AddSPBankDetailsSchema = z.object({
+  serviceProviderId: z.string().min(1, "Service Provider ID is required"),
+  spType: z.enum(ServiceProviderType),
+  accountHolderName: z.string().min(2, "Account holder name is required"),
+  bankName: z.string().min(2, "Bank name is required"),
+  bankBranch: z.string().min(2, "Bank branch is required"),
+  accountNumber: z.string().min(8, "Invalid account number"),
+  IFSCCode: z.string().min(11, "Invalid IFSC code").max(11),
+  UPIId: z.string().optional(),
+});

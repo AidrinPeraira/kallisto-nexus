@@ -42,7 +42,6 @@ export type Hands_WorkerProfileMinAggregateOutputType = {
   contractorId: string | null
   workingSince: number | null
   wagePerDay: number | null
-  wageCurrency: string | null
 }
 
 export type Hands_WorkerProfileMaxAggregateOutputType = {
@@ -51,7 +50,6 @@ export type Hands_WorkerProfileMaxAggregateOutputType = {
   contractorId: string | null
   workingSince: number | null
   wagePerDay: number | null
-  wageCurrency: string | null
 }
 
 export type Hands_WorkerProfileCountAggregateOutputType = {
@@ -60,7 +58,6 @@ export type Hands_WorkerProfileCountAggregateOutputType = {
   contractorId: number
   workingSince: number
   wagePerDay: number
-  wageCurrency: number
   _all: number
 }
 
@@ -81,7 +78,6 @@ export type Hands_WorkerProfileMinAggregateInputType = {
   contractorId?: true
   workingSince?: true
   wagePerDay?: true
-  wageCurrency?: true
 }
 
 export type Hands_WorkerProfileMaxAggregateInputType = {
@@ -90,7 +86,6 @@ export type Hands_WorkerProfileMaxAggregateInputType = {
   contractorId?: true
   workingSince?: true
   wagePerDay?: true
-  wageCurrency?: true
 }
 
 export type Hands_WorkerProfileCountAggregateInputType = {
@@ -99,7 +94,6 @@ export type Hands_WorkerProfileCountAggregateInputType = {
   contractorId?: true
   workingSince?: true
   wagePerDay?: true
-  wageCurrency?: true
   _all?: true
 }
 
@@ -195,7 +189,6 @@ export type Hands_WorkerProfileGroupByOutputType = {
   contractorId: string | null
   workingSince: number | null
   wagePerDay: number | null
-  wageCurrency: string | null
   _count: Hands_WorkerProfileCountAggregateOutputType | null
   _avg: Hands_WorkerProfileAvgAggregateOutputType | null
   _sum: Hands_WorkerProfileSumAggregateOutputType | null
@@ -227,7 +220,6 @@ export type Hands_WorkerProfileWhereInput = {
   contractorId?: Prisma.StringNullableFilter<"Hands_WorkerProfile"> | string | null
   workingSince?: Prisma.IntNullableFilter<"Hands_WorkerProfile"> | number | null
   wagePerDay?: Prisma.FloatNullableFilter<"Hands_WorkerProfile"> | number | null
-  wageCurrency?: Prisma.StringNullableFilter<"Hands_WorkerProfile"> | string | null
   serviceAssociate?: Prisma.XOR<Prisma.Hands_ServiceAssociateScalarRelationFilter, Prisma.Hands_ServiceAssociateWhereInput>
 }
 
@@ -237,7 +229,6 @@ export type Hands_WorkerProfileOrderByWithRelationInput = {
   contractorId?: Prisma.SortOrderInput | Prisma.SortOrder
   workingSince?: Prisma.SortOrderInput | Prisma.SortOrder
   wagePerDay?: Prisma.SortOrderInput | Prisma.SortOrder
-  wageCurrency?: Prisma.SortOrderInput | Prisma.SortOrder
   serviceAssociate?: Prisma.Hands_ServiceAssociateOrderByWithRelationInput
 }
 
@@ -250,7 +241,6 @@ export type Hands_WorkerProfileWhereUniqueInput = Prisma.AtLeast<{
   contractorId?: Prisma.StringNullableFilter<"Hands_WorkerProfile"> | string | null
   workingSince?: Prisma.IntNullableFilter<"Hands_WorkerProfile"> | number | null
   wagePerDay?: Prisma.FloatNullableFilter<"Hands_WorkerProfile"> | number | null
-  wageCurrency?: Prisma.StringNullableFilter<"Hands_WorkerProfile"> | string | null
   serviceAssociate?: Prisma.XOR<Prisma.Hands_ServiceAssociateScalarRelationFilter, Prisma.Hands_ServiceAssociateWhereInput>
 }, "id" | "serviceAssociateId">
 
@@ -260,7 +250,6 @@ export type Hands_WorkerProfileOrderByWithAggregationInput = {
   contractorId?: Prisma.SortOrderInput | Prisma.SortOrder
   workingSince?: Prisma.SortOrderInput | Prisma.SortOrder
   wagePerDay?: Prisma.SortOrderInput | Prisma.SortOrder
-  wageCurrency?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.Hands_WorkerProfileCountOrderByAggregateInput
   _avg?: Prisma.Hands_WorkerProfileAvgOrderByAggregateInput
   _max?: Prisma.Hands_WorkerProfileMaxOrderByAggregateInput
@@ -277,7 +266,6 @@ export type Hands_WorkerProfileScalarWhereWithAggregatesInput = {
   contractorId?: Prisma.StringNullableWithAggregatesFilter<"Hands_WorkerProfile"> | string | null
   workingSince?: Prisma.IntNullableWithAggregatesFilter<"Hands_WorkerProfile"> | number | null
   wagePerDay?: Prisma.FloatNullableWithAggregatesFilter<"Hands_WorkerProfile"> | number | null
-  wageCurrency?: Prisma.StringNullableWithAggregatesFilter<"Hands_WorkerProfile"> | string | null
 }
 
 export type Hands_WorkerProfileCreateInput = {
@@ -285,7 +273,6 @@ export type Hands_WorkerProfileCreateInput = {
   contractorId?: string | null
   workingSince?: number | null
   wagePerDay?: number | null
-  wageCurrency?: string | null
   serviceAssociate: Prisma.Hands_ServiceAssociateCreateNestedOneWithoutWorkerProfileInput
 }
 
@@ -295,7 +282,6 @@ export type Hands_WorkerProfileUncheckedCreateInput = {
   contractorId?: string | null
   workingSince?: number | null
   wagePerDay?: number | null
-  wageCurrency?: string | null
 }
 
 export type Hands_WorkerProfileUpdateInput = {
@@ -303,7 +289,6 @@ export type Hands_WorkerProfileUpdateInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   serviceAssociate?: Prisma.Hands_ServiceAssociateUpdateOneRequiredWithoutWorkerProfileNestedInput
 }
 
@@ -313,7 +298,6 @@ export type Hands_WorkerProfileUncheckedUpdateInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Hands_WorkerProfileCreateManyInput = {
@@ -322,7 +306,6 @@ export type Hands_WorkerProfileCreateManyInput = {
   contractorId?: string | null
   workingSince?: number | null
   wagePerDay?: number | null
-  wageCurrency?: string | null
 }
 
 export type Hands_WorkerProfileUpdateManyMutationInput = {
@@ -330,7 +313,6 @@ export type Hands_WorkerProfileUpdateManyMutationInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Hands_WorkerProfileUncheckedUpdateManyInput = {
@@ -339,7 +321,6 @@ export type Hands_WorkerProfileUncheckedUpdateManyInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Hands_WorkerProfileNullableScalarRelationFilter = {
@@ -353,7 +334,6 @@ export type Hands_WorkerProfileCountOrderByAggregateInput = {
   contractorId?: Prisma.SortOrder
   workingSince?: Prisma.SortOrder
   wagePerDay?: Prisma.SortOrder
-  wageCurrency?: Prisma.SortOrder
 }
 
 export type Hands_WorkerProfileAvgOrderByAggregateInput = {
@@ -367,7 +347,6 @@ export type Hands_WorkerProfileMaxOrderByAggregateInput = {
   contractorId?: Prisma.SortOrder
   workingSince?: Prisma.SortOrder
   wagePerDay?: Prisma.SortOrder
-  wageCurrency?: Prisma.SortOrder
 }
 
 export type Hands_WorkerProfileMinOrderByAggregateInput = {
@@ -376,7 +355,6 @@ export type Hands_WorkerProfileMinOrderByAggregateInput = {
   contractorId?: Prisma.SortOrder
   workingSince?: Prisma.SortOrder
   wagePerDay?: Prisma.SortOrder
-  wageCurrency?: Prisma.SortOrder
 }
 
 export type Hands_WorkerProfileSumOrderByAggregateInput = {
@@ -429,7 +407,6 @@ export type Hands_WorkerProfileCreateWithoutServiceAssociateInput = {
   contractorId?: string | null
   workingSince?: number | null
   wagePerDay?: number | null
-  wageCurrency?: string | null
 }
 
 export type Hands_WorkerProfileUncheckedCreateWithoutServiceAssociateInput = {
@@ -437,7 +414,6 @@ export type Hands_WorkerProfileUncheckedCreateWithoutServiceAssociateInput = {
   contractorId?: string | null
   workingSince?: number | null
   wagePerDay?: number | null
-  wageCurrency?: string | null
 }
 
 export type Hands_WorkerProfileCreateOrConnectWithoutServiceAssociateInput = {
@@ -461,7 +437,6 @@ export type Hands_WorkerProfileUpdateWithoutServiceAssociateInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Hands_WorkerProfileUncheckedUpdateWithoutServiceAssociateInput = {
@@ -469,7 +444,6 @@ export type Hands_WorkerProfileUncheckedUpdateWithoutServiceAssociateInput = {
   contractorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workingSince?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wagePerDay?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  wageCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -480,7 +454,6 @@ export type Hands_WorkerProfileSelect<ExtArgs extends runtime.Types.Extensions.I
   contractorId?: boolean
   workingSince?: boolean
   wagePerDay?: boolean
-  wageCurrency?: boolean
   serviceAssociate?: boolean | Prisma.Hands_ServiceAssociateDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["hands_WorkerProfile"]>
 
@@ -490,7 +463,6 @@ export type Hands_WorkerProfileSelectCreateManyAndReturn<ExtArgs extends runtime
   contractorId?: boolean
   workingSince?: boolean
   wagePerDay?: boolean
-  wageCurrency?: boolean
   serviceAssociate?: boolean | Prisma.Hands_ServiceAssociateDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["hands_WorkerProfile"]>
 
@@ -500,7 +472,6 @@ export type Hands_WorkerProfileSelectUpdateManyAndReturn<ExtArgs extends runtime
   contractorId?: boolean
   workingSince?: boolean
   wagePerDay?: boolean
-  wageCurrency?: boolean
   serviceAssociate?: boolean | Prisma.Hands_ServiceAssociateDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["hands_WorkerProfile"]>
 
@@ -510,10 +481,9 @@ export type Hands_WorkerProfileSelectScalar = {
   contractorId?: boolean
   workingSince?: boolean
   wagePerDay?: boolean
-  wageCurrency?: boolean
 }
 
-export type Hands_WorkerProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "serviceAssociateId" | "contractorId" | "workingSince" | "wagePerDay" | "wageCurrency", ExtArgs["result"]["hands_WorkerProfile"]>
+export type Hands_WorkerProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "serviceAssociateId" | "contractorId" | "workingSince" | "wagePerDay", ExtArgs["result"]["hands_WorkerProfile"]>
 export type Hands_WorkerProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   serviceAssociate?: boolean | Prisma.Hands_ServiceAssociateDefaultArgs<ExtArgs>
 }
@@ -535,7 +505,6 @@ export type $Hands_WorkerProfilePayload<ExtArgs extends runtime.Types.Extensions
     contractorId: string | null
     workingSince: number | null
     wagePerDay: number | null
-    wageCurrency: string | null
   }, ExtArgs["result"]["hands_WorkerProfile"]>
   composites: {}
 }
@@ -965,7 +934,6 @@ export interface Hands_WorkerProfileFieldRefs {
   readonly contractorId: Prisma.FieldRef<"Hands_WorkerProfile", 'String'>
   readonly workingSince: Prisma.FieldRef<"Hands_WorkerProfile", 'Int'>
   readonly wagePerDay: Prisma.FieldRef<"Hands_WorkerProfile", 'Float'>
-  readonly wageCurrency: Prisma.FieldRef<"Hands_WorkerProfile", 'String'>
 }
     
 

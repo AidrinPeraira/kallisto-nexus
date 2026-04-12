@@ -43,8 +43,12 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
       "professionalLicenseType",
       "professionalLicenseNumber",
       "financeAccountId",
-      "maskedAccountNumber",
+      "accountHolderName",
       "bankName",
+      "bankBranch",
+      "accountNumber",
+      "IFSCCode",
+      "UPIId",
       "portfolioId",
     ];
 
@@ -145,8 +149,12 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
       professionalLicenseNumber:
         prismaSp.professionalLicenseNumber || undefined,
       financeAccountId: prismaSp.financeAccountId || undefined,
-      maskedAccountNumber: prismaSp.maskedAccountNumber || undefined,
+      accountHolderName: prismaSp.accountHolderName || undefined,
       bankName: prismaSp.bankName || undefined,
+      bankBranch: prismaSp.bankBranch || undefined,
+      accountNumber: prismaSp.accountNumber || undefined,
+      IFSCCode: prismaSp.IFSCCode || undefined,
+      UPIId: prismaSp.UPIId || undefined,
       portfolioId: prismaSp.portfolioId || undefined,
       isIdentityAdded: prismaSp.isIdentityAdded,
       isAddressAdded: prismaSp.isAddressAdded,

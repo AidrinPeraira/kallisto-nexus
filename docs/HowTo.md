@@ -13,3 +13,50 @@
   ```
   CREATE SEQUENCE IF NOT EXISTS custom_code_seq START WITH 1000;
   ```
+
+---
+
+### 2. Database Workflow — Local Postgres ↔ Supabase
+
+We use **local Postgres for development** and **Supabase for production**. No manual `.env` editing needed — just use the right script.
+
+#### Daily development (local Postgres)
+
+```bash
+# Make a schema change in schema.prisma, then:
+pnpm db:migrate          # creates + applies migration to local DB
+
+# Or, to write the SQL yourself before applying:
+pnpm db:migrate:create-only   # creates migration file only, doesn't apply it
+```
+
+#### Deploy to production (Supabase)
+
+```bash
+pnpm db:deploy:prod      # applies all pending migrations to Supabase
+```
+
+> ⚠️ Never run `db:migrate` against Supabase. Always use `db:deploy:prod`.
+
+#### Open Prisma Studio
+
+```bash
+pnpm db:studio           # local Postgres
+pnpm db:studio:prod      # Supabase
+```
+
+#### Reset local database (wipes all data)
+
+```bash
+pnpm db:reset            # local only — will NOT touch Supabase
+```
+
+#### One-time setup — first time pointing Supabase at this repo
+
+If Supabase has never been baselined (e.g. fresh project or migration history is out of sync):
+
+```bash
+pnpm db:baseline:prod    # run once, then never again
+```
+
+This tells Supabase "all existing migrations are already applied" so `db:deploy:prod` works cleanly.

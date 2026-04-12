@@ -142,6 +142,41 @@ export type Hands_WorkerProfile = Prisma.Hands_WorkerProfileModel
  */
 export type Hands_ServiceArea = Prisma.Hands_ServiceAreaModel
 /**
+ * Model Vendor
+ * 
+ */
+export type Vendor = Prisma.VendorModel
+/**
+ * Model Item
+ * 
+ */
+export type Item = Prisma.ItemModel
+/**
+ * Model Specifications
+ * 
+ */
+export type Specifications = Prisma.SpecificationsModel
+/**
+ * Model VendorProduct
+ * 
+ */
+export type VendorProduct = Prisma.VendorProductModel
+/**
+ * Model VendorProductVariant
+ * 
+ */
+export type VendorProductVariant = Prisma.VendorProductVariantModel
+/**
+ * Model VariantSelection
+ * 
+ */
+export type VariantSelection = Prisma.VariantSelectionModel
+/**
+ * Model Hub_ServiceArea
+ * 
+ */
+export type Hub_ServiceArea = Prisma.Hub_ServiceAreaModel
+/**
  * Model Payment_BankAccount
  * 
  */

@@ -12,6 +12,7 @@ import {
   AddProfessionalSPCredentialsSchema,
   AddContractorSPCredentialsSchema,
   AddOrgRepresentativeSchema,
+  AddSPBankDetailsSchema,
 } from "@src/modules/kallisto-bridge/presentation/validators/OnboardingValidators";
 
 export function createOnboardingRoutes(
@@ -122,6 +123,25 @@ export function createOnboardingRoutes(
     "/sp-org/representative",
     validate(AddOrgRepresentativeSchema),
     onboardingController.addOrgRepresentative.bind(onboardingController),
+  );
+
+  //--- bank account details
+  router.post(
+    "/sp-org/bank-details",
+    validate(AddSPBankDetailsSchema),
+    onboardingController.addSPBankDetails.bind(onboardingController),
+  );
+
+  router.post(
+    "/sp-professional/bank-details",
+    validate(AddSPBankDetailsSchema),
+    onboardingController.addSPBankDetails.bind(onboardingController),
+  );
+
+  router.post(
+    "/sp-contractor/bank-details",
+    validate(AddSPBankDetailsSchema),
+    onboardingController.addSPBankDetails.bind(onboardingController),
   );
 
   return router;

@@ -103,8 +103,12 @@ export interface ServiceProviderEntity {
 
   // bank details
   financeAccountId?: string;
-  maskedAccountNumber?: string;
+  accountHolderName?: string;
   bankName?: string;
+  bankBranch?: string;
+  accountNumber?: string;
+  IFSCCode?: string;
+  UPIId?: string;
 
   // portfolio reference
   portfolioId?: string;

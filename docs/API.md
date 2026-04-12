@@ -24,16 +24,18 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `POST` | `/api/bridge/v1/onboarding/sp-org/service-areas`  | Add Organization SP Service Areas  | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-org/credentials`    | Add Organization SP Credentials    | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-org/representative` | Add Organization SP Representative | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-org/bank-details`   | Add Organization SP Bank Details   | Yes           |
 
 ### SP Professional Onboarding
 
-| Method | Endpoint                                                  | Description                        | Auth Required |
-| :----- | :-------------------------------------------------------- | :--------------------------------- | :------------ |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/identity`      | Add Professional SP Identity       | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/address`       | Add Professional SP Address        | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/services`      | Add Professional SP Services       | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/service-areas` | Add Professional SP Service Areas  | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/credentials`   | Add Professional SP Credentials    | Yes           |
+| Method | Endpoint                                                  | Description                       | Auth Required |
+| :----- | :-------------------------------------------------------- | :-------------------------------- | :------------ |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/identity`      | Add Professional SP Identity      | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/address`       | Add Professional SP Address       | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/services`      | Add Professional SP Services      | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/service-areas` | Add Professional SP Service Areas | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/credentials`   | Add Professional SP Credentials   | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/bank-details`  | Add Professional SP Bank Details  | Yes           |
 
 ### SP Contractor Onboarding
 
@@ -44,17 +46,45 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/services`      | Add Contractor SP Services      | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/service-areas` | Add Contractor SP Service Areas | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/credentials`   | Add Contractor SP Credentials   | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-contractor/bank-details`  | Add Contractor SP Bank Details  | Yes           |
 
 ### Portfolio
 
-| Method | Endpoint                            | Description                              | Auth Required |
-| :----- | :---------------------------------- | :--------------------------------------- | :------------ |
-| `POST` | `/api/bridge/v1/portfolio/create`   | Create Portfolio and Add Initial Project | Yes           |
-| `POST` | `/api/bridge/v1/portfolio/project`  | Add New Project to Existing Portfolio    | Yes           |
+| Method | Endpoint                           | Description                              | Auth Required |
+| :----- | :--------------------------------- | :--------------------------------------- | :------------ |
+| `POST` | `/api/bridge/v1/portfolio/create`  | Create Portfolio and Add Initial Project | Yes           |
+| `POST` | `/api/bridge/v1/portfolio/project` | Add New Project to Existing Portfolio    | Yes           |
 
 ### Profile Management
 
-| Method | Endpoint                    | Description                           | Auth Required |
-| :----- | :-------------------------- | :------------------------------------ | :------------ |
-| `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile  | Yes           |
+| Method | Endpoint                    | Description                          | Auth Required |
+| :----- | :-------------------------- | :----------------------------------- | :------------ |
+| `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile | Yes           |
 
+## 🏗 Hub
+
+### Vendors
+
+| Method | Endpoint                  | Description                          | Auth Required |
+| :----- | :------------------------ | :----------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/vendors`     | Register a new vendor                | Yes           |
+| `PUT`  | `/api/hub/v1/vendors/:id` | Update vendor profile                | Yes           |
+| `GET`  | `/api/hub/v1/vendors/:id` | Get vendor details                   | Yes           |
+| `GET`  | `/api/hub/v1/vendors`     | List vendors with pagination/search  | Yes           |
+
+### Material Blueprints (Items)
+
+| Method | Endpoint                | Description                         | Auth Required |
+| :----- | :---------------------- | :---------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/items`     | Create a new material item          | Yes           |
+| `PUT`  | `/api/hub/v1/items/:id` | Update material item blueprint      | Yes           |
+| `GET`  | `/api/hub/v1/items`     | List material items                 | Yes           |
+
+### Product Listings
+
+| Method | Endpoint                            | Description                            | Auth Required |
+| :----- | :---------------------------------- | :------------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/products`              | Add a new product listing for a vendor | Yes           |
+| `PUT`  | `/api/hub/v1/products/:id`          | Update product listing details         | Yes           |
+| `GET`  | `/api/hub/v1/products/vendor/:id`   | Get all products for a specific vendor | Yes           |
+| `GET`  | `/api/hub/v1/products`              | Global list of products                | Yes           |

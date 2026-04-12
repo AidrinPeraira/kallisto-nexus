@@ -115,3 +115,54 @@ enum ProfessionalLicenseType {
     mcci_license
     other
 }
+
+// ------ Hub ------
+
+enum VendorType {
+    AUTHORIZED_DEALER
+    DISTRIBUTOR
+    WHOLESALER
+    RETAILER
+    STOCKIST
+}
+
+enum MaterialCategory {
+    DOOR
+    WINDOW
+    STRUCTURAL_STEEL
+    CEMENT_AND_CONCRETE
+    AGGREGATES
+    BRICKS_AND_MASONRY
+    ROOFING
+    FLOORING
+    PLUMBING
+    ELECTRICAL
+    INSULATION
+    HARDWARE_AND_FITTINGS
+    GLASS
+    TIMBER_AND_WOOD
+    PAINTS_AND_COATINGS
+    WATERPROOFING
+    SAFETY_AND_PPE
+}
+
+enum UnitOfMeasure {
+    NOS
+    SQM
+    SQFT
+    RMT
+    KG
+    TON
+    BAG
+    LITRE
+    BUNDLE
+    BOX
+    SET
+}
+
+enum ProductStatus {
+    ACTIVE
+    DISCONTINUED
+    OUT_OF_STOCK
+    COMING_SOON
+}

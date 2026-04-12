@@ -71,6 +71,13 @@ export const ModelName = {
   Hands_ContractorProfile: 'Hands_ContractorProfile',
   Hands_WorkerProfile: 'Hands_WorkerProfile',
   Hands_ServiceArea: 'Hands_ServiceArea',
+  Vendor: 'Vendor',
+  Item: 'Item',
+  Specifications: 'Specifications',
+  VendorProduct: 'VendorProduct',
+  VendorProductVariant: 'VendorProductVariant',
+  VariantSelection: 'VariantSelection',
+  Hub_ServiceArea: 'Hub_ServiceArea',
   Payment_BankAccount: 'Payment_BankAccount'
 } as const
 
@@ -268,8 +275,12 @@ export const Bridge_ServiceProviderScalarFieldEnum = {
   professionalLicenseType: 'professionalLicenseType',
   professionalLicenseNumber: 'professionalLicenseNumber',
   financeAccountId: 'financeAccountId',
-  maskedAccountNumber: 'maskedAccountNumber',
+  accountHolderName: 'accountHolderName',
   bankName: 'bankName',
+  bankBranch: 'bankBranch',
+  accountNumber: 'accountNumber',
+  IFSCCode: 'IFSCCode',
+  UPIId: 'UPIId',
   portfolioId: 'portfolioId',
   isIdentityAdded: 'isIdentityAdded',
   isAddressAdded: 'isAddressAdded',
@@ -419,8 +430,7 @@ export const Hands_WorkerProfileScalarFieldEnum = {
   serviceAssociateId: 'serviceAssociateId',
   contractorId: 'contractorId',
   workingSince: 'workingSince',
-  wagePerDay: 'wagePerDay',
-  wageCurrency: 'wageCurrency'
+  wagePerDay: 'wagePerDay'
 } as const
 
 export type Hands_WorkerProfileScalarFieldEnum = (typeof Hands_WorkerProfileScalarFieldEnum)[keyof typeof Hands_WorkerProfileScalarFieldEnum]
@@ -437,6 +447,122 @@ export const Hands_ServiceAreaScalarFieldEnum = {
 } as const
 
 export type Hands_ServiceAreaScalarFieldEnum = (typeof Hands_ServiceAreaScalarFieldEnum)[keyof typeof Hands_ServiceAreaScalarFieldEnum]
+
+
+export const VendorScalarFieldEnum = {
+  id: 'id',
+  vendorCode: 'vendorCode',
+  vendorType: 'vendorType',
+  companyName: 'companyName',
+  GSTIN: 'GSTIN',
+  brandName: 'brandName',
+  profilePicture: 'profilePicture',
+  financeAccountId: 'financeAccountId',
+  accountHolderName: 'accountHolderName',
+  bankName: 'bankName',
+  bankBranch: 'bankBranch',
+  accountNumber: 'accountNumber',
+  IFSCCode: 'IFSCCode',
+  UPIId: 'UPIId',
+  officeAddress: 'officeAddress',
+  city: 'city',
+  district: 'district',
+  state: 'state',
+  pincode: 'pincode',
+  country: 'country',
+  phone: 'phone',
+  email: 'email',
+  website: 'website',
+  representativeName: 'representativeName',
+  representativePhone: 'representativePhone',
+  contactNumber: 'contactNumber',
+  whatsappNumber: 'whatsappNumber',
+  isVerified: 'isVerified',
+  isActive: 'isActive',
+  logoUrl: 'logoUrl',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VendorScalarFieldEnum = (typeof VendorScalarFieldEnum)[keyof typeof VendorScalarFieldEnum]
+
+
+export const ItemScalarFieldEnum = {
+  id: 'id',
+  itemCode: 'itemCode',
+  name: 'name',
+  category: 'category',
+  hsnCode: 'hsnCode',
+  imageUrl: 'imageUrl',
+  unitOfMeasure: 'unitOfMeasure',
+  description: 'description',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ItemScalarFieldEnum = (typeof ItemScalarFieldEnum)[keyof typeof ItemScalarFieldEnum]
+
+
+export const SpecificationsScalarFieldEnum = {
+  id: 'id',
+  specName: 'specName',
+  specValues: 'specValues',
+  itemId: 'itemId'
+} as const
+
+export type SpecificationsScalarFieldEnum = (typeof SpecificationsScalarFieldEnum)[keyof typeof SpecificationsScalarFieldEnum]
+
+
+export const VendorProductScalarFieldEnum = {
+  id: 'id',
+  productCode: 'productCode',
+  productName: 'productName',
+  brandName: 'brandName',
+  description: 'description',
+  status: 'status',
+  vendorId: 'vendorId',
+  itemId: 'itemId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VendorProductScalarFieldEnum = (typeof VendorProductScalarFieldEnum)[keyof typeof VendorProductScalarFieldEnum]
+
+
+export const VendorProductVariantScalarFieldEnum = {
+  id: 'id',
+  sku: 'sku',
+  price: 'price',
+  stockQuantity: 'stockQuantity',
+  vendorProductId: 'vendorProductId'
+} as const
+
+export type VendorProductVariantScalarFieldEnum = (typeof VendorProductVariantScalarFieldEnum)[keyof typeof VendorProductVariantScalarFieldEnum]
+
+
+export const VariantSelectionScalarFieldEnum = {
+  id: 'id',
+  variantId: 'variantId',
+  specId: 'specId',
+  selectedValue: 'selectedValue'
+} as const
+
+export type VariantSelectionScalarFieldEnum = (typeof VariantSelectionScalarFieldEnum)[keyof typeof VariantSelectionScalarFieldEnum]
+
+
+export const Hub_ServiceAreaScalarFieldEnum = {
+  id: 'id',
+  vendorId: 'vendorId',
+  city: 'city',
+  isPrimary: 'isPrimary',
+  radiusKm: 'radiusKm',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type Hub_ServiceAreaScalarFieldEnum = (typeof Hub_ServiceAreaScalarFieldEnum)[keyof typeof Hub_ServiceAreaScalarFieldEnum]
 
 
 export const Payment_BankAccountScalarFieldEnum = {
