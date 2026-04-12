@@ -17,6 +17,7 @@ import { AppError, ErrorCode } from "@packages/common/errors";
 import { IAddSPCredentialsUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPCredentialsUseCase";
 import { IAddOrgExtraCredentialsUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgExtraCredentialsUseCase";
 import { IAddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/organisation/IAddOrgRepresentativeUseCase";
+import { IAddSPBankDetailsUseCase } from "@src/modules/kallisto-bridge/application/interfaces/usecases/profile/common/IAddSPBankDetailsUseCase";
 
 export class OnboardingController implements IOnboardingController {
   constructor(
@@ -34,6 +35,7 @@ export class OnboardingController implements IOnboardingController {
     private readonly _addOrgExtraCredentialsUseCase: IAddOrgExtraCredentialsUseCase,
 
     private readonly _addOrgRepresentativeUseCase: IAddOrgRepresentativeUseCase,
+    private readonly _addSPBankDetailsUseCase: IAddSPBankDetailsUseCase,
 
     private readonly _updateProfileCompletionUseCase: IUpdateProfileCompletionUseCase,
   ) {}
@@ -390,6 +392,36 @@ export class OnboardingController implements IOnboardingController {
       return;
     } catch (error: unknown) {
       this._logger.error("Add Org Representative Error: ", error);
+      throw error;
+    }
+  }
+
+  async addSPBankDetails(req: Request, res: Response): Promise<void> {
+    try {
+      this._logger.info("Add SP Bank Details request received");
+
+      const data = OnboardingMapper.toAddSPBankDetailsRequestDTO(req.body);
+
+      //add bank details
+      await this._addSPBankDetailsUseCase.execute(data);
+
+      //update completion status
+      await this._updateProfileCompletionUseCase.execute({
+        serviceProviderId: data.serviceProviderId,
+        isBankDetailsAdded: true,
+      });
+
+      res
+        .status(HttpStatus.OK)
+        .json(
+          successResponse(
+            { serviceProviderId: data.serviceProviderId },
+            ProfileMessages.BANK_DETAILS_ADDED,
+          ),
+        );
+      return;
+    } catch (error: unknown) {
+      this._logger.error("Add SP Bank Details Error: ", error);
       throw error;
     }
   }

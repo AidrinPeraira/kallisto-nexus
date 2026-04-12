@@ -29,12 +29,16 @@ export type VendorMinAggregateOutputType = {
   vendorCode: string | null
   vendorType: $Enums.VendorType | null
   companyName: string | null
+  GSTIN: string | null
   brandName: string | null
   profilePicture: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
-  isBankDetailsAdded: boolean | null
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   officeAddress: string | null
   city: string | null
   district: string | null
@@ -61,12 +65,16 @@ export type VendorMaxAggregateOutputType = {
   vendorCode: string | null
   vendorType: $Enums.VendorType | null
   companyName: string | null
+  GSTIN: string | null
   brandName: string | null
   profilePicture: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
-  isBankDetailsAdded: boolean | null
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   officeAddress: string | null
   city: string | null
   district: string | null
@@ -93,12 +101,16 @@ export type VendorCountAggregateOutputType = {
   vendorCode: number
   vendorType: number
   companyName: number
+  GSTIN: number
   brandName: number
   profilePicture: number
   financeAccountId: number
-  maskedAccountNumber: number
+  accountHolderName: number
   bankName: number
-  isBankDetailsAdded: number
+  bankBranch: number
+  accountNumber: number
+  IFSCCode: number
+  UPIId: number
   officeAddress: number
   city: number
   district: number
@@ -127,12 +139,16 @@ export type VendorMinAggregateInputType = {
   vendorCode?: true
   vendorType?: true
   companyName?: true
+  GSTIN?: true
   brandName?: true
   profilePicture?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
-  isBankDetailsAdded?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   officeAddress?: true
   city?: true
   district?: true
@@ -159,12 +175,16 @@ export type VendorMaxAggregateInputType = {
   vendorCode?: true
   vendorType?: true
   companyName?: true
+  GSTIN?: true
   brandName?: true
   profilePicture?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
-  isBankDetailsAdded?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   officeAddress?: true
   city?: true
   district?: true
@@ -191,12 +211,16 @@ export type VendorCountAggregateInputType = {
   vendorCode?: true
   vendorType?: true
   companyName?: true
+  GSTIN?: true
   brandName?: true
   profilePicture?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
-  isBankDetailsAdded?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   officeAddress?: true
   city?: true
   district?: true
@@ -296,12 +320,16 @@ export type VendorGroupByOutputType = {
   vendorCode: string
   vendorType: $Enums.VendorType
   companyName: string
+  GSTIN: string | null
   brandName: string | null
   profilePicture: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
-  isBankDetailsAdded: boolean
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   officeAddress: string | null
   city: string | null
   district: string | null
@@ -349,12 +377,16 @@ export type VendorWhereInput = {
   vendorCode?: Prisma.StringFilter<"Vendor"> | string
   vendorType?: Prisma.EnumVendorTypeFilter<"Vendor"> | $Enums.VendorType
   companyName?: Prisma.StringFilter<"Vendor"> | string
+  GSTIN?: Prisma.StringNullableFilter<"Vendor"> | string | null
   brandName?: Prisma.StringNullableFilter<"Vendor"> | string | null
   profilePicture?: Prisma.StringNullableFilter<"Vendor"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Vendor"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  accountHolderName?: Prisma.StringNullableFilter<"Vendor"> | string | null
   bankName?: Prisma.StringNullableFilter<"Vendor"> | string | null
-  isBankDetailsAdded?: Prisma.BoolFilter<"Vendor"> | boolean
+  bankBranch?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  accountNumber?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  IFSCCode?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  UPIId?: Prisma.StringNullableFilter<"Vendor"> | string | null
   officeAddress?: Prisma.StringNullableFilter<"Vendor"> | string | null
   city?: Prisma.StringNullableFilter<"Vendor"> | string | null
   district?: Prisma.StringNullableFilter<"Vendor"> | string | null
@@ -383,12 +415,16 @@ export type VendorOrderByWithRelationInput = {
   vendorCode?: Prisma.SortOrder
   vendorType?: Prisma.SortOrder
   companyName?: Prisma.SortOrder
+  GSTIN?: Prisma.SortOrderInput | Prisma.SortOrder
   brandName?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePicture?: Prisma.SortOrderInput | Prisma.SortOrder
   financeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrderInput | Prisma.SortOrder
   bankName?: Prisma.SortOrderInput | Prisma.SortOrder
-  isBankDetailsAdded?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  UPIId?: Prisma.SortOrderInput | Prisma.SortOrder
   officeAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   city?: Prisma.SortOrderInput | Prisma.SortOrder
   district?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -421,12 +457,16 @@ export type VendorWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.VendorWhereInput | Prisma.VendorWhereInput[]
   vendorType?: Prisma.EnumVendorTypeFilter<"Vendor"> | $Enums.VendorType
   companyName?: Prisma.StringFilter<"Vendor"> | string
+  GSTIN?: Prisma.StringNullableFilter<"Vendor"> | string | null
   brandName?: Prisma.StringNullableFilter<"Vendor"> | string | null
   profilePicture?: Prisma.StringNullableFilter<"Vendor"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Vendor"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  accountHolderName?: Prisma.StringNullableFilter<"Vendor"> | string | null
   bankName?: Prisma.StringNullableFilter<"Vendor"> | string | null
-  isBankDetailsAdded?: Prisma.BoolFilter<"Vendor"> | boolean
+  bankBranch?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  accountNumber?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  IFSCCode?: Prisma.StringNullableFilter<"Vendor"> | string | null
+  UPIId?: Prisma.StringNullableFilter<"Vendor"> | string | null
   officeAddress?: Prisma.StringNullableFilter<"Vendor"> | string | null
   city?: Prisma.StringNullableFilter<"Vendor"> | string | null
   district?: Prisma.StringNullableFilter<"Vendor"> | string | null
@@ -454,12 +494,16 @@ export type VendorOrderByWithAggregationInput = {
   vendorCode?: Prisma.SortOrder
   vendorType?: Prisma.SortOrder
   companyName?: Prisma.SortOrder
+  GSTIN?: Prisma.SortOrderInput | Prisma.SortOrder
   brandName?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePicture?: Prisma.SortOrderInput | Prisma.SortOrder
   financeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrderInput | Prisma.SortOrder
   bankName?: Prisma.SortOrderInput | Prisma.SortOrder
-  isBankDetailsAdded?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  UPIId?: Prisma.SortOrderInput | Prisma.SortOrder
   officeAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   city?: Prisma.SortOrderInput | Prisma.SortOrder
   district?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -492,12 +536,16 @@ export type VendorScalarWhereWithAggregatesInput = {
   vendorCode?: Prisma.StringWithAggregatesFilter<"Vendor"> | string
   vendorType?: Prisma.EnumVendorTypeWithAggregatesFilter<"Vendor"> | $Enums.VendorType
   companyName?: Prisma.StringWithAggregatesFilter<"Vendor"> | string
+  GSTIN?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   brandName?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   profilePicture?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   financeAccountId?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
+  accountHolderName?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   bankName?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
-  isBankDetailsAdded?: Prisma.BoolWithAggregatesFilter<"Vendor"> | boolean
+  bankBranch?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
+  accountNumber?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
+  IFSCCode?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
+  UPIId?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   officeAddress?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   city?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
   district?: Prisma.StringNullableWithAggregatesFilter<"Vendor"> | string | null
@@ -524,12 +572,16 @@ export type VendorCreateInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -558,12 +610,16 @@ export type VendorUncheckedCreateInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -592,12 +648,16 @@ export type VendorUpdateInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -626,12 +686,16 @@ export type VendorUncheckedUpdateInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -660,12 +724,16 @@ export type VendorCreateManyInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -692,12 +760,16 @@ export type VendorUpdateManyMutationInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -724,12 +796,16 @@ export type VendorUncheckedUpdateManyInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -756,12 +832,16 @@ export type VendorCountOrderByAggregateInput = {
   vendorCode?: Prisma.SortOrder
   vendorType?: Prisma.SortOrder
   companyName?: Prisma.SortOrder
+  GSTIN?: Prisma.SortOrder
   brandName?: Prisma.SortOrder
   profilePicture?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
-  isBankDetailsAdded?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   officeAddress?: Prisma.SortOrder
   city?: Prisma.SortOrder
   district?: Prisma.SortOrder
@@ -788,12 +868,16 @@ export type VendorMaxOrderByAggregateInput = {
   vendorCode?: Prisma.SortOrder
   vendorType?: Prisma.SortOrder
   companyName?: Prisma.SortOrder
+  GSTIN?: Prisma.SortOrder
   brandName?: Prisma.SortOrder
   profilePicture?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
-  isBankDetailsAdded?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   officeAddress?: Prisma.SortOrder
   city?: Prisma.SortOrder
   district?: Prisma.SortOrder
@@ -820,12 +904,16 @@ export type VendorMinOrderByAggregateInput = {
   vendorCode?: Prisma.SortOrder
   vendorType?: Prisma.SortOrder
   companyName?: Prisma.SortOrder
+  GSTIN?: Prisma.SortOrder
   brandName?: Prisma.SortOrder
   profilePicture?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
-  isBankDetailsAdded?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   officeAddress?: Prisma.SortOrder
   city?: Prisma.SortOrder
   district?: Prisma.SortOrder
@@ -883,12 +971,16 @@ export type VendorCreateWithoutProductsInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -916,12 +1008,16 @@ export type VendorUncheckedCreateWithoutProductsInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -965,12 +1061,16 @@ export type VendorUpdateWithoutProductsInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -998,12 +1098,16 @@ export type VendorUncheckedUpdateWithoutProductsInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1031,12 +1135,16 @@ export type VendorCreateWithoutHubServiceAreasInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -1064,12 +1172,16 @@ export type VendorUncheckedCreateWithoutHubServiceAreasInput = {
   vendorCode?: string
   vendorType?: $Enums.VendorType
   companyName: string
+  GSTIN?: string | null
   brandName?: string | null
   profilePicture?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
-  isBankDetailsAdded?: boolean
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   officeAddress?: string | null
   city?: string | null
   district?: string | null
@@ -1113,12 +1225,16 @@ export type VendorUpdateWithoutHubServiceAreasInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1146,12 +1262,16 @@ export type VendorUncheckedUpdateWithoutHubServiceAreasInput = {
   vendorCode?: Prisma.StringFieldUpdateOperationsInput | string
   vendorType?: Prisma.EnumVendorTypeFieldUpdateOperationsInput | $Enums.VendorType
   companyName?: Prisma.StringFieldUpdateOperationsInput | string
+  GSTIN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brandName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePicture?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isBankDetailsAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   officeAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   district?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1219,12 +1339,16 @@ export type VendorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   vendorCode?: boolean
   vendorType?: boolean
   companyName?: boolean
+  GSTIN?: boolean
   brandName?: boolean
   profilePicture?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
-  isBankDetailsAdded?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   officeAddress?: boolean
   city?: boolean
   district?: boolean
@@ -1254,12 +1378,16 @@ export type VendorSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   vendorCode?: boolean
   vendorType?: boolean
   companyName?: boolean
+  GSTIN?: boolean
   brandName?: boolean
   profilePicture?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
-  isBankDetailsAdded?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   officeAddress?: boolean
   city?: boolean
   district?: boolean
@@ -1286,12 +1414,16 @@ export type VendorSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   vendorCode?: boolean
   vendorType?: boolean
   companyName?: boolean
+  GSTIN?: boolean
   brandName?: boolean
   profilePicture?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
-  isBankDetailsAdded?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   officeAddress?: boolean
   city?: boolean
   district?: boolean
@@ -1318,12 +1450,16 @@ export type VendorSelectScalar = {
   vendorCode?: boolean
   vendorType?: boolean
   companyName?: boolean
+  GSTIN?: boolean
   brandName?: boolean
   profilePicture?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
-  isBankDetailsAdded?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   officeAddress?: boolean
   city?: boolean
   district?: boolean
@@ -1345,7 +1481,7 @@ export type VendorSelectScalar = {
   updatedAt?: boolean
 }
 
-export type VendorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vendorCode" | "vendorType" | "companyName" | "brandName" | "profilePicture" | "financeAccountId" | "maskedAccountNumber" | "bankName" | "isBankDetailsAdded" | "officeAddress" | "city" | "district" | "state" | "pincode" | "country" | "phone" | "email" | "website" | "representativeName" | "representativePhone" | "contactNumber" | "whatsappNumber" | "isVerified" | "isActive" | "logoUrl" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["vendor"]>
+export type VendorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vendorCode" | "vendorType" | "companyName" | "GSTIN" | "brandName" | "profilePicture" | "financeAccountId" | "accountHolderName" | "bankName" | "bankBranch" | "accountNumber" | "IFSCCode" | "UPIId" | "officeAddress" | "city" | "district" | "state" | "pincode" | "country" | "phone" | "email" | "website" | "representativeName" | "representativePhone" | "contactNumber" | "whatsappNumber" | "isVerified" | "isActive" | "logoUrl" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["vendor"]>
 export type VendorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   products?: boolean | Prisma.Vendor$productsArgs<ExtArgs>
   hubServiceAreas?: boolean | Prisma.Vendor$hubServiceAreasArgs<ExtArgs>
@@ -1365,12 +1501,16 @@ export type $VendorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     vendorCode: string
     vendorType: $Enums.VendorType
     companyName: string
+    GSTIN: string | null
     brandName: string | null
     profilePicture: string | null
     financeAccountId: string | null
-    maskedAccountNumber: string | null
+    accountHolderName: string | null
     bankName: string | null
-    isBankDetailsAdded: boolean
+    bankBranch: string | null
+    accountNumber: string | null
+    IFSCCode: string | null
+    UPIId: string | null
     officeAddress: string | null
     city: string | null
     district: string | null
@@ -1819,12 +1959,16 @@ export interface VendorFieldRefs {
   readonly vendorCode: Prisma.FieldRef<"Vendor", 'String'>
   readonly vendorType: Prisma.FieldRef<"Vendor", 'VendorType'>
   readonly companyName: Prisma.FieldRef<"Vendor", 'String'>
+  readonly GSTIN: Prisma.FieldRef<"Vendor", 'String'>
   readonly brandName: Prisma.FieldRef<"Vendor", 'String'>
   readonly profilePicture: Prisma.FieldRef<"Vendor", 'String'>
   readonly financeAccountId: Prisma.FieldRef<"Vendor", 'String'>
-  readonly maskedAccountNumber: Prisma.FieldRef<"Vendor", 'String'>
+  readonly accountHolderName: Prisma.FieldRef<"Vendor", 'String'>
   readonly bankName: Prisma.FieldRef<"Vendor", 'String'>
-  readonly isBankDetailsAdded: Prisma.FieldRef<"Vendor", 'Boolean'>
+  readonly bankBranch: Prisma.FieldRef<"Vendor", 'String'>
+  readonly accountNumber: Prisma.FieldRef<"Vendor", 'String'>
+  readonly IFSCCode: Prisma.FieldRef<"Vendor", 'String'>
+  readonly UPIId: Prisma.FieldRef<"Vendor", 'String'>
   readonly officeAddress: Prisma.FieldRef<"Vendor", 'String'>
   readonly city: Prisma.FieldRef<"Vendor", 'String'>
   readonly district: Prisma.FieldRef<"Vendor", 'String'>

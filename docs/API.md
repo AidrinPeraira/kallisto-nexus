@@ -24,16 +24,18 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `POST` | `/api/bridge/v1/onboarding/sp-org/service-areas`  | Add Organization SP Service Areas  | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-org/credentials`    | Add Organization SP Credentials    | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-org/representative` | Add Organization SP Representative | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-org/bank-details`   | Add Organization SP Bank Details   | Yes           |
 
 ### SP Professional Onboarding
 
-| Method | Endpoint                                                  | Description                        | Auth Required |
-| :----- | :-------------------------------------------------------- | :--------------------------------- | :------------ |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/identity`      | Add Professional SP Identity       | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/address`       | Add Professional SP Address        | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/services`      | Add Professional SP Services       | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/service-areas` | Add Professional SP Service Areas  | Yes           |
-| `POST` | `/api/bridge/v1/onboarding/sp-professional/credentials`   | Add Professional SP Credentials    | Yes           |
+| Method | Endpoint                                                  | Description                       | Auth Required |
+| :----- | :-------------------------------------------------------- | :-------------------------------- | :------------ |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/identity`      | Add Professional SP Identity      | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/address`       | Add Professional SP Address       | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/services`      | Add Professional SP Services      | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/service-areas` | Add Professional SP Service Areas | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/credentials`   | Add Professional SP Credentials   | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-professional/bank-details`  | Add Professional SP Bank Details  | Yes           |
 
 ### SP Contractor Onboarding
 
@@ -44,17 +46,17 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/services`      | Add Contractor SP Services      | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/service-areas` | Add Contractor SP Service Areas | Yes           |
 | `POST` | `/api/bridge/v1/onboarding/sp-contractor/credentials`   | Add Contractor SP Credentials   | Yes           |
+| `POST` | `/api/bridge/v1/onboarding/sp-contractor/bank-details`  | Add Contractor SP Bank Details  | Yes           |
 
 ### Portfolio
 
-| Method | Endpoint                            | Description                              | Auth Required |
-| :----- | :---------------------------------- | :--------------------------------------- | :------------ |
-| `POST` | `/api/bridge/v1/portfolio/create`   | Create Portfolio and Add Initial Project | Yes           |
-| `POST` | `/api/bridge/v1/portfolio/project`  | Add New Project to Existing Portfolio    | Yes           |
+| Method | Endpoint                           | Description                              | Auth Required |
+| :----- | :--------------------------------- | :--------------------------------------- | :------------ |
+| `POST` | `/api/bridge/v1/portfolio/create`  | Create Portfolio and Add Initial Project | Yes           |
+| `POST` | `/api/bridge/v1/portfolio/project` | Add New Project to Existing Portfolio    | Yes           |
 
 ### Profile Management
 
-| Method | Endpoint                    | Description                           | Auth Required |
-| :----- | :-------------------------- | :------------------------------------ | :------------ |
-| `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile  | Yes           |
-
+| Method | Endpoint                    | Description                          | Auth Required |
+| :----- | :-------------------------- | :----------------------------------- | :------------ |
+| `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile | Yes           |
