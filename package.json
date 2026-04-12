@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch apps --watch src --watch packages --ext ts --exec tsx apps/api/src/server.ts",
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "start": "node dist/apps/api/src/server.js",
     "infra:up": "docker-compose -f docker-compose.infra.yml up -d",
     "infra:down": "docker-compose -f docker-compose.infra.yml down",
@@ -41,7 +41,8 @@
     "nodemon": "^3.1.14",
     "prisma": "^7.6.0",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "tsc-alias": "^1.8.11"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.6.0",

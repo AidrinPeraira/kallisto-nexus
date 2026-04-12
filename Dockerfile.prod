@@ -1,52 +1,25 @@
-# Stage 1: Build stage
-FROM node:22-alpine AS builder
+FROM node:22-alpine
 
-# Add openssl for Prisma
 RUN apk add --no-cache openssl
 RUN corepack enable && corepack prepare pnpm@10.22.0 --activate
 
 WORKDIR /usr/src/app
 
-# Copy dependency files for caching
+# Copy lockfile and package.json to cache dependencies
 COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies using frozen-lockfile
 RUN pnpm install --frozen-lockfile
 
-# Copy source code and Prisma schemas
+# Copy the rest of the application code
 COPY . .
 
-# Generate Prisma Client
-# Provide dummy URL for config parsing during build
+# Generate Prisma Client (requires DATABASE_URL for config parsing)
+# We provide a dummy URL for generation purposes
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 ENV DIRECT_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 RUN pnpm db:generate
 
-# Build the project
-RUN pnpm build
-
-# Stage 2: Production stage
-FROM node:22-alpine AS runner
-
-# Add openssl for Prisma
-RUN apk add --no-cache openssl
-RUN corepack enable && corepack prepare pnpm@10.22.0 --activate
-
-WORKDIR /usr/src/app
-
-ENV NODE_ENV=production
-
-# Copy package and lockfile
-COPY package.json pnpm-lock.yaml ./
-
-# Install only production dependencies
-RUN pnpm install --prod --frozen-lockfile
-
-# Copy output from the builder stage
-COPY --from=builder /usr/src/app/dist ./dist
-# Copy the pre-generated Prisma client and schemas from the builder stage
-COPY --from=builder /usr/src/app/packages/database/prisma ./packages/database/prisma
-COPY --from=builder /usr/src/app/packages/database/generated ./packages/database/generated
-
-# Ensure port exposes
 EXPOSE 3000
 
-CMD ["pnpm", "start"]
+CMD ["pnpm", "dev"]
