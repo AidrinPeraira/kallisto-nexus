@@ -1,0 +1,154 @@
+model Vendor {
+    id             String     @id @default(uuid())
+    vendorCode     String     @unique @default(dbgenerated("concat('VEN-', nextval('vendor_code_seq'))"))
+    vendorType     VendorType @default(AUTHORIZED_DEALER)
+    companyName    String
+    brandName      String? // The main brand they represent
+    profilePicture String?
+
+    // Bank Details
+    financeAccountId    String?
+    maskedAccountNumber String?
+    bankName            String?
+    isBankDetailsAdded  Boolean @default(false)
+
+    // Address
+    officeAddress String?
+    city          String?
+    district      String?
+    state         String  @default("Kerala")
+    pincode       String?
+    country       String  @default("India")
+
+    // Contact
+    phone               String?
+    email               String? @unique
+    website             String?
+    representativeName  String?
+    representativePhone String?
+    contactNumber       String?
+    whatsappNumber      String?
+
+    // Meta
+    isVerified Boolean  @default(false)
+    isActive   Boolean  @default(true)
+    logoUrl    String?
+    notes      String?
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    // Relations
+    products        VendorProduct[]
+    hubServiceAreas Hub_ServiceArea[]
+
+    @@index([vendorType])
+    @@map("hub_vendors")
+}
+
+model Item {
+    id            String           @id @default(uuid())
+    itemCode      String           @unique @default(dbgenerated("concat('ITM-', nextval('item_code_seq'))"))
+    name          String // e.g. "Portland Pozzolana Cement"
+    category      MaterialCategory
+    hsnCode       String?
+    imageUrl      String?
+    unitOfMeasure UnitOfMeasure
+    description   String?
+
+    isActive  Boolean  @default(true)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Relations
+    specifications Specifications[] // Admin defined Blueprints
+    vendorProducts VendorProduct[]
+
+    @@index([category])
+    @@map("hub_materials")
+}
+
+model Specifications {
+    id         String   @id @default(uuid())
+    specName   String // e.g., "Grade" or "Diameter"
+    specValues String[] // e.g., ["43", "53"] or ["8mm", "10mm"]
+
+    itemId String
+    item   Item   @relation(fields: [itemId], references: [id])
+
+    // Relation to track how these specs are used in variants
+    variantSelections VariantSelection[]
+
+    @@map("material_specifications")
+}
+
+model VendorProduct {
+    id          String        @id @default(uuid())
+    productCode String?       @unique @default(dbgenerated("concat('VP-', nextval('vendor_product_code_seq'))"))
+    productName String // Vendor's specific listing title
+    brandName   String? // e.g. "Ramco"
+    description String?
+    status      ProductStatus @default(ACTIVE)
+
+    vendorId String
+    vendor   Vendor @relation(fields: [vendorId], references: [id])
+
+    itemId   String
+    material Item   @relation(fields: [itemId], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Relations
+    variants VendorProductVariant[]
+
+    @@unique([vendorId, productCode])
+    @@index([vendorId])
+    @@index([status])
+    @@map("vendor_products")
+}
+
+model VendorProductVariant {
+    id            String  @id @default(uuid())
+    sku           String? @unique // e.g., VEND-RAMCO-G43
+    price         Decimal @db.Decimal(10, 2)
+    stockQuantity Int?    @default(0)
+
+    vendorProductId String
+    vendorProduct   VendorProduct @relation(fields: [vendorProductId], references: [id])
+
+    // The link to the actual chosen specification values
+    selectedSpecs VariantSelection[]
+
+    @@map("vendor_product_variants")
+}
+
+model VariantSelection {
+    id String @id @default(uuid())
+
+    variantId String
+    variant   VendorProductVariant @relation(fields: [variantId], references: [id])
+
+    specId        String
+    specification Specifications @relation(fields: [specId], references: [id])
+
+    selectedValue String // Must match one of the specValues in 'Specifications'
+
+    @@unique([variantId, specId]) // Ensures one variant cannot have the same spec (e.g., two diameters) twice
+    @@map("variant_selections")
+}
+
+model Hub_ServiceArea {
+    id       String @id @default(uuid())
+    vendorId String
+    vendor   Vendor @relation(fields: [vendorId], references: [id])
+
+    city        String
+    isPrimary   Boolean                               @default(false)
+    centerPoint Unsupported("geography(Point, 4326)")
+    radiusKm    Float
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("hub_service_area")
+}
