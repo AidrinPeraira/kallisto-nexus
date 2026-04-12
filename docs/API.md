@@ -52,3 +52,9 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `POST` | `/api/bridge/v1/portfolio/create`   | Create Portfolio and Add Initial Project | Yes           |
 | `POST` | `/api/bridge/v1/portfolio/project`  | Add New Project to Existing Portfolio    | Yes           |
 
+### Profile Management
+
+| Method | Endpoint                    | Description                           | Auth Required |
+| :----- | :-------------------------- | :------------------------------------ | :------------ |
+| `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile  | Yes           |
+

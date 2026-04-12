@@ -26,11 +26,13 @@ import { AddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/applic
 import { UpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/UpdateProfileCompletionUseCase";
 import { CreatePortfolioUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/CreatePortfolioUseCase";
 import { AddPortfolioProjectUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/AddPortfolioProjectUseCase";
+import { GetServiceProviderProfileUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/GetServiceProviderProfileUseCase";
 
 
 // Controller
 import { OnboardingController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/OnboardingController";
 import { PortfolioController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/PortfolioController";
+import { ProfileController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/ProfileController";
 
 import { WinstonLogger } from "@packages/logger";
 
@@ -73,6 +75,10 @@ export function createBridgeModule() {
     prismaPortfolioProjectRepo,
     prismaPortfolioRepo
   );
+  const getServiceProviderProfileUseCase = new GetServiceProviderProfileUseCase(
+    prismaSPRepo,
+    prismaServiceAreaRepo
+  );
 
 
   // 3. Controller
@@ -98,12 +104,19 @@ export function createBridgeModule() {
   const portfolioController = new PortfolioController(
     logger,
     createPortfolioUseCase,
-    addPortfolioProjectUseCase
+    addPortfolioProjectUseCase,
+    updateProfileCompletionUseCase
+  );
+
+  const profileController = new ProfileController(
+    logger,
+    getServiceProviderProfileUseCase
   );
 
   return {
     onboardingController,
-    portfolioController
+    portfolioController,
+    profileController
   };
 
 }

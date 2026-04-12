@@ -64,6 +64,11 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
   async findById(id: string): Promise<ServiceProviderEntity | null> {
     const sp = await prisma.bridge_ServiceProvider.findUnique({
       where: { id },
+      include: {
+        organisationProfile: true,
+        professionalProfile: true,
+        contractorProfile: true,
+      },
     });
 
     if (!sp) return null;
@@ -73,6 +78,11 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
   async findByUserId(userId: string): Promise<ServiceProviderEntity | null> {
     const sp = await prisma.bridge_ServiceProvider.findUnique({
       where: { userId },
+      include: {
+        organisationProfile: true,
+        professionalProfile: true,
+        contractorProfile: true,
+      },
     });
 
     if (!sp) return null;
@@ -112,7 +122,7 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
   }
 
   private mapToDomain(prismaSp: any): ServiceProviderEntity {
-    return {
+    const entity: ServiceProviderEntity = {
       id: prismaSp.id,
       spCode: prismaSp.spCode,
       userId: prismaSp.userId,
@@ -149,5 +159,44 @@ export class PrismaServiceProviderRepository implements IServiceProviderReposito
       createdAt: prismaSp.createdAt,
       updatedAt: prismaSp.updatedAt,
     };
+
+    if (prismaSp.organisationProfile) {
+      entity.organisationProfile = {
+        id: prismaSp.organisationProfile.id,
+        serviceProviderId: prismaSp.organisationProfile.serviceProviderId,
+        brandName: prismaSp.organisationProfile.brandName || undefined,
+        brandLogo: prismaSp.organisationProfile.brandLogo || undefined,
+        organisationType: prismaSp.organisationProfile.organisationType || undefined,
+        yearOfEstablishment: prismaSp.organisationProfile.yearOfEstablishment || undefined,
+        businessProofType: prismaSp.organisationProfile.businessProofType || undefined,
+        businessProofImage: prismaSp.organisationProfile.businessProofImage || undefined,
+        tradeLicense: prismaSp.organisationProfile.tradeLicense || undefined,
+        insurance: prismaSp.organisationProfile.insurance || undefined,
+        representativeName: prismaSp.organisationProfile.representativeName || undefined,
+        representativeDesignation: prismaSp.organisationProfile.representativeDesignation || undefined,
+        representativeMobile: prismaSp.organisationProfile.representativeMobile || undefined,
+        representativeGovtIDType: prismaSp.organisationProfile.representativeGovtIDType || undefined,
+        representativeGovtIDNumber: prismaSp.organisationProfile.representativeGovtIDNumber || undefined,
+        representativeGovtIDProof: prismaSp.organisationProfile.representativeGovtIDProof || undefined,
+      };
+    }
+
+    if (prismaSp.professionalProfile) {
+      entity.professionalProfile = {
+        id: prismaSp.professionalProfile.id,
+        serviceProviderId: prismaSp.professionalProfile.serviceProviderId,
+        workingSince: prismaSp.professionalProfile.workingSince || undefined,
+      };
+    }
+
+    if (prismaSp.contractorProfile) {
+      entity.contractorProfile = {
+        id: prismaSp.contractorProfile.id,
+        serviceProviderId: prismaSp.contractorProfile.serviceProviderId,
+        workingSince: prismaSp.contractorProfile.workingSince || undefined,
+      };
+    }
+
+    return entity;
   }
 }
