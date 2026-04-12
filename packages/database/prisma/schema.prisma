@@ -11,5 +11,5 @@ generator client {
 
 datasource db {
   provider   = "postgresql"
-  extensions = [postgis]
+  extensions = [postgis, supabase_vault]
 }
