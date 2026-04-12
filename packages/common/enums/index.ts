@@ -5,3 +5,4 @@ export * from "./HttpStatusCode";
 export * from "./TokenEnums";
 export * from "./BridgeEnums";
 export * from "./HubEnums";
+export * from "./HandsEnums";

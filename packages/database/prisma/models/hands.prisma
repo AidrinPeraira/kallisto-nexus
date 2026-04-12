@@ -37,7 +37,6 @@ model Hands_ServiceAssociate {
 
   // consent
   // isPlatformConsentAdded Boolean @default(false)
-
   status    ServiceAssociateStatus @default(onboarding)
   createdAt DateTime               @default(now())
   updatedAt DateTime               @updatedAt
@@ -68,7 +67,6 @@ model Hands_WorkerProfile {
   contractorId String? // if affiliated to a contractor, references Hands_ServiceAssociate.id
   workingSince Int?
   wagePerDay   Float?
-  wageCurrency String? @default("INR")
 
   @@map("hands_worker_profile")
 }

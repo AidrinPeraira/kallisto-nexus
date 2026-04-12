@@ -430,8 +430,7 @@ export const Hands_WorkerProfileScalarFieldEnum = {
   serviceAssociateId: 'serviceAssociateId',
   contractorId: 'contractorId',
   workingSince: 'workingSince',
-  wagePerDay: 'wagePerDay',
-  wageCurrency: 'wageCurrency'
+  wagePerDay: 'wagePerDay'
 } as const
 
 export type Hands_WorkerProfileScalarFieldEnum = (typeof Hands_WorkerProfileScalarFieldEnum)[keyof typeof Hands_WorkerProfileScalarFieldEnum]
