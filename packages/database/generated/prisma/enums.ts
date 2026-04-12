@@ -170,3 +170,64 @@ export const ProfessionalLicenseType = {
 } as const
 
 export type ProfessionalLicenseType = (typeof ProfessionalLicenseType)[keyof typeof ProfessionalLicenseType]
+
+
+export const VendorType = {
+  AUTHORIZED_DEALER: 'AUTHORIZED_DEALER',
+  DISTRIBUTOR: 'DISTRIBUTOR',
+  WHOLESALER: 'WHOLESALER',
+  RETAILER: 'RETAILER',
+  STOCKIST: 'STOCKIST'
+} as const
+
+export type VendorType = (typeof VendorType)[keyof typeof VendorType]
+
+
+export const MaterialCategory = {
+  DOOR: 'DOOR',
+  WINDOW: 'WINDOW',
+  STRUCTURAL_STEEL: 'STRUCTURAL_STEEL',
+  CEMENT_AND_CONCRETE: 'CEMENT_AND_CONCRETE',
+  AGGREGATES: 'AGGREGATES',
+  BRICKS_AND_MASONRY: 'BRICKS_AND_MASONRY',
+  ROOFING: 'ROOFING',
+  FLOORING: 'FLOORING',
+  PLUMBING: 'PLUMBING',
+  ELECTRICAL: 'ELECTRICAL',
+  INSULATION: 'INSULATION',
+  HARDWARE_AND_FITTINGS: 'HARDWARE_AND_FITTINGS',
+  GLASS: 'GLASS',
+  TIMBER_AND_WOOD: 'TIMBER_AND_WOOD',
+  PAINTS_AND_COATINGS: 'PAINTS_AND_COATINGS',
+  WATERPROOFING: 'WATERPROOFING',
+  SAFETY_AND_PPE: 'SAFETY_AND_PPE'
+} as const
+
+export type MaterialCategory = (typeof MaterialCategory)[keyof typeof MaterialCategory]
+
+
+export const UnitOfMeasure = {
+  NOS: 'NOS',
+  SQM: 'SQM',
+  SQFT: 'SQFT',
+  RMT: 'RMT',
+  KG: 'KG',
+  TON: 'TON',
+  BAG: 'BAG',
+  LITRE: 'LITRE',
+  BUNDLE: 'BUNDLE',
+  BOX: 'BOX',
+  SET: 'SET'
+} as const
+
+export type UnitOfMeasure = (typeof UnitOfMeasure)[keyof typeof UnitOfMeasure]
+
+
+export const ProductStatus = {
+  ACTIVE: 'ACTIVE',
+  DISCONTINUED: 'DISCONTINUED',
+  OUT_OF_STOCK: 'OUT_OF_STOCK',
+  COMING_SOON: 'COMING_SOON'
+} as const
+
+export type ProductStatus = (typeof ProductStatus)[keyof typeof ProductStatus]
