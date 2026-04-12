@@ -1,6 +1,9 @@
 node_modules
 dist
+
+# Environment files — never commit DB credentials
 .env
-/generated/prisma
+.env.local
+.env.production
 
 /generated/prisma
