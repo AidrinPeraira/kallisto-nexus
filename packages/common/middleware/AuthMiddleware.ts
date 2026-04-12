@@ -32,7 +32,10 @@ export function authMidllewarre(
     }
 
     (req as any).user = payload;
-    req.body.userId = (payload as any).userId;
+
+    if (req.body) {
+      req.body.userId = (payload as any).userId;
+    }
     next();
   } catch (error: any) {
     if (error instanceof jwt.TokenExpiredError) {
