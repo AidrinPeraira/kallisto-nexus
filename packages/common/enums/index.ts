@@ -4,3 +4,4 @@ export * from "./UserStatus";
 export * from "./HttpStatusCode";
 export * from "./TokenEnums";
 export * from "./BridgeEnums";
+export * from "./HubEnums";
