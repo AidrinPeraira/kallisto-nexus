@@ -1,0 +1,302 @@
+// ══════════════════════════════════════════════════════
+//  ENUMS
+// ══════════════════════════════════════════════════════
+
+enum VendorType {
+    AUTHORIZED_DEALER // First point of sale direct from manufacturer
+    DISTRIBUTOR
+    WHOLESALER
+    RETAILER
+    STOCKIST
+}
+
+enum MaterialCategory {
+    DOOR
+    WINDOW
+    STRUCTURAL_STEEL
+    CEMENT_AND_CONCRETE
+    AGGREGATES
+    BRICKS_AND_MASONRY
+    ROOFING
+    FLOORING
+    PLUMBING
+    ELECTRICAL
+    INSULATION
+    HARDWARE_AND_FITTINGS
+    GLASS
+    TIMBER_AND_WOOD
+    PAINTS_AND_COATINGS
+    WATERPROOFING
+    SAFETY_AND_PPE
+}
+
+enum MaterialSubCategory {
+    // Doors
+    FLUSH_DOOR
+    PANEL_DOOR
+    PVC_DOOR
+    GLASS_DOOR
+    ROLLING_SHUTTER
+    FIRE_DOOR
+    // Windows
+    ALUMINIUM_WINDOW
+    UPVC_WINDOW
+    WOODEN_WINDOW
+    STEEL_WINDOW
+    // Hardware & Fittings
+    HINGE
+    LOCK
+    DOOR_CLOSER
+    WINDOW_FITTING
+    HANDLE
+    TOWER_BOLT
+    // Glass
+    TOUGHENED_GLASS
+    LAMINATED_GLASS
+    FLOAT_GLASS
+    FROSTED_GLASS
+    // General
+    OTHER
+}
+
+enum UnitOfMeasure {
+    NOS // Numbers / pieces
+    SQM // Square metres
+    SQFT // Square feet
+    RMT // Running metre
+    KG
+    TON
+    BAG
+    LITRE
+    BUNDLE
+    BOX
+    SET
+}
+
+enum ProductStatus {
+    ACTIVE
+    DISCONTINUED
+    OUT_OF_STOCK
+    COMING_SOON
+}
+
+enum ZoneRegion {
+    THIRUVANANTHAPURAM
+    KOLLAM
+    PATHANAMTHITTA
+    ALAPPUZHA
+    KOTTAYAM
+    IDUKKI
+    ERNAKULAM
+    THRISSUR
+    PALAKKAD
+    MALAPPURAM
+    KOZHIKODE
+    WAYANAD
+    KANNUR
+    KASARAGOD
+    PAN_KERALA
+    PAN_INDIA
+}
+
+enum SurfaceFinish {
+    PAINTED
+    POWDER_COATED
+    ANODIZED
+    POLISHED
+    NATURAL
+    LAMINATED
+    TEXTURED
+    GALVANIZED
+    FROSTED
+    CLEAR
+    PRIMED
+}
+
+enum Currency {
+    INR
+    USD
+    EUR
+}
+
+// ══════════════════════════════════════════════════════
+//  VENDOR  (Authorized Dealer / first point of sale)
+// ══════════════════════════════════════════════════════
+
+model AuthorizedVendor {
+    id                  String          @id @default(uuid())
+    // Identity
+    vendorType          VendorType      @default(AUTHORIZED_DEALER)
+    companyName         String
+    brandName           String? // e.g. "Ramco", "Fenesta"
+    zone                ZoneRegion
+    zoneName            String? // e.g. "Ramco Trivandrum Branch"
+    // Registration
+    registrationNumber  String?         @unique
+    tradeLicenceNumber  String?         @unique
+    gstNumber           String?         @unique
+    // Address
+    addressLine1        String?
+    addressLine2        String?
+    city                String?
+    district            String?
+    state               String          @default("Kerala")
+    pincode             String?
+    country             String          @default("India")
+    // Contact
+    contactNumber       String?
+    whatsappNumber      String?
+    email               String?         @unique
+    website             String?
+    representativeName  String?
+    representativePhone String?
+    // Bank details
+    bankName            String?
+    bankBranchName      String?
+    accountNumber       String?
+    accountHolderName   String?
+    ifscCode            String?
+    // Meta
+    isVerified          Boolean         @default(false)
+    isActive            Boolean         @default(true)
+    logoUrl             String?
+    notes               String?
+    products            VendorProduct[]
+    createdAt           DateTime        @default(now())
+    updatedAt           DateTime        @updatedAt
+
+    @@index([zone])
+    @@index([vendorType])
+    @@map("authorized_vendors")
+}
+
+// ══════════════════════════════════════════════════════
+//  MATERIAL  (engineering spec — brand agnostic)
+// ══════════════════════════════════════════════════════
+
+model Material {
+    id                      String              @id @default(uuid())
+    skuCode                 String              @unique // e.g. DRW-001
+    name                    String
+    category                MaterialCategory
+    subCategory             MaterialSubCategory
+    hsnCode                 String? // e.g. 44182010
+    isStandard              String? // e.g. IS 2202, IS 733
+    // Description
+    description             String?
+    keyFeatures             String?
+    usageApplication        String?
+    remarks                 String?
+    // Composition & manufacturing
+    rawMaterialComposition  String?
+    manufacturingProcess    String?
+    // Engineering / performance specs (flexible)
+    mechanicalProperties    Json? // impact resistance, load bearing, etc.
+    typeOrGrade             String? // e.g. "Interior Grade", "Grade A"
+    // Physical properties
+    unitOfMeasure           UnitOfMeasure
+    standardSizes           String? // e.g. "30–40 mm", "Custom sizes"
+    weightOrDensity         String? // e.g. "≈25–30 kg", "700 kg/m³"
+    surfaceFinish           SurfaceFinish[]
+    // Compatibility & handling
+    hardwareCompatibility   String?
+    packagingMethod         String?
+    handlingInstructions    String?
+    // Quality
+    qualityInspectionParams String?
+    // Known manufacturers (for reference only, not a relation)
+    knownBrands             String? // e.g. "Century, Greenply, Kitply"
+    referenceImageUrl       String?
+    // Meta
+    isActive                Boolean             @default(true)
+    vendorProducts          VendorProduct[]
+    createdAt               DateTime            @default(now())
+    updatedAt               DateTime            @updatedAt
+
+    @@index([category])
+    @@index([subCategory])
+    @@map("materials")
+}
+
+// ══════════════════════════════════════════════════════
+//  VENDOR PRODUCT  (what a vendor sells)
+//  joins AuthorizedVendor ↔ Material
+//  adds brand-level / ecommerce-level detail
+// ══════════════════════════════════════════════════════
+
+model VendorProduct {
+    id               String           @id @default(uuid())
+    vendorId         String
+    vendor           AuthorizedVendor @relation(fields: [vendorId], references: [id])
+    materialId       String
+    material         Material         @relation(fields: [materialId], references: [id])
+    // Brand / product identity
+    productName      String // vendor's listing name
+    productCode      String? // vendor's own SKU / catalogue ref
+    brandName        String? // e.g. "Fenesta", "Saint-Gobain"
+    modelNumber      String?
+    // Ecommerce details
+    shortDescription String?
+    longDescription  String?
+    bulletPoints     String[] // key selling points
+    images           ProductImage[]
+    tags             String[]
+    // Pricing
+    unitOfMeasure    UnitOfMeasure
+    unitPrice        Decimal          @db.Decimal(12, 4)
+    currency         Currency         @default(INR)
+    taxPercent       Decimal?         @db.Decimal(5, 2) // GST %
+    minOrderQty      Decimal?         @db.Decimal(10, 2)
+    leadTimeDays     Int? // delivery lead time
+    // Specs override (if vendor's product differs from base material)
+    customSpecs      Json?
+    // Status
+    status           ProductStatus    @default(ACTIVE)
+    isFeatured       Boolean          @default(false)
+    priceHistory     PriceHistory[]
+    createdAt        DateTime         @default(now())
+    updatedAt        DateTime         @updatedAt
+
+    @@unique([vendorId, productCode])
+    @@index([materialId])
+    @@index([vendorId])
+    @@index([status])
+    @@map("vendor_products")
+}
+
+// ══════════════════════════════════════════════════════
+//  PRODUCT IMAGES
+// ══════════════════════════════════════════════════════
+
+model ProductImage {
+    id              String        @id @default(uuid())
+    vendorProductId String
+    vendorProduct   VendorProduct @relation(fields: [vendorProductId], references: [id])
+    url             String
+    altText         String?
+    isPrimary       Boolean       @default(false)
+    sortOrder       Int           @default(0)
+    createdAt       DateTime      @default(now())
+
+    @@index([vendorProductId])
+    @@map("product_images")
+}
+
+// ══════════════════════════════════════════════════════
+//  PRICE HISTORY
+// ══════════════════════════════════════════════════════
+
+model PriceHistory {
+    id              String        @id @default(uuid())
+    vendorProductId String
+    vendorProduct   VendorProduct @relation(fields: [vendorProductId], references: [id])
+    unitPrice       Decimal       @db.Decimal(12, 4)
+    currency        Currency
+    effectiveDate   DateTime      @default(now())
+    changedBy       String? // admin user id or name
+    notes           String?
+    createdAt       DateTime      @default(now())
+
+    @@index([vendorProductId])
+    @@map("price_history")
+}
