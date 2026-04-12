@@ -53,8 +53,12 @@ export type Bridge_ServiceProviderMinAggregateOutputType = {
   professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   portfolioId: string | null
   isIdentityAdded: boolean | null
   isAddressAdded: boolean | null
@@ -86,8 +90,12 @@ export type Bridge_ServiceProviderMaxAggregateOutputType = {
   professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   portfolioId: string | null
   isIdentityAdded: boolean | null
   isAddressAdded: boolean | null
@@ -121,8 +129,12 @@ export type Bridge_ServiceProviderCountAggregateOutputType = {
   professionalLicenseType: number
   professionalLicenseNumber: number
   financeAccountId: number
-  maskedAccountNumber: number
+  accountHolderName: number
   bankName: number
+  bankBranch: number
+  accountNumber: number
+  IFSCCode: number
+  UPIId: number
   portfolioId: number
   isIdentityAdded: number
   isAddressAdded: number
@@ -164,8 +176,12 @@ export type Bridge_ServiceProviderMinAggregateInputType = {
   professionalLicenseType?: true
   professionalLicenseNumber?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   portfolioId?: true
   isIdentityAdded?: true
   isAddressAdded?: true
@@ -197,8 +213,12 @@ export type Bridge_ServiceProviderMaxAggregateInputType = {
   professionalLicenseType?: true
   professionalLicenseNumber?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   portfolioId?: true
   isIdentityAdded?: true
   isAddressAdded?: true
@@ -232,8 +252,12 @@ export type Bridge_ServiceProviderCountAggregateInputType = {
   professionalLicenseType?: true
   professionalLicenseNumber?: true
   financeAccountId?: true
-  maskedAccountNumber?: true
+  accountHolderName?: true
   bankName?: true
+  bankBranch?: true
+  accountNumber?: true
+  IFSCCode?: true
+  UPIId?: true
   portfolioId?: true
   isIdentityAdded?: true
   isAddressAdded?: true
@@ -354,8 +378,12 @@ export type Bridge_ServiceProviderGroupByOutputType = {
   professionalLicenseType: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber: string | null
   financeAccountId: string | null
-  maskedAccountNumber: string | null
+  accountHolderName: string | null
   bankName: string | null
+  bankBranch: string | null
+  accountNumber: string | null
+  IFSCCode: string | null
+  UPIId: string | null
   portfolioId: string | null
   isIdentityAdded: boolean
   isAddressAdded: boolean
@@ -412,8 +440,12 @@ export type Bridge_ServiceProviderWhereInput = {
   professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  accountHolderName?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   bankName?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  bankBranch?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  accountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  IFSCCode?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  UPIId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   portfolioId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   isIdentityAdded?: Prisma.BoolFilter<"Bridge_ServiceProvider"> | boolean
   isAddressAdded?: Prisma.BoolFilter<"Bridge_ServiceProvider"> | boolean
@@ -452,8 +484,12 @@ export type Bridge_ServiceProviderOrderByWithRelationInput = {
   professionalLicenseType?: Prisma.SortOrderInput | Prisma.SortOrder
   professionalLicenseNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   financeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrderInput | Prisma.SortOrder
   bankName?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankBranch?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  UPIId?: Prisma.SortOrderInput | Prisma.SortOrder
   portfolioId?: Prisma.SortOrderInput | Prisma.SortOrder
   isIdentityAdded?: Prisma.SortOrder
   isAddressAdded?: Prisma.SortOrder
@@ -495,8 +531,12 @@ export type Bridge_ServiceProviderWhereUniqueInput = Prisma.AtLeast<{
   professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  accountHolderName?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   bankName?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  bankBranch?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  accountNumber?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  IFSCCode?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
+  UPIId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   portfolioId?: Prisma.StringNullableFilter<"Bridge_ServiceProvider"> | string | null
   isIdentityAdded?: Prisma.BoolFilter<"Bridge_ServiceProvider"> | boolean
   isAddressAdded?: Prisma.BoolFilter<"Bridge_ServiceProvider"> | boolean
@@ -535,8 +575,12 @@ export type Bridge_ServiceProviderOrderByWithAggregationInput = {
   professionalLicenseType?: Prisma.SortOrderInput | Prisma.SortOrder
   professionalLicenseNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   financeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrderInput | Prisma.SortOrder
   bankName?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankBranch?: Prisma.SortOrderInput | Prisma.SortOrder
+  accountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  UPIId?: Prisma.SortOrderInput | Prisma.SortOrder
   portfolioId?: Prisma.SortOrderInput | Prisma.SortOrder
   isIdentityAdded?: Prisma.SortOrder
   isAddressAdded?: Prisma.SortOrder
@@ -578,8 +622,12 @@ export type Bridge_ServiceProviderScalarWhereWithAggregatesInput = {
   professionalLicenseType?: Prisma.EnumProfessionalLicenseTypeNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   financeAccountId?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
-  maskedAccountNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  accountHolderName?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   bankName?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  bankBranch?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  accountNumber?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  IFSCCode?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
+  UPIId?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   portfolioId?: Prisma.StringNullableWithAggregatesFilter<"Bridge_ServiceProvider"> | string | null
   isIdentityAdded?: Prisma.BoolWithAggregatesFilter<"Bridge_ServiceProvider"> | boolean
   isAddressAdded?: Prisma.BoolWithAggregatesFilter<"Bridge_ServiceProvider"> | boolean
@@ -613,8 +661,12 @@ export type Bridge_ServiceProviderCreateInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -653,8 +705,12 @@ export type Bridge_ServiceProviderUncheckedCreateInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -693,8 +749,12 @@ export type Bridge_ServiceProviderUpdateInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -733,8 +793,12 @@ export type Bridge_ServiceProviderUncheckedUpdateInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -773,8 +837,12 @@ export type Bridge_ServiceProviderCreateManyInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -808,8 +876,12 @@ export type Bridge_ServiceProviderUpdateManyMutationInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -843,8 +915,12 @@ export type Bridge_ServiceProviderUncheckedUpdateManyInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -878,8 +954,12 @@ export type Bridge_ServiceProviderCountOrderByAggregateInput = {
   professionalLicenseType?: Prisma.SortOrder
   professionalLicenseNumber?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   portfolioId?: Prisma.SortOrder
   isIdentityAdded?: Prisma.SortOrder
   isAddressAdded?: Prisma.SortOrder
@@ -915,8 +995,12 @@ export type Bridge_ServiceProviderMaxOrderByAggregateInput = {
   professionalLicenseType?: Prisma.SortOrder
   professionalLicenseNumber?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   portfolioId?: Prisma.SortOrder
   isIdentityAdded?: Prisma.SortOrder
   isAddressAdded?: Prisma.SortOrder
@@ -948,8 +1032,12 @@ export type Bridge_ServiceProviderMinOrderByAggregateInput = {
   professionalLicenseType?: Prisma.SortOrder
   professionalLicenseNumber?: Prisma.SortOrder
   financeAccountId?: Prisma.SortOrder
-  maskedAccountNumber?: Prisma.SortOrder
+  accountHolderName?: Prisma.SortOrder
   bankName?: Prisma.SortOrder
+  bankBranch?: Prisma.SortOrder
+  accountNumber?: Prisma.SortOrder
+  IFSCCode?: Prisma.SortOrder
+  UPIId?: Prisma.SortOrder
   portfolioId?: Prisma.SortOrder
   isIdentityAdded?: Prisma.SortOrder
   isAddressAdded?: Prisma.SortOrder
@@ -1082,8 +1170,12 @@ export type Bridge_ServiceProviderCreateWithoutOrganisationProfileInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1121,8 +1213,12 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutOrganisationProfileInput
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1176,8 +1272,12 @@ export type Bridge_ServiceProviderUpdateWithoutOrganisationProfileInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1215,8 +1315,12 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutOrganisationProfileInput
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1254,8 +1358,12 @@ export type Bridge_ServiceProviderCreateWithoutProfessionalProfileInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1293,8 +1401,12 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutProfessionalProfileInput
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1348,8 +1460,12 @@ export type Bridge_ServiceProviderUpdateWithoutProfessionalProfileInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1387,8 +1503,12 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutProfessionalProfileInput
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1426,8 +1546,12 @@ export type Bridge_ServiceProviderCreateWithoutContractorProfileInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1465,8 +1589,12 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutContractorProfileInput =
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1520,8 +1648,12 @@ export type Bridge_ServiceProviderUpdateWithoutContractorProfileInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1559,8 +1691,12 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutContractorProfileInput =
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1598,8 +1734,12 @@ export type Bridge_ServiceProviderCreateWithoutServiceAreas_BridgeInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1637,8 +1777,12 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutServiceAreas_BridgeInput
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1692,8 +1836,12 @@ export type Bridge_ServiceProviderUpdateWithoutServiceAreas_BridgeInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1731,8 +1879,12 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutServiceAreas_BridgeInput
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1770,8 +1922,12 @@ export type Bridge_ServiceProviderCreateWithoutBridgePortfolioInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1809,8 +1965,12 @@ export type Bridge_ServiceProviderUncheckedCreateWithoutBridgePortfolioInput = {
   professionalLicenseType?: $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: string | null
   financeAccountId?: string | null
-  maskedAccountNumber?: string | null
+  accountHolderName?: string | null
   bankName?: string | null
+  bankBranch?: string | null
+  accountNumber?: string | null
+  IFSCCode?: string | null
+  UPIId?: string | null
   portfolioId?: string | null
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -1864,8 +2024,12 @@ export type Bridge_ServiceProviderUpdateWithoutBridgePortfolioInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1903,8 +2067,12 @@ export type Bridge_ServiceProviderUncheckedUpdateWithoutBridgePortfolioInput = {
   professionalLicenseType?: Prisma.NullableEnumProfessionalLicenseTypeFieldUpdateOperationsInput | $Enums.ProfessionalLicenseType | null
   professionalLicenseNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   financeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  maskedAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountHolderName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankBranch?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  IFSCCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  UPIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   portfolioId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isIdentityAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isAddressAdded?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1973,8 +2141,12 @@ export type Bridge_ServiceProviderSelect<ExtArgs extends runtime.Types.Extension
   professionalLicenseType?: boolean
   professionalLicenseNumber?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   portfolioId?: boolean
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -2014,8 +2186,12 @@ export type Bridge_ServiceProviderSelectCreateManyAndReturn<ExtArgs extends runt
   professionalLicenseType?: boolean
   professionalLicenseNumber?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   portfolioId?: boolean
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -2049,8 +2225,12 @@ export type Bridge_ServiceProviderSelectUpdateManyAndReturn<ExtArgs extends runt
   professionalLicenseType?: boolean
   professionalLicenseNumber?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   portfolioId?: boolean
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -2084,8 +2264,12 @@ export type Bridge_ServiceProviderSelectScalar = {
   professionalLicenseType?: boolean
   professionalLicenseNumber?: boolean
   financeAccountId?: boolean
-  maskedAccountNumber?: boolean
+  accountHolderName?: boolean
   bankName?: boolean
+  bankBranch?: boolean
+  accountNumber?: boolean
+  IFSCCode?: boolean
+  UPIId?: boolean
   portfolioId?: boolean
   isIdentityAdded?: boolean
   isAddressAdded?: boolean
@@ -2098,7 +2282,7 @@ export type Bridge_ServiceProviderSelectScalar = {
   updatedAt?: boolean
 }
 
-export type Bridge_ServiceProviderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "spCode" | "spType" | "displayName" | "profilePicture" | "officeAddress" | "officeEmail" | "officePhone" | "primaryServices" | "subServices" | "typicalProjectValue" | "isServicesAdded" | "PAN" | "GSTIN" | "governmentIdType" | "governmentIdNumber" | "professionalLicenseType" | "professionalLicenseNumber" | "financeAccountId" | "maskedAccountNumber" | "bankName" | "portfolioId" | "isIdentityAdded" | "isAddressAdded" | "isPortfolioAdded" | "isCredentialsAdded" | "isBankDetailsAdded" | "isRepresentativeAdded" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["bridge_ServiceProvider"]>
+export type Bridge_ServiceProviderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "spCode" | "spType" | "displayName" | "profilePicture" | "officeAddress" | "officeEmail" | "officePhone" | "primaryServices" | "subServices" | "typicalProjectValue" | "isServicesAdded" | "PAN" | "GSTIN" | "governmentIdType" | "governmentIdNumber" | "professionalLicenseType" | "professionalLicenseNumber" | "financeAccountId" | "accountHolderName" | "bankName" | "bankBranch" | "accountNumber" | "IFSCCode" | "UPIId" | "portfolioId" | "isIdentityAdded" | "isAddressAdded" | "isPortfolioAdded" | "isCredentialsAdded" | "isBankDetailsAdded" | "isRepresentativeAdded" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["bridge_ServiceProvider"]>
 export type Bridge_ServiceProviderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   serviceAreas_Bridge?: boolean | Prisma.Bridge_ServiceProvider$serviceAreas_BridgeArgs<ExtArgs>
   organisationProfile?: boolean | Prisma.Bridge_ServiceProvider$organisationProfileArgs<ExtArgs>
@@ -2140,8 +2324,12 @@ export type $Bridge_ServiceProviderPayload<ExtArgs extends runtime.Types.Extensi
     professionalLicenseType: $Enums.ProfessionalLicenseType | null
     professionalLicenseNumber: string | null
     financeAccountId: string | null
-    maskedAccountNumber: string | null
+    accountHolderName: string | null
     bankName: string | null
+    bankBranch: string | null
+    accountNumber: string | null
+    IFSCCode: string | null
+    UPIId: string | null
     portfolioId: string | null
     isIdentityAdded: boolean
     isAddressAdded: boolean
@@ -2600,8 +2788,12 @@ export interface Bridge_ServiceProviderFieldRefs {
   readonly professionalLicenseType: Prisma.FieldRef<"Bridge_ServiceProvider", 'ProfessionalLicenseType'>
   readonly professionalLicenseNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly financeAccountId: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
-  readonly maskedAccountNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly accountHolderName: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly bankName: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly bankBranch: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly accountNumber: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly IFSCCode: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
+  readonly UPIId: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly portfolioId: Prisma.FieldRef<"Bridge_ServiceProvider", 'String'>
   readonly isIdentityAdded: Prisma.FieldRef<"Bridge_ServiceProvider", 'Boolean'>
   readonly isAddressAdded: Prisma.FieldRef<"Bridge_ServiceProvider", 'Boolean'>

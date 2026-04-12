@@ -47,4 +47,5 @@ export interface IOnboardingController {
   addOrgRepresentative(req: Request, res: Response): Promise<void>;
 
   //----- Bank Details ------
+  addSPBankDetails(req: Request, res: Response): Promise<void>;
 }

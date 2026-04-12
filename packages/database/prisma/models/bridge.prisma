@@ -31,9 +31,13 @@ model Bridge_ServiceProvider {
     professionalLicenseNumber String?
 
     // bank details
-    financeAccountId    String? // reference to Finance module record
-    maskedAccountNumber String?
-    bankName            String?
+    financeAccountId  String? // reference to Finance module record
+    accountHolderName String?
+    bankName          String?
+    bankBranch        String?
+    accountNumber     String? // store encrypted
+    IFSCCode          String?
+    UPIId             String?
 
     // portfolio
     portfolioId String?

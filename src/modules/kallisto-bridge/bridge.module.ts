@@ -24,6 +24,7 @@ import { AddOrgExtraCredentialsUseCase } from "@src/modules/kallisto-bridge/appl
 import { AddOrgRepresentativeUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/oragnisation/AddOrgRepresentativeUseCase";
 
 import { UpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/UpdateProfileCompletionUseCase";
+import { AddSPBankDetailsUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/AddSPBankDetailsUseCase";
 import { CreatePortfolioUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/CreatePortfolioUseCase";
 import { AddPortfolioProjectUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/AddPortfolioProjectUseCase";
 import { GetServiceProviderProfileUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/GetServiceProviderProfileUseCase";
@@ -64,6 +65,8 @@ export function createBridgeModule() {
   
   const addOrgRepresentativeUseCase = new AddOrgRepresentativeUseCase(prismaOrgRepo, prismaSPRepo);
   
+  const addSPBankDetailsUseCase = new AddSPBankDetailsUseCase(prismaSPRepo);
+  
   const updateProfileCompletionUseCase = new UpdateProfileCompletionUseCase(prismaSPRepo);
 
   const createPortfolioUseCase = new CreatePortfolioUseCase(
@@ -97,7 +100,7 @@ export function createBridgeModule() {
     addOrgExtraCredentialsUseCase,
     
     addOrgRepresentativeUseCase,
-    
+    addSPBankDetailsUseCase,
     updateProfileCompletionUseCase
   );
 

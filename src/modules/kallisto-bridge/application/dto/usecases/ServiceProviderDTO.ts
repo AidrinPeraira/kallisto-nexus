@@ -108,13 +108,12 @@ export interface UpdateProfileCompletionRequestDTO {
 
 export interface AddBankDetailsRequestDTO {
   serviceProviderId: string;
+  spType: ServiceProviderType;
+  financeAccountId?: string;
   accountHolderName: string;
   bankName: string;
   bankBranch: string;
   accountNumber: string; // store encrypted
   IFSCCode: string;
   UPIId?: string;
-  GSTNumber?: string;
-  isGSTLinked: boolean;
-  cancelledChequeUrl?: string;
 }

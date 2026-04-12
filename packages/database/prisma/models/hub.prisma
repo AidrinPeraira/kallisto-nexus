@@ -3,14 +3,18 @@ model Vendor {
     vendorCode     String     @unique @default(dbgenerated("concat('VEN-', nextval('vendor_code_seq'))"))
     vendorType     VendorType @default(AUTHORIZED_DEALER)
     companyName    String
+    GSTIN          String?
     brandName      String? // The main brand they represent
     profilePicture String?
 
-    // Bank Details
-    financeAccountId    String?
-    maskedAccountNumber String?
-    bankName            String?
-    isBankDetailsAdded  Boolean @default(false)
+    // bank details
+    financeAccountId  String? // reference to Finance module record
+    accountHolderName String?
+    bankName          String?
+    bankBranch        String?
+    accountNumber     String? // store encrypted
+    IFSCCode          String?
+    UPIId             String?
 
     // Address
     officeAddress String?

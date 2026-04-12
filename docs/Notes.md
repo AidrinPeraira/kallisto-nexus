@@ -86,6 +86,9 @@
 - Aidrin | 10/04/2026
   - HOW DOES CLIENT SIDE KNOW SP ID? LATER AFTER ONBOARDING. NEED IMMEDIATE FIX
 
+- Aidrin | 12/04/2026
+  - Schema allows only single hard coded account number. Need to move it to payments module.
+
 ---
 
 ## Notes / Observations

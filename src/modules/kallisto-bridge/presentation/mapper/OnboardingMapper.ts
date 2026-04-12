@@ -9,6 +9,7 @@ import {
   AddServiceAreaRequestDTO,
   AddServicesRequestDTO,
   AddSPIdentityRequestDTO,
+  AddBankDetailsRequestDTO,
 } from "@src/modules/kallisto-bridge/application/dto/usecases/ServiceProviderDTO";
 
 export class OnboardingMapper {
@@ -145,6 +146,19 @@ export class OnboardingMapper {
       representativeGovtIDType: body.representativeGovtIDType,
       representativeGovtIDProof: body.representativeGovtIDProof,
       representativeMobile: body.representativeMobile,
+    };
+  }
+  static toAddSPBankDetailsRequestDTO(body: any): AddBankDetailsRequestDTO {
+    return {
+      serviceProviderId: body.serviceProviderId,
+      spType: body.spType,
+      financeAccountId: body.financeAccountId,
+      accountHolderName: body.accountHolderName,
+      bankName: body.bankName,
+      bankBranch: body.bankBranch,
+      accountNumber: body.accountNumber,
+      IFSCCode: body.IFSCCode,
+      UPIId: body.UPIId,
     };
   }
 }

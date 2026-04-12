@@ -63,4 +63,5 @@ export enum ProfileMessages {
   PORTFOLIO_CREATED = "Portfolio created successfully",
   PROJECT_ADDED = "Portfolio project added successfully",
   PROFILE_FETCHED = "Profile fetched successfully",
+  BANK_DETAILS_ADDED = "Bank details added successfully",
 }
