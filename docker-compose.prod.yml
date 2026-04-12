@@ -1,6 +1,6 @@
 services:
   kallisto-api:
-    image: ${DOCKER_HUB_USERNAME:-yourusername}/kallisto-nexus:${IMAGE_TAG:-latest}
+    image: ${DOCKER_HUB_USERNAME:-aidrinperaira}/kallisto-nexus:${IMAGE_TAG:-latest}
     container_name: kallisto-api-prod
     ports:
       - "${PORT:-3000}:3000"

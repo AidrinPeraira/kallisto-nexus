@@ -7,7 +7,6 @@ import { PrismaServiceAreaRepository } from "@src/modules/kallisto-bridge/infras
 import { PrismaPortfolioRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/portfolio/PrismaPortfolioRepository";
 import { PrismaPortfolioProjectRepository } from "@src/modules/kallisto-bridge/infrastructure/repositories/portfolio/PrismaPortfolioProjectRepository";
 
-
 // UseCases
 import { AddSPIdentityUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/common/AddSPIdentityUseCase";
 import { AddOrgExtraIdentityUseCase } from "@src/modules/kallisto-bridge/application/usecases/profile/oragnisation/AddOrgExtraIdentityUseCase";
@@ -27,7 +26,6 @@ import { UpdateProfileCompletionUseCase } from "@src/modules/kallisto-bridge/app
 import { CreatePortfolioUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/CreatePortfolioUseCase";
 import { AddPortfolioProjectUseCase } from "@src/modules/kallisto-bridge/application/usecases/portfolio/AddPortfolioProjectUseCase";
 
-
 // Controller
 import { OnboardingController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/OnboardingController";
 import { PortfolioController } from "@src/modules/kallisto-bridge/presentation/controllers/service-providers/PortfolioController";
@@ -46,34 +44,48 @@ export function createBridgeModule() {
   const prismaPortfolioRepo = new PrismaPortfolioRepository();
   const prismaPortfolioProjectRepo = new PrismaPortfolioProjectRepository();
 
-
   // 2. UseCases
   const addSPIdentityUseCase = new AddSPIdentityUseCase(prismaSPRepo);
-  const addOrgExtraIdentityUseCase = new AddOrgExtraIdentityUseCase(prismaOrgRepo, prismaSPRepo);
-  const addProfessionalExtraIdentityUseCase = new AddProfessionalExtraIdentityUseCase(prismaProfRepo, prismaSPRepo);
-  const addContractorExtraIdentityUseCase = new AddContractorExtraIdentityUseCase(prismaContractorRepo, prismaSPRepo);
-  
+  const addOrgExtraIdentityUseCase = new AddOrgExtraIdentityUseCase(
+    prismaOrgRepo,
+    prismaSPRepo,
+  );
+  const addProfessionalExtraIdentityUseCase =
+    new AddProfessionalExtraIdentityUseCase(prismaProfRepo, prismaSPRepo);
+  const addContractorExtraIdentityUseCase =
+    new AddContractorExtraIdentityUseCase(prismaContractorRepo, prismaSPRepo);
+
   const addSPAddressUseCase = new AddSPAddressUseCase(prismaSPRepo);
   const addSPServicesUseCase = new AddSPServiceUseCase(prismaSPRepo);
-  const addSPServiceAreaUseCase = new AddSPServiceAreaUseCase(prismaServiceAreaRepo, prismaSPRepo);
-  
+  const addSPServiceAreaUseCase = new AddSPServiceAreaUseCase(
+    prismaServiceAreaRepo,
+    prismaSPRepo,
+  );
+
   const addSPCredentialsUseCase = new AddSPCredentialsUseCase(prismaSPRepo);
-  const addOrgExtraCredentialsUseCase = new AddOrgExtraCredentialsUseCase(prismaOrgRepo, prismaSPRepo);
-  
-  const addOrgRepresentativeUseCase = new AddOrgRepresentativeUseCase(prismaOrgRepo, prismaSPRepo);
-  
-  const updateProfileCompletionUseCase = new UpdateProfileCompletionUseCase(prismaSPRepo);
+  const addOrgExtraCredentialsUseCase = new AddOrgExtraCredentialsUseCase(
+    prismaOrgRepo,
+    prismaSPRepo,
+  );
+
+  const addOrgRepresentativeUseCase = new AddOrgRepresentativeUseCase(
+    prismaOrgRepo,
+    prismaSPRepo,
+  );
+
+  const updateProfileCompletionUseCase = new UpdateProfileCompletionUseCase(
+    prismaSPRepo,
+  );
 
   const createPortfolioUseCase = new CreatePortfolioUseCase(
     prismaPortfolioRepo,
     prismaPortfolioProjectRepo,
-    prismaSPRepo
+    prismaSPRepo,
   );
   const addPortfolioProjectUseCase = new AddPortfolioProjectUseCase(
     prismaPortfolioProjectRepo,
-    prismaPortfolioRepo
+    prismaPortfolioRepo,
   );
-
 
   // 3. Controller
   const onboardingController = new OnboardingController(
@@ -82,28 +94,28 @@ export function createBridgeModule() {
     addOrgExtraIdentityUseCase,
     addProfessionalExtraIdentityUseCase,
     addContractorExtraIdentityUseCase,
-    
+
     addSPAddressUseCase,
     addSPServicesUseCase, // This maps to `IAddServicesUseCase` parameter
     addSPServiceAreaUseCase,
-    
+
     addSPCredentialsUseCase,
     addOrgExtraCredentialsUseCase,
-    
+
     addOrgRepresentativeUseCase,
-    
-    updateProfileCompletionUseCase
+
+    updateProfileCompletionUseCase,
   );
 
   const portfolioController = new PortfolioController(
     logger,
     createPortfolioUseCase,
-    addPortfolioProjectUseCase
+    addPortfolioProjectUseCase,
+    updateProfileCompletionUseCase,
   );
 
   return {
     onboardingController,
-    portfolioController
+    portfolioController,
   };
-
 }
