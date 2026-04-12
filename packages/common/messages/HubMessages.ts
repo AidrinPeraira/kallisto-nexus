@@ -8,4 +8,10 @@ export enum HubMessages {
   CATEGORY_INVALID = "Invalid material category",
   SPECIFICATION_NOT_FOUND = "Specification not found",
   VARIANT_NOT_FOUND = "Product variant not found",
+  VENDOR_CREATED = "Vendor registered successfully",
+  VENDOR_UPDATED = "Vendor profile updated successfully",
+  ITEM_CREATED = "Material item created successfully",
+  ITEM_UPDATED = "Material item updated successfully",
+  PRODUCT_CREATED = "Product listing created successfully",
+  PRODUCT_UPDATED = "Product listing updated successfully",
 }

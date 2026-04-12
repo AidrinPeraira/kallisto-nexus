@@ -50,10 +50,24 @@ export interface CreateVendorRequestDTO {
   state?: string;
   pincode?: string;
   country?: string;
+  website?: string;
+  representativeName?: string;
+  representativePhone?: string;
+  whatsappNumber?: string;
+  profilePicture?: string;
+  financeAccountId?: string;
+  accountHolderName?: string;
+  bankName?: string;
+  bankBranch?: string;
+  accountNumber?: string;
+  IFSCCode?: string;
+  UPIId?: string;
+  notes?: string;
 }
 
 export interface UpdateVendorRequestDTO {
   id: string;
+  GSTIN?: string;
   companyName?: string;
   brandName?: string;
   profilePicture?: string;
@@ -70,6 +84,15 @@ export interface UpdateVendorRequestDTO {
   representativePhone?: string;
   whatsappNumber?: string;
   isActive?: boolean;
+  isVerified?: boolean;
+  financeAccountId?: string;
+  accountHolderName?: string;
+  bankName?: string;
+  bankBranch?: string;
+  accountNumber?: string;
+  IFSCCode?: string;
+  UPIId?: string;
+  notes?: string;
 }
 
 export interface GetVendorsRequestDTO {

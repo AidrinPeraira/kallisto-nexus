@@ -60,3 +60,31 @@ This is a summary of available endpoints. For full request/response payloads, en
 | Method | Endpoint                    | Description                          | Auth Required |
 | :----- | :-------------------------- | :----------------------------------- | :------------ |
 | `GET`  | `/api/bridge/v1/profile/me` | Get currently logged in user profile | Yes           |
+
+## 🏗 Hub
+
+### Vendors
+
+| Method | Endpoint                  | Description                          | Auth Required |
+| :----- | :------------------------ | :----------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/vendors`     | Register a new vendor                | Yes           |
+| `PUT`  | `/api/hub/v1/vendors/:id` | Update vendor profile                | Yes           |
+| `GET`  | `/api/hub/v1/vendors/:id` | Get vendor details                   | Yes           |
+| `GET`  | `/api/hub/v1/vendors`     | List vendors with pagination/search  | Yes           |
+
+### Material Blueprints (Items)
+
+| Method | Endpoint                | Description                         | Auth Required |
+| :----- | :---------------------- | :---------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/items`     | Create a new material item          | Yes           |
+| `PUT`  | `/api/hub/v1/items/:id` | Update material item blueprint      | Yes           |
+| `GET`  | `/api/hub/v1/items`     | List material items                 | Yes           |
+
+### Product Listings
+
+| Method | Endpoint                            | Description                            | Auth Required |
+| :----- | :---------------------------------- | :------------------------------------- | :------------ |
+| `POST` | `/api/hub/v1/products`              | Add a new product listing for a vendor | Yes           |
+| `PUT`  | `/api/hub/v1/products/:id`          | Update product listing details         | Yes           |
+| `GET`  | `/api/hub/v1/products/vendor/:id`   | Get all products for a specific vendor | Yes           |
+| `GET`  | `/api/hub/v1/products`              | Global list of products                | Yes           |

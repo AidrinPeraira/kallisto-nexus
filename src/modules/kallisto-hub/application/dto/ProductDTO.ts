@@ -60,6 +60,12 @@ export interface GetProductsResultDTO {
   limit: number;
 }
 
+export interface GetVendorProductsRequestDTO {
+  vendorId: string;
+  page?: number;
+  limit?: number;
+}
+
 export interface GetVendorProductsResultDTO {
   vendorId: string;
   products: ProductResultDTO[];

@@ -1,5 +1,6 @@
 import { createAuthRouter } from "@src/modules/kallisto-auth";
 import { createBridgeRouter } from "@src/modules/kallisto-bridge";
+import { createHubRouter } from "@src/modules/kallisto-hub";
 import { Router } from "express";
 
 /**
@@ -15,6 +16,9 @@ export function createRouter(): Router {
 
   // Bridge Module
   router.use("/bridge/v1", createBridgeRouter());
+
+  // Hub Module
+  router.use("/hub/v1", createHubRouter());
 
   /**
    * to add additional v2 routes
