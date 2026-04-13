@@ -88,3 +88,35 @@ This is a summary of available endpoints. For full request/response payloads, en
 | `PUT`  | `/api/hub/v1/products/:id`          | Update product listing details         | Yes           |
 | `GET`  | `/api/hub/v1/products/vendor/:id`   | Get all products for a specific vendor | Yes           |
 | `GET`  | `/api/hub/v1/products`              | Global list of products                | Yes           |
+| `GET`  | `/api/hub/v1/products`              | Global list of products                | Yes           |
+
+## 🤝 Hands
+
+### SA Contractor Onboarding
+
+| Method | Endpoint                                             | Description                       | Auth Required |
+| :----- | :--------------------------------------------------- | :-------------------------------- | :------------ |
+| `POST` | `/api/hands/v1/onboarding/identity/contractor`       | Add Contractor SA Identity        | Yes           |
+| `POST` | `/api/hands/v1/onboarding/address/contractor`        | Add Contractor SA Address         | Yes           |
+| `POST` | `/api/hands/v1/onboarding/skills/contractor`         | Add Contractor SA Skills/Services | Yes           |
+| `POST` | `/api/hands/v1/onboarding/credentials/contractor`    | Add Contractor SA Credentials     | Yes           |
+| `POST` | `/api/hands/v1/onboarding/bank-details/contractor`   | Add Contractor SA Bank Details    | Yes           |
+| `POST` | `/api/hands/v1/onboarding/service-areas/contractor`  | Add Contractor SA Service Areas   | Yes           |
+
+### SA Worker Onboarding
+
+| Method | Endpoint                                           | Description                   | Auth Required |
+| :----- | :------------------------------------------------- | :---------------------------- | :------------ |
+| `POST` | `/api/hands/v1/onboarding/identity/worker`         | Add Worker SA Identity        | Yes           |
+| `POST` | `/api/hands/v1/onboarding/address/worker`          | Add Worker SA Address         | Yes           |
+| `POST` | `/api/hands/v1/onboarding/skills/worker`           | Add Worker SA Skills/Services | Yes           |
+| `POST` | `/api/hands/v1/onboarding/credentials/worker`      | Add Worker SA Credentials     | Yes           |
+| `POST` | `/api/hands/v1/onboarding/bank-details/worker`     | Add Worker SA Bank Details    | Yes           |
+| `POST` | `/api/hands/v1/onboarding/service-areas/worker`    | Add Worker SA Service Areas   | Yes           |
+
+### Profile Management
+
+| Method | Endpoint                   | Description                          | Auth Required |
+| :----- | :------------------------- | :----------------------------------- | :------------ |
+| `GET`  | `/api/hands/v1/profile`    | Get currently logged in user profile | Yes           |
+

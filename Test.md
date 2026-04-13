@@ -1,137 +1,144 @@
-# Kallisto Hub - Postman Test Data
+# Kallisto Hands API - Testing Guide
 
-## 1. Register Vendor
-
-**POST** `/api/hub/v1/vendors`
-
-```json
-{
-  "vendorType": "AUTHORIZED_DEALER",
-  "companyName": "Kallisto Steel Mills",
-  "GSTIN": "32AAAAA0000A1Z5",
-  "brandName": "Kallisto Prime",
-  "email": "sales@kallistosteel.com",
-  "phone": "9876543210",
-  "officeAddress": "Industrial Area, Phase 2",
-  "city": "Kochi",
-  "state": "Kerala",
-  "country": "India",
-  "pincode": "682001",
-  "representativeName": "John Doe",
-  "representativePhone": "9876543211",
-  "bankName": "HDFC Bank",
-  "accountNumber": "50100123456789",
-  "IFSCCode": "HDFC0001234"
-}
-```
-
-## 2. Create Material Item (Blueprint)
-
-**POST** `/api/hub/v1/items`
-
-```json
-{
-  "name": "TMT Steel Bar",
-  "category": "STEEL",
-  "hsnCode": "7214",
-  "unitOfMeasure": "KG",
-  "description": "High-strength reinforcement steel bars for construction.",
-  "specifications": [
-    {
-      "specName": "Grade",
-      "specValues": ["Fe500", "Fe550D", "Fe600"]
-    },
-    {
-      "specName": "Diameter",
-      "specValues": ["8mm", "10mm", "12mm", "16mm", "20mm", "25mm"]
-    }
-  ]
-}
-```
-
-## 3. Add Product Listing
-
-**POST** `/api/hub/v1/products`
+Use these curl commands to test the Hands module onboarding flow. You can import these directly into Postman using the "Import" button.
 
 > [!NOTE]
-> Replace `vendorId` and `itemId` with actual IDs from previous steps.
+> All endpoints require a valid JWT. Replace `{{JWT_TOKEN}}` with your actual token.
+> Replace `{{USER_ID}}` with your user UUID.
+> Replace `{{SA_ID}}` with the `serviceAssociateId` returned from the identity step.
 
-```json
-{
-  "vendorId": "PASTE_VENDOR_ID_HERE",
-  "itemId": "PASTE_ITEM_ID_HERE",
-  "productName": "Kallisto Steel Bar - High Tensile",
-  "brandName": "Kallisto Force",
-  "description": "Premium quality TMT bars with superior bond strength.",
-  "status": "ACTIVE",
-  "variants": [
-    {
-      "price": 65.5,
-      "stockQuantity": 5000,
-      "selectedSpecs": [
-        {
-          "specId": "PASTE_GRADE_SPEC_ID",
-          "selectedValue": "Fe550D"
-        },
-        {
-          "specId": "PASTE_DIAMETER_SPEC_ID",
-          "selectedValue": "12mm"
-        }
-      ]
-    },
-    {
-      "price": 68.0,
-      "stockQuantity": 3000,
-      "selectedSpecs": [
-        {
-          "specId": "PASTE_GRADE_SPEC_ID",
-          "selectedValue": "Fe550D"
-        },
-        {
-          "specId": "PASTE_DIAMETER_SPEC_ID",
-          "selectedValue": "16mm"
-        }
-      ]
-    }
-  ]
-}
+## 1. SA Identity
+
+### Contractor
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/identity/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "userId": "{{USER_ID}}",
+    "displayName": "John Contractor Services",
+    "saType": "CONTRACTOR",
+    "profilePicture": "https://example.com/profiles/john.jpg"
+}'
 ```
 
-## 4. Update Vendor Profile
-
-**PUT** `/api/hub/v1/vendors/:id`
-
-```json
-{
-  "brandName": "Kallisto Steel & Infra",
-  "whatsappNumber": "9876543210",
-  "isActive": true
-}
+### Worker
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/identity/worker' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "userId": "{{USER_ID}}",
+    "displayName": "Mike Worker",
+    "saType": "WORKER"
+}'
 ```
 
-## 5. Update Product Listing
+## 2. SA Address
 
-**PUT** `/api/hub/v1/products/:id`
+### Contractor
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/address/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "saType": "CONTRACTOR",
+    "address": "123 Business St, Industrial Hub, City",
+    "email": "contact@johncontractor.com",
+    "phone": "+919876543210"
+}'
+```
 
-```json
-{
-  "status": "ACTIVE",
-  "productName": "Kallisto Force - Reinforcement Bar",
-  "variants": [
-    {
-      "price": 67.25,
-      "stockQuantity": 4500,
-      "selectedSpecs": [
+## 3. Skills & Services
+
+### Contractor
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/skills/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "saType": "CONTRACTOR",
+    "primarySkill": "PLUMBING",
+    "subSkills": ["REPAIR", "INSTALLATION"],
+    "workerCount": 15,
+    "workingSince": 2018
+}'
+```
+
+### Worker
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/skills/worker' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "saType": "WORKER",
+    "primarySkill": "ELECTRICAL",
+    "subSkills": ["WIRING"],
+    "workingSince": 2021,
+    "wagePerDay": 800
+}'
+```
+
+## 4. Credentials
+
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/credentials/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "saType": "CONTRACTOR",
+     "PAN": "ABCDE1234F",
+     "governmentIdType": "AADHAAR",
+     "governmentIdNumber": "123456789012"
+}'
+```
+
+## 5. Bank Details
+
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/bank-details/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "saType": "CONTRACTOR",
+    "accountHolderName": "John Contractor",
+    "bankName": "HDFC Bank",
+    "bankBranch": "Downtown",
+    "accountNumber": "50100123456789",
+    "IFSCCode": "HDFC0001234"
+}'
+```
+
+## 6. Service Areas
+
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/onboarding/service-areas/contractor' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}' \
+--data '{
+    "serviceAssociateId": "{{SA_ID}}",
+    "serviceAreas": [
         {
-          "specId": "PASTE_GRADE_SPEC_ID",
-          "selectedValue": "Fe550D"
-        },
-        {
-          "specId": "PASTE_DIAMETER_SPEC_ID",
-          "selectedValue": "12mm"
+            "city": "Mumbai",
+            "isPrimary": true,
+            "centerPoint": {
+                "lat": 19.0760,
+                "lng": 72.8777
+            },
+            "radiusKm": 25
         }
-      ]
-    }
-  ]
-}
+    ]
+}'
+```
+
+## 7. Profile Retrieval
+
+```bash
+curl --location 'http://localhost:3000/api/hands/v1/profile' \
+--header 'Authorization: Bearer {{JWT_TOKEN}}'
 ```

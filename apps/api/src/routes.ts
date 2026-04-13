@@ -1,6 +1,7 @@
 import { createAuthRouter } from "@src/modules/kallisto-auth";
 import { createBridgeRouter } from "@src/modules/kallisto-bridge";
 import { createHubRouter } from "@src/modules/kallisto-hub";
+import { createHandsRouter } from "@src/modules/kallisto-hands";
 import { Router } from "express";
 
 /**
@@ -19,6 +20,9 @@ export function createRouter(): Router {
 
   // Hub Module
   router.use("/hub/v1", createHubRouter());
+
+  // Hands Module
+  router.use("/hands/v1", createHandsRouter());
 
   /**
    * to add additional v2 routes
